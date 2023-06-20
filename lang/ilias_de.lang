@@ -1,0 +1,9 @@
+//
+// Copyright (c) 2017 Qualitus GmbH, GPL2, see docs/LICENSE
+//
+
+<!-- language file start -->
+cmd_insert#:#LENA einfügen
+currently_no_settings#:#Für diese Komponente gibt es keine Einstellungen.
+plugin_configuration#:#Einstellungen
+saving_invoked#:#Einstellungen gespeichert
