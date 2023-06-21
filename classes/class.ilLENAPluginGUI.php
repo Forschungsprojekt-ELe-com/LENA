@@ -153,8 +153,6 @@ class ilLENAPluginGUI extends ilPageComponentPluginGUI
         $pl = $this->getPlugin();
         $tpl = $pl->getTemplate("tpl.content.html");
 
-        $message = "";
-
         $ref_id = (int)$_GET["ref_id"];
         if (ilObject::_lookupType($ref_id, true) == "crs") {
             $crs_ref_id = $ref_id;
