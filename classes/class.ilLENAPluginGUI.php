@@ -185,20 +185,20 @@ class ilLENAPluginGUI extends ilPageComponentPluginGUI
             
             // ---------------------------------------------------------------------------------------------
             // all use-cases
-            
+                        
+            // all use-cases, edit
+            if( $editMode ) {
+                $message = $pl->txt( "usecase_" . $usecase );
+                $tpl->setVariable( "EDIT_MODE_TXT", $message );                
+                return $tpl->get();
+            }
+                        
             // enable kiosk-mode 
             if( 
                 ( $usecase == 1 )
                 || ( $usecase == 2 ) 
             ) {
                 $tpl->touchBlock( "kiosk_mode" );
-            }
-            
-            // all use-cases, edit
-            if( $editMode ) {
-                $message = $pl->txt( "usecase_" . $usecase );
-                $tpl->setVariable( "EDIT_MODE_TXT", $message );                
-                return $tpl->get();
             }
             
             // all use-cases, content
