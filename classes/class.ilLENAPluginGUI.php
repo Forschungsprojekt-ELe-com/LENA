@@ -161,7 +161,7 @@ class ilLENAPluginGUI extends ilPageComponentPluginGUI
             }
             
             /*
-            $usecase = $this->determineUseCase();
+            $usecase = $this->determineUseCase( $crs_ref_id );
             $message = '';
             $content = '';
             $editMode = false;
@@ -272,14 +272,7 @@ class ilLENAPluginGUI extends ilPageComponentPluginGUI
             return $tpl->get();
         }
         
-        protected function determineUseCase() {                        
-            $ref_id = (int)$_GET["ref_id"];
-            if (ilObject::_lookupType($ref_id, true) == "crs") {
-                $crs_ref_id = $ref_id;
-            } else {
-                $crs_ref_id = $tree->checkForParentType($ref_id, 'crs');
-                //return false if item is not in tree or 0 if no crs found
-            }
+        protected function determineUseCase( $crs_ref_id ) {                                    
             if( 
                 ( $crs_ref_id === false )
                 || ( $crs_ref_id == 0 )
