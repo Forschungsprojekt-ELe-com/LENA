@@ -39,7 +39,7 @@ class UseCaseScanner {
             $out .= '$LENA_OBJ[ ' . $obj_id . ' ] = ' . $ref_id . ';' . PHP_EOL;
         }                       
         
-//        file_put_contents( __DIR__ . '/../../../.cache/' . $usecaseNo . '.php', $out );
+//        file_put_contents( __DIR__ . '/../../../.lenacache/' . $usecaseNo . '.php', $out );
         
         /** @todo: impl */
         echo '<h1>usecase:' . $usecaseNo . ':</h1><pre>';
