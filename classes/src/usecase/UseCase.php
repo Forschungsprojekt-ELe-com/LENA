@@ -60,15 +60,21 @@ class UseCase {
     public function issetObj( $crs_obj_id ) {
         return isset( $this->objIdList[ $crs_obj_id ] ); 
     }
-    
-    
+        
     /**
      * 
      * @return string
      */
     public function getObjIdInstring() {
-        $out = implode( ',', $this->objIdList );
-        return $out;
+        return implode( ',', $this->objIdList );        
+    }
+    
+    /**
+     * 
+     * @return string
+     */
+    public function getRefIdInstring() {
+        return implode( ',', $this->refIdList );
     }
     
     /**
@@ -85,8 +91,5 @@ class UseCase {
      */
     public function getObjIdList() {
         return $this->objIdList;
-    }
-
-
-    
+    }    
 }
