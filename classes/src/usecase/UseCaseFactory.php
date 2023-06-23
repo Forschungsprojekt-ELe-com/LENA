@@ -16,7 +16,7 @@ class UseCaseFactory {
         $cacheFileName = __DIR__ . '/../../../.lenacache/' . $usecaseNumber . '.php';
         if( isset( $cacheFileName ) ) {
             include $cacheFileName;
-            $out = new UseCase( $LENA_REF, $LENA_OBJ);
+            $out = new UseCase( $LENA_REF, $LENA_OBJ );
             return $out;
         }
         
