@@ -27,12 +27,7 @@ class UseCaseScanner {
         $this->ref_ids = array();
         $this->obj_ids = array();                        
         $this->scanTreeForIds( $ref_id );
-        
-        /** @todo: impl */
-        echo '<h1>usecase:' . $usecaseNo . ':</h1><pre>';
-        echo 'ref_ids:'; print_r( $this->ref_ids ); echo PHP_EOL . '<br />' . PHP_EOL;
-        echo 'obj_ids:'; print_r( $this->obj_ids ); echo PHP_EOL . '<br />' . PHP_EOL;
-        
+                        
         $out = '<?php' . PHP_EOL
             . PHP_EOL
             . '$LENA_REF = array();' . PHP_EOL
@@ -42,9 +37,16 @@ class UseCaseScanner {
         foreach( $this->ref_ids as $ref_id => $obj_id ) {
             $out .= '$LENA_REF[ ' . $ref_id . ' ] = ' . $obj_id . ';' . PHP_EOL;
             $out .= '$LENA_OBJ[ ' . $obj_id . ' ] = ' . $ref_id . ';' . PHP_EOL;
-        }       
+        }                       
         
 //        file_put_contents( __DIR__ . '/../../../.cache/' . $usecaseNo . '.php', $out );
+        
+        /** @todo: impl */
+        echo '<h1>usecase:' . $usecaseNo . ':</h1><pre>';
+        echo 'ref_ids:'; print_r( $this->ref_ids ); echo PHP_EOL . '<br />' . PHP_EOL;
+        echo 'obj_ids:'; print_r( $this->obj_ids ); echo PHP_EOL . '<br />' . PHP_EOL;
+        echo '<textarea rows="30" cols="80">' . $out . '</textarea>';
+        // */
     }
     
     /**
