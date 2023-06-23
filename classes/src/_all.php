@@ -12,4 +12,5 @@ require_once __DIR__ . '/renderer/RendererList.php';
 require_once __DIR__ . '/renderer/VisitedRenderer.php';
 
 require_once __DIR__ . '/usecase/UseCase.php';
+require_once __DIR__ . '/usecase/UseCaseFactory.php';
 require_once __DIR__ . '/usecase/UseCaseScanner.php';
