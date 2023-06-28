@@ -9,9 +9,10 @@ class PlannedRenderer extends Renderer {
      * @return string
      */
     public function render() {
+        $planned = Planned::getInstance();
         $out = '';
-        $data = $this->journey->getPlanned()->getRefIdList();
-        $next = $this->journey->nextElement();
+        $data = $planned->getObjIdList();
+        $next = $this->next();
         
         $out .= '<div id="plannedBox">';
         //$out .= '<b>planned</b>';
@@ -48,5 +49,24 @@ class PlannedRenderer extends Renderer {
         $out .= '</ul>';
         $out .= '</div>';
         return $out;
+    }
+    
+    /**
+     * 
+     * @return int
+     */
+    protected function next() {
+        $next = 0;
+        $planned = Planned::getInstance();
+        $allIds = $planned->getObjIdList();
+        foreach( $allIds as $id ) {
+            if( $next > 0 ) {
+                continue;
+            }
+            if( ! $this->visited->isVisited( $id ) ) {
+                $next = $id;
+            }
+        }
+        return $next;
     }
 }
