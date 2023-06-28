@@ -59,7 +59,7 @@ class UseCaseScanner {
         
         file_put_contents( __DIR__ . '/../../../.lenacache/' . $usecaseNo . '.php', $out );
         
-        
+        /*
         echo '<h1>usecase:' . $usecaseNo . ':</h1><pre>';
         echo 'ref_ids:'; print_r( $this->ref_ids ); echo PHP_EOL . '<br />' . PHP_EOL;
         echo 'obj_ids:'; print_r( $this->obj_ids ); echo PHP_EOL . '<br />' . PHP_EOL;
@@ -144,5 +144,43 @@ WHERE _t.path LIKE '" . $path . "'
      */
     public function issetObj( $obj_id ) {
         return isset( $this->obj_ids[ $obj_id ] );
+    }
+    
+    /**
+     * 
+     * @param int $ref_id
+     */
+    public function serializePlan( $ref_id ) {
+        $path = '';
+        $sql = "SELECT path FROM tree WHERE child=" . $ref_id;
+        $result = $this->db->query( $sql );
+        if( $line = $result->fetchAssoc() ) {
+            $path = $line[ 'path' ] . '.%';
+        }
+        
+        $sql = "SELECT 1
+  , _t.child AS _ref_id
+  , _or.obj_id AS _obj_id
+FROM tree _t
+  JOIN object_reference _or ON ( _t.child=_or.ref_id )  
+WHERE _t.path LIKE '" . $path . "'
+ORDER BY _t.lft
+        ";
+        $result = $this->db->query( $sql );
+        
+        $plan = array();
+        while( $line = $result->fetchAssoc() ) {            
+            $plan[ $line[ '_obj_id' ] ] = $line[ '_ref_id' ];            
+        }
+        
+        $out = '<?php' . PHP_EOL
+               . '$LENA_PLAN=array();' . PHP_EOL
+        ;
+        
+        foreach( $plan as $obj_id => $ref_id ) {            
+            $out .= '$LENA_PLAN[ ' . $obj_id . ' ] = ' . $ref_id . ';' . PHP_EOL;
+        }       
+        
+        file_put_contents( __DIR__ . '/../../../.lenacache/planned.php', $out );        
     }
 }
