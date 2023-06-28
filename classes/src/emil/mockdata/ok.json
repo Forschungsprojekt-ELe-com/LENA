@@ -1,0 +1,13 @@
+{
+    "meta": {
+        "transmitted": "now() ;)",
+        "status": "OK"
+    },
+    "data": {
+        "recommend": [
+            123,
+            345,
+            567
+        ]
+    }
+}
