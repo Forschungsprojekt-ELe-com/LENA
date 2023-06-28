@@ -4,6 +4,12 @@ class UseCase {
     
     /**
      * 
+     * @var int
+     */
+    protected $usecaseNumber;
+    
+    /**
+     * 
      * @var int[]
      */
     protected $refIdList;
@@ -14,9 +20,10 @@ class UseCase {
      */
     protected $objIdList;
     
-    public function __construct( $refIdList = array(), $objIdList = array() ) {
-        $this->refIdList = $refIdList;
-        $this->objIdList = $objIdList;
+    public function __construct( $usecaseNumber, $refIdList = array(), $objIdList = array() ) {
+        $this->usecaseNumber = $usecaseNumber;
+        $this->refIdList     = $refIdList;
+        $this->objIdList     = $objIdList;
     }
     
     /**
@@ -92,4 +99,12 @@ class UseCase {
     public function getObjIdList() {
         return $this->objIdList;
     }    
+    
+    /**
+     * 
+     * @return int
+     */
+    public function getUsecaseNumber() {
+        return $this->usecaseNumber;
+    }
 }
