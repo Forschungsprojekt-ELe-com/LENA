@@ -54,12 +54,19 @@ class UseCaseScanner {
      * @param int $ref_id
      */
     public function scanTreeForIds( $ref_id ) {
+        $refIdString = '';
+        $sql = "SELECT path FROM tree WHERE child=" . $ref_id;
+        $result = $this->db->query( $sql );
+        if( $line = $result->fetchAssoc() ) {
+            $refIdString = $line[ 'path' ] . '.%';
+        }
+        
         $sql = "SELECT 1
   , _t.child AS _ref_id
   , _or.obj_id AS _obj_id
 FROM tree _t
   JOIN object_reference _or ON ( _t.child=_or.ref_id )
-WHERE _t.path LIKE '%." . $ref_id . ".%'
+WHERE _t.path LIKE '" . $refIdString . "'
         ";
         $result = $this->db->query( $sql );
         
