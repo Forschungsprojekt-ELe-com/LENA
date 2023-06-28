@@ -1,1 +1,2 @@
-.lenacache/*
+.lenacache/*.php
+.lenacache/api/*
