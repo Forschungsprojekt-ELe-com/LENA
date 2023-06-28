@@ -17,10 +17,17 @@ class UseCaseScanner {
      */
     protected $obj_ids;
     
+    /**
+     * 
+     * @var string[]
+     */    
+    protected $titles;
+    
     public function __construct( $db ) {
         $this->db = $db;
         $this->ref_ids = array();
         $this->obj_ids = array();                        
+        $this->titles  = array();                        
     }
     
     public function serializeUseCase( $usecaseNo, $ref_id ) {
@@ -37,7 +44,18 @@ class UseCaseScanner {
         foreach( $this->ref_ids as $ref_id => $obj_id ) {
             $out .= '$LENA_REF[ ' . $ref_id . ' ] = ' . $obj_id . ';' . PHP_EOL;
             $out .= '$LENA_OBJ[ ' . $obj_id . ' ] = ' . $ref_id . ';' . PHP_EOL;
-        }                       
+        }                
+        
+        $out .= PHP_EOL
+                . PHP_EOL
+                . '$LENA_TITLES = array();' . PHP_EOL
+                . PHP_EOL
+        ;
+        foreach( $this->titles as $obj_id => $title ) {
+            $out .= '$LENA_TITLES[ ' . $obj_id . ' ] = "' . $title . '";' . PHP_EOL;            
+        }                
+        
+        
         
         file_put_contents( __DIR__ . '/../../../.lenacache/' . $usecaseNo . '.php', $out );
         
@@ -54,26 +72,36 @@ class UseCaseScanner {
      * @param int $ref_id
      */
     public function scanTreeForIds( $ref_id ) {
-        $refIdString = '';
+        $path = '';
         $sql = "SELECT path FROM tree WHERE child=" . $ref_id;
         $result = $this->db->query( $sql );
         if( $line = $result->fetchAssoc() ) {
-            $refIdString = $line[ 'path' ] . '.%';
+            $path = $line[ 'path' ] . '.%';
         }
         
         $sql = "SELECT 1
   , _t.child AS _ref_id
   , _or.obj_id AS _obj_id
+  , _od.title AS _title
 FROM tree _t
   JOIN object_reference _or ON ( _t.child=_or.ref_id )
-WHERE _t.path LIKE '" . $refIdString . "'
+  JOIN object_data _od ON ( _od.obj_id=_or.obj_id )
+WHERE _t.path LIKE '" . $path . "'
         ";
         $result = $this->db->query( $sql );
         
         while( $line = $result->fetchAssoc() ) {
             $this->ref_ids[ $line[ '_ref_id' ] ] = $line[ '_obj_id' ];
             $this->obj_ids[ $line[ '_obj_id' ] ] = $line[ '_ref_id' ];
+            $this->titles[ $line[ '_obj_id' ] ]  = $line[ '_titles' ];
         }
+    }
+    
+    public function getTitles( $obj_id ) {
+        if( $this->issetObj( $obj_id ) ) {
+            return $this->titles[ $obj_id ];
+        }
+        return "";
     }
     
     /**
