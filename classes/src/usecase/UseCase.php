@@ -20,10 +20,19 @@ class UseCase {
      */
     protected $objIdList;
     
-    public function __construct( $usecaseNumber, $refIdList = array(), $objIdList = array() ) {
+    /**
+     * 
+     * @var string[]
+     */
+    protected $titles;
+    
+    
+    
+    public function __construct( $usecaseNumber, $refIdList = array(), $objIdList = array(), $titles = array() ) {
         $this->usecaseNumber = $usecaseNumber;
         $this->refIdList     = $refIdList;
         $this->objIdList     = $objIdList;
+        $this->titles        = $titles;
     }
     
     /**
@@ -48,6 +57,13 @@ class UseCase {
             return $this->refIdList[ $crs_ref_id ];
         }
         return 0;
+    }
+    
+    public function getTitle( $crs_obj_id ) {
+        if( isset( $this->titles( $crs_obj_id ) ) ) {
+            return $this->titles( $crs_obj_id );
+        }
+        return "";
     }
     
     /**
