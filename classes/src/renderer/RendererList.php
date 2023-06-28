@@ -18,7 +18,7 @@ class RendererList extends Renderer {
         return $out;
     }
     
-    public function setBaseUrl( string $baseUrl ) {
+    public function setBaseUrl( $baseUrl ) {
         parent::setBaseUrl( $baseUrl );
         foreach( $this->rendererList as $renderer ) {
             $renderer->setBaseUrl( $baseUrl );
