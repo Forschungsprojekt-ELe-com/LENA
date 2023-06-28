@@ -12,6 +12,7 @@ class VisitedFactory {
      * 
      * @param UseCase $usecase
      * @param int     $userId
+     * @return Visited
      */
     public function create( $usecase, $userId ) {
         $inString = $usecase->getObjIdInstring();

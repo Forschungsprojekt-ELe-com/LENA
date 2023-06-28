@@ -2,8 +2,16 @@
 
 class Visited {
     
+    /**
+     * 
+     * @var int[]
+     */
     protected $visited;
     
+    /**
+     * 
+     * @var int[]
+     */
     protected $lookup;
     
     /**
@@ -17,6 +25,7 @@ class Visited {
     /**
      * 
      * @param int[] $visited
+     * @return Visited $this
      */
     public function setRawData( $visited = array() ) {
         $this->visited = $visited;
@@ -25,6 +34,7 @@ class Visited {
             $temp[ $item ] = $item;
         }
         $this->lookup = $temp;
+        return $this;
     }
     
     /**
@@ -34,5 +44,13 @@ class Visited {
      */
     public function isVisited( $course_obj_id ) {
         return isset( $this->lookup[ $course_obj_id ] );
+    }
+    
+    /**
+     * 
+     * @return int[]
+     */
+    public function getVisitedList() {
+        return $this->visited;
     }
 }
