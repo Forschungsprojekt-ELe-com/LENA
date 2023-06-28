@@ -5,7 +5,7 @@ class VisitedRenderer extends Renderer {
     
     public function render() {
         $out     = '';
-        $data    = $this->journey->getVisited()->getRefIdList();
+        $data    = $this->visited->getVisitedList();
 //        $out .= '<pre>' . print_r( $data, true ) . '</pre>';        
 
         $temp = array();
