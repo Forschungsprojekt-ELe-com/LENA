@@ -93,7 +93,7 @@ WHERE _t.path LIKE '" . $path . "'
         while( $line = $result->fetchAssoc() ) {
             $this->ref_ids[ $line[ '_ref_id' ] ] = $line[ '_obj_id' ];
             $this->obj_ids[ $line[ '_obj_id' ] ] = $line[ '_ref_id' ];
-            $this->titles[ $line[ '_obj_id' ] ]  = $line[ '_titles' ];
+            $this->titles[ $line[ '_obj_id' ] ]  = $line[ '_title' ];
         }
     }
     

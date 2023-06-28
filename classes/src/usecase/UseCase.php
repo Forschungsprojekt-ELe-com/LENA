@@ -60,8 +60,8 @@ class UseCase {
     }
     
     public function getTitle( $crs_obj_id ) {
-        if( isset( $this->titles( $crs_obj_id ) ) ) {
-            return $this->titles( $crs_obj_id );
+        if( isset( $this->titles[ $crs_obj_id ] ) ) {
+            return $this->titles[ $crs_obj_id ];
         }
         return "";
     }
