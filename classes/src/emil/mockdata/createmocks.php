@@ -8,6 +8,8 @@ $meta[ 'transmitted' ] = 'now() ;)';
 $meta[ 'reason' ]      = 'keine lust';
 $meta[ 'status' ]      = 'NOK';
 
+$data[ 'recommend' ] = array();
+
 $out = json_encode( array( 
     'meta' => $meta
     , 'data' => $data
