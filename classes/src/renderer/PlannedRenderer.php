@@ -2,8 +2,6 @@
 
 class PlannedRenderer extends Renderer {
     
-
-
     /**
      * 
      * @return string
@@ -29,7 +27,7 @@ class PlannedRenderer extends Renderer {
                 $notfound = false;
             }
             
-            if( $this->journey->isVisited( $id ) ) {
+            if( $this->visited->isVisited( $id ) ) {
                 $out .= '<li class="visitedItem">'
                         . '<a href="' . $this->baseUrl . '?add=' . $id . '">'
                         . 'MLE' . $id
