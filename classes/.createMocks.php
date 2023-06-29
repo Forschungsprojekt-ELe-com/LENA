@@ -11,8 +11,7 @@ for( $i=1; $i<5; ++$i ) {
         $out .= '$LENA_REF[ ' . $ref_id . ' ] = ' . $id . ';' . PHP_EOL;
         $out .= '$LENA_OBJ[ ' . $id . ' ] = ' . $ref_id . ';' . PHP_EOL;
         $out .= '$LENA_TITLES[ ' . $id . ' ] = "MLE-' . $id . '";' . PHP_EOL;
-    }  
-    
+    }      
     file_put_contents( __DIR__ . '/../.lenacache/' . $i . '.php', $out );
 }
 
