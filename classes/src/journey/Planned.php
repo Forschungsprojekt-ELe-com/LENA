@@ -16,7 +16,8 @@ class Planned {
 
     /**
      * Use this to create the Planned Instance.
-     * 
+     *
+     * @param bool $mockdata
      * @return Planned
      */
     public static function getInstance() {
@@ -32,7 +33,6 @@ class Planned {
             include __DIR__ . '/../../../.lenacache/planned.php';
             $this->plannedList = $LENA_PLAN;
         }
-                
     }
            
     /**
