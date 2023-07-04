@@ -53,7 +53,7 @@ class PlannedRenderer extends Renderer {
      * 
      * @return int
      */
-    protected function next() {
+    public function next() {
         $next = 0;
         $planned = Planned::getInstance();
         $allIds = $planned->getObjIdList();

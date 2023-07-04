@@ -12,7 +12,7 @@ for( $i=1; $i<5; ++$i ) {
         $out .= '$LENA_OBJ[ ' . $id . ' ] = ' . $ref_id . ';' . PHP_EOL;
         $out .= '$LENA_TITLES[ ' . $id . ' ] = "MLE-' . $id . '";' . PHP_EOL;
     }      
-    file_put_contents( __DIR__ . '/../.lenacache/' . $i . '.php', $out );
+    file_put_contents( __DIR__ . '/../../.lenacache/' . $i . '.php', $out );
 }
 
 $out = '<?php' . PHP_EOL
@@ -23,4 +23,4 @@ $out = '<?php' . PHP_EOL
         . '$LENA_PLAN[ 7 ] = 207;' . PHP_EOL
         . '$LENA_PLAN[ 9 ] = 209;' . PHP_EOL        
 ;
-file_put_contents( __DIR__ . '/../.lenacache/planned.php', $out );
+file_put_contents( __DIR__ . '/../../.lenacache/planned.php', $out );

@@ -14,7 +14,7 @@ class UseCaseFactory {
      */
     public function createByUsecaseNumber( $usecaseNumber ) {
         $cacheFileName = __DIR__ . '/../../../.lenacache/' . $usecaseNumber . '.php';
-        if( isset( $cacheFileName ) ) {
+        if( is_file( $cacheFileName ) ) {
             $LENA_REF    = array(); 
             $LENA_OBJ    = array(); 
             $LENA_TITLES = array();

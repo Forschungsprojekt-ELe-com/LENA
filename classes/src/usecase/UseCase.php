@@ -89,7 +89,7 @@ class UseCase {
      * @return string
      */
     public function getObjIdInstring() {
-        return implode( ',', $this->objIdList );        
+        return implode( ',', array_keys( $this->objIdList ) );        
     }
     
     /**
@@ -97,7 +97,7 @@ class UseCase {
      * @return string
      */
     public function getRefIdInstring() {
-        return implode( ',', $this->refIdList );
+        return implode( ',', array_keys( $this->refIdList ) );
     }
     
     /**
