@@ -8,7 +8,8 @@ class SuggestionFactoryMock extends SuggestionFactory {
         if( $temp > 75 ) {
             $filename = "nok";
         }
-        $mockjson = file_get_contents( __DIR__ . 'mockdata/' . $filename . '.json' );
+        $mockjson = file_get_contents( __DIR__ . '/mockdata/' . $filename . '.json' );
+                
         return new Suggestion( $mockjson );
     }
 }

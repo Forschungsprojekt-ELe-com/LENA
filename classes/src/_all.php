@@ -18,3 +18,8 @@ require_once __DIR__ . '/renderer/VisitedRenderer.php';
 require_once __DIR__ . '/usecase/UseCase.php';
 require_once __DIR__ . '/usecase/UseCaseFactory.php';
 require_once __DIR__ . '/usecase/UseCaseScanner.php';
+
+require_once __DIR__ . '/emil/Suggestion.php';
+require_once __DIR__ . '/emil/SuggestionFactory.php';
+require_once __DIR__ . '/emil/SuggestionFactoryMock.php';
+require_once __DIR__ . '/emil/AccessToken.php';

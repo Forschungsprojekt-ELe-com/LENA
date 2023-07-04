@@ -5,9 +5,9 @@
     },
     "data": {
         "recommend": [
-            123,
-            345,
-            567
+            1,
+            3,
+            5
         ],
         "reason" : "weils geiler ist"
     }

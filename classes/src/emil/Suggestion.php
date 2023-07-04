@@ -35,9 +35,16 @@ class Suggestion {
     
     /**
      * 
+     * @var string
+     */
+    protected $json;
+    
+    /**
+     * 
      * @param string $json
      */
     public function __construct( $json ) {
+        $this->json = $json;
         $result = json_decode( $json );
         
         $this->metaStatus      = false;
@@ -59,15 +66,17 @@ class Suggestion {
         }
         
         $this->recommend = array();
-        $this->reason     = '';
-        if( isset( $result->recommend ) ) {
-            $recommendList = $result->recommend;
-            foreach( $recommendList as $recommend ) {
-                $this->recommend[] = 0 + $recommend;
-            }
-        }
+        $this->reason     = '';        
         if( isset( $result->data ) ) {
             $data = $result->data;
+            
+            if( isset( $data->recommend ) ) {
+                $recommendList = $data->recommend;
+                foreach( $recommendList as $recommend ) {
+                    $this->recommend[] = 0 + $recommend;
+                }
+            }
+            
             if( isset( $data->reason ) ) {
                 $this->reason = '' . $data->reason;
             }
@@ -114,4 +123,12 @@ class Suggestion {
     public function getReason() {
         return $this->reason;
     }    
+    
+    /**
+     * 
+     * @return string
+     */
+    public function getJson() {
+        return $this->json;
+    }
 }
