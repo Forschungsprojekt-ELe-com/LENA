@@ -173,7 +173,9 @@ class ilLENAPluginGUI extends ilPageComponentPluginGUI {
      * @return
      */
     function update() {
-        global $tpl, $lng;
+        global $DIC;
+        $tpl = $DIC["tpl"];
+        $lng = $DIC->language();
 
         $form = $this->initForm(true);
         if ($form->checkInput()) {
@@ -204,8 +206,10 @@ class ilLENAPluginGUI extends ilPageComponentPluginGUI {
         global $DIC;
         $tree = $DIC->repositoryTree();
         $ilSetting 	= $DIC->settings();
+        $tpl = $DIC["tpl"];
+
         if ($a_mode == "presentation") {
-            $this->tpl->addCss('./Customizing/global/plugins/Services/COPage/PageComponent/LENA/templates/css/lena.css');
+            $tpl->addCss('./Customizing/global/plugins/Services/COPage/PageComponent/LENA/templates/css/lena.css');
         }
         
         $tpl = $this->getPlugin()->getTemplate("tpl.content.html");
