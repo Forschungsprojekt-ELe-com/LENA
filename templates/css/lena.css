@@ -3,6 +3,12 @@
   flex-direction: column;
   align-items: end;
 }
+#emil #visitedBox {
+  padding-left: 100px;
+}
+#quLenaPlugin {
+  max-width: 33%;
+}
 #suggestions {
   padding-left: 100px;
   margin-bottom: 30px;
@@ -18,14 +24,12 @@
   border-radius: 20px;
 }
 #plannedBox {
-  width: 300px;
   background-color: white;
   padding: 20px;
   margin-bottom: 30px;
   border-radius: 20px;
 }
 #visitedBox {
-  width: 300px;
   background-color: white;
   padding: 20px;
   border-radius: 20px;
