@@ -54,10 +54,10 @@ class ilLENAConfigGUI extends ilPluginConfigGUI {
             $facade->addScanner( 2, $this->ilSetting->get( "lena_usecase_2_crsid" ) );
         }
         if( ( $this->ilSetting->get("lena_usecase_3_crsid", "" ) ) ) {
-            $facade->addScanner( 1, $this->ilSetting->get( "lena_usecase_3_crsid" ) );
+            $facade->addScanner( 3, $this->ilSetting->get( "lena_usecase_3_crsid" ) );
         }
         if( ( $this->ilSetting->get("lena_usecase_4_crsid", "" ) ) ) {
-            $facade->addScanner( 1, $this->ilSetting->get( "lena_usecase_4_crsid" ) );
+            $facade->addScanner( 4, $this->ilSetting->get( "lena_usecase_4_crsid" ) );
         }        
         $facade->execute();
     }
