@@ -7,15 +7,12 @@
   padding-left: 100px;
   margin-bottom: 30px;
   background-image: url("images/chatbot.png");
-  background-position: 10px 10px;
+  background-position: top left;
   background-repeat: no-repeat;
-  background-size: 60px;
-  width: 340px;
+  background-size: contain;
 }
 #suggestions > div.customBG {
   float: right;
-  max-width: 300px;
-  min-width: 240px;
   background-color: white;
   padding: 20px;
   border-radius: 20px;
