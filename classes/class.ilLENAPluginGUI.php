@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-require_once __DIR__ . '/classes/src/_all.php';
+require_once __DIR__ . '/src/_all.php';
 
 /**
  *  LENA
