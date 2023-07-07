@@ -2,8 +2,22 @@
 
 class EmilRenderer extends Renderer {    
     
+    protected function getSuggestionsList() {
+        $suggestions = array();
+        
+        $plan = Planned::getInstance();
+        
+        $idList = $plan->getObjIdList();
+        for( $i=0; $i<3; ++$i ) {
+            $rand = rand( 0, ( count( $idList ) -1 ) );
+            $suggestions[] = $this->usecase->getRefId( $rand );
+        }
+        return $suggestions;
+    }
+    
+    
     public function render() {
-        $suggestions = array( 1,2,3 );
+        $suggestions = $this->getSuggestionsList(); // array( 1,2,3 );
         $out = '';
         $out .= '<div id="emil">';        
         $out .= '<div id="suggestions"><div class="customBG">';            
