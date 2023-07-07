@@ -1,3 +1,4 @@
 .lenacache/*.php
 .lenacache/api/*
+.lenacache/api_log.txt
 .phpunit.result.cache

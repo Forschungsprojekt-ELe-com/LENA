@@ -10,24 +10,30 @@ class UseCase {
     
     /**
      * 
-     * @var int[]
+     * @var int[] $ref => $obj
      */
     protected $refIdList;
     
     /**
      * 
-     * @var int[]
+     * @var int[] $obj => $ref
      */
     protected $objIdList;
     
     /**
      * 
-     * @var string[]
+     * @var string[] $obj => $title
      */
     protected $titles;
     
     
-    
+    /**
+     * 
+     * @param int $usecaseNumber
+     * @param int[] $refIdList $ref => $obj
+     * @param int[] $objIdList $obj => $ref
+     * @param string[] $titles
+     */
     public function __construct( $usecaseNumber, $refIdList = array(), $objIdList = array(), $titles = array() ) {
         $this->usecaseNumber = $usecaseNumber;
         $this->refIdList     = $refIdList;
@@ -59,11 +65,16 @@ class UseCase {
         return 0;
     }
     
+    /**
+     * 
+     * @param int $crs_obj_id
+     * @return string
+     */
     public function getTitle( $crs_obj_id ) {
         if( isset( $this->titles[ $crs_obj_id ] ) ) {
             return $this->titles[ $crs_obj_id ];
         }
-        return "";
+        return 'NO_TITLE_FOR:' . $crs_obj_id . '!';
     }
     
     /**

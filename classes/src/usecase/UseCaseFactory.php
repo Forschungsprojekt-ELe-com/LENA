@@ -1,11 +1,8 @@
 <?php
 
 class UseCaseFactory {
-    
-    protected $db;
-    
-    public function __construct() {
-    }
+
+    const LOCATION = __DIR__ . '/../../../.lenacache/';
     
     /**
      * 
@@ -13,7 +10,7 @@ class UseCaseFactory {
      * @return UseCase
      */
     public function createByUsecaseNumber( $usecaseNumber ) {
-        $cacheFileName = __DIR__ . '/../../../.lenacache/' . $usecaseNumber . '.php';
+        $cacheFileName = UseCaseFactory::LOCATION . $usecaseNumber . '.php';
         if( is_file( $cacheFileName ) ) {
             $LENA_REF    = array(); 
             $LENA_OBJ    = array(); 
@@ -41,6 +38,5 @@ class UseCaseFactory {
             }
         }        
         return null;
-    }
-    
+    }    
 }

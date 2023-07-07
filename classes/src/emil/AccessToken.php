@@ -1,6 +1,10 @@
 <?php
 
 class AccessToken {
+
+    const LOCATION = __DIR__ . '/../../../.lenacache/api/';
+    
+    const NUMBER_OF_DAYS = 7;
     
     /**
      * 
@@ -41,20 +45,44 @@ class AccessToken {
      * 
      * @return string
      */
-    public function createToken() {
-        $location = __DIR__ . '/../../../.lenacache/api/';
+    public function createToken() {        
         $filename = '';
         do {
             $filename = md5( 'carstenSuperHAXX0r' . $this->userId . time() . rand( 1, 10000 ) );
-        } while( is_file( $location . $filename . '.php' ) );
+        } while( is_file( AccessToken::LOCATION . $filename . '.php' ) );
         
         $out = '<?php' . PHP_EOL
                 . '$LENA_USER=' . $this->userId . ';' . PHP_EOL
                 . '$LENA_HASH="' . $this->userHash . '";' . PHP_EOL
                 . '$LENA_RESULT="{}";' . PHP_EOL
         ;
-        file_put_contents( $location . $filename . '.php', $out );
+        file_put_contents( AccessToken::LOCATION . $filename . '.php', $out );
         return $filename;
+    }
+    
+    /**
+     * 
+     * @param string $token
+     */
+    public function destroyToken( $token = '' ) {        
+        $temp = '';
+        if( strlen( $token ) > 0 ) {
+            $temp = $token;
+        }
+        if( 
+            ( strlen( $temp ) == 0 )
+            && ( strlen( $this->token ) > 0 )
+        ) {
+            $temp = $this->token;
+        }
+        
+        $filename = AccessToken::LOCATION . $temp . '.php';
+        if( 
+            ( strlen( $temp ) > 0 ) 
+            && ( is_file( $filename ) )
+        ) {
+            unlink( $filename );
+        }
     }
     
     /**
@@ -63,7 +91,7 @@ class AccessToken {
      * @return boolean
      */
     public function evaluateToken( $token ) {
-        $filename = __DIR__ . '/../../../.lenacache/api/' . $token . '.php';
+        $filename = AccessToken::LOCATION . $token . '.php';
         if( is_file( $filename ) ) {
             include $filename;
             $this->userId     = $LENA_USER;
@@ -72,6 +100,7 @@ class AccessToken {
             $this->token      = $token;
             return true;
         }           
+        EmilLogger::log( 'wrong token:' . $token );
         return false;
     }
     
@@ -79,20 +108,24 @@ class AccessToken {
      * 
      * @return Suggestion
      */
-    public function getSuggestion() {        
+    public function getSuggestion() {             
         if( $this->isEmptyResult() ) {
             $suggestionFactory = new SuggestionFactoryMock( $this->userId, $this->userHash );
 //            $suggestionFactory = new SuggestionFactory( $this->userId, $this->userHash );
             $suggestion       = $suggestionFactory->execute();
-            
-            $this->resultJson = $suggestion->getJson();
 
-            $filename = __DIR__ . '/../../../.lenacache/api/' . $this->token . '.php';
-            $contents = file_get_contents( $filename );
-            $contents .= PHP_EOL 
-                        . '$LENA_RESULT=\'' . $this->resultJson . '\';' . PHP_EOL
-            ;
-            file_put_contents( $filename, $contents );
+            if( $suggestion->isOk() ) {
+                $this->resultJson = $suggestion->getJson();
+
+                $filename = AccessToken::LOCATION . $this->token . '.php';
+                $contents = file_get_contents( $filename );
+                $contents .= PHP_EOL 
+                            . '$LENA_RESULT=\'' . $this->resultJson . '\';' . PHP_EOL
+                ;
+                file_put_contents( $filename, $contents );
+            } else {
+                EmilLogger::log( 'suggestion not ok for user:' . $this->userId . ': ' . print_r( $suggestion, true ) );
+            }
             return $suggestion;
         }
         return new Suggestion( $this->resultJson );
@@ -104,5 +137,29 @@ class AccessToken {
      */
     public function isEmptyResult() {
         return ( strlen( $this->resultJson ) <= 2 );
-    }    
+    }  
+    
+    /**
+     * deletes all tokens, that are older than 7 days.
+     */
+    public function cleanUpOldTokens() {        
+        $timestamp = time() - ( 60 * 60 * 24  * AccessToken::NUMBER_OF_DAYS );
+                
+        $dir = scandir( AccessToken::LOCATION );
+        foreach( $dir as $filename ) {
+            if( 
+                ( $filename == '.' )
+                || ( $filename == '..' )
+            ) {
+                continue ; 
+            }
+            if( ! is_file( $filename ) ) {
+                continue ;
+            }
+            $filetime = ctime( AccessToken::LOCATION . $filename );
+            if( $filetime < $timestamp ) {
+                unlink( AccessToken::LOCATION . $filename ); 
+            }
+        }
+    }
 }

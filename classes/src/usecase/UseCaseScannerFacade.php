@@ -35,14 +35,31 @@ class UseCaseScannerFacade {
         $this->useCaseData[ $useCaseId ] = $ref_id;
         return $this;
     }
-    
+
     public function execute() {
+        $this->deleteOldFiles();
         $scanner = new UseCaseScanner( $this->db );
         foreach( $this->useCaseData as $usecaseNo => $ref_id ) {
             $scanner->serializeUseCase( $usecaseNo, $ref_id );
         }
         if( $this->plannedId > 0 ) {
             $scanner->serializePlan( $this->plannedId );
+        }
+    }
+    
+    protected function deleteOldFiles() {
+        $dirname   = __DIR__ . '/../../../.lenacache/';
+        $filenames = array( 
+            "1.php"
+            , "2.php"
+            , "3.php"
+            , "4.php"
+            , "planned.php"
+        );
+        foreach( $filenames as $name ) {
+            if( is_file( $dirname . $name ) ) {
+                unlink( $dirname . $name );
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+
 class Visited {
     
     /**
@@ -52,5 +53,5 @@ class Visited {
      */
     public function getVisitedList() {
         return $this->visited;
-    }
+    }    
 }
