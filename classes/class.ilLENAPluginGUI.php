@@ -223,7 +223,7 @@ class ilLENAPluginGUI extends ilPageComponentPluginGUI {
         // not found
         if( $usecase === null ) {
             if( $editMode ) {
-                $message = $pl->txt( 'usecase_none' );                                
+                $message = $this->getPlugin()->txt( 'usecase_none' );                                
                 $tpl->setVariable( 'EDIT_MODE_TXT', $message );                    
             }
             return $tpl->get();
@@ -232,7 +232,7 @@ class ilLENAPluginGUI extends ilPageComponentPluginGUI {
         
         // all use-cases, edit
         if( $editMode ) {
-            $message = $pl->txt( "usecase_" . $usecaseID );
+            $message = $this->getPlugin()->txt( "usecase_" . $usecaseID );
             $tpl->setVariable( "EDIT_MODE_TXT", $message );                
             return $tpl->get();
         }
