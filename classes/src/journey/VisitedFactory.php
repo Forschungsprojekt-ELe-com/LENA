@@ -29,6 +29,6 @@ ORDER BY status_changed ASC
         while( $line = $result->fetchAssoc() ) {
             $visited[] = $line[ '_obj_id' ];
         }
-        return new Visited( $temp );
+        return new Visited( $visited );
     }
 }
