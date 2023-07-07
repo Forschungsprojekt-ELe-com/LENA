@@ -23,7 +23,7 @@ class EmilRenderer extends Renderer {
                 . '</a></li>'
             ;
         }
-        $out .= '</ul';
+        $out .= '</ul>';
         
         $out .= '</div></div>';
         $out .= '</div>';
