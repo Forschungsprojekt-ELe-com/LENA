@@ -242,7 +242,7 @@ class ilLENAPluginGUI extends ilPageComponentPluginGUI {
             ( $usecaseID == 1 )
             || ( $usecaseID == 2 ) 
         ) {
-            $tpl->touchBlock( "kiosk_mode" );
+            $tpl->touchBlock( "lena_kiosk_mode" );
         }                
         $content = $this->renderLenaContent();            
         $tpl->setVariable("RUN_MODE_TXT", $content );
