@@ -158,42 +158,48 @@ WHERE _t.path LIKE '" . $path . "'
      * @param int $ref_id
      */
     public function serializePlan( $ref_id ) {
-        $path = '';
-        $sql = "SELECT path FROM tree WHERE child=" . $ref_id;
-        $result = $this->db->query( $sql );
-        if( $line = $result->fetchAssoc() ) {
-            $path = $line[ 'path' ] . '.%';
-        }
-        
-//        $sql = "SELECT 1
-//  , _t.child AS _ref_id
-//  , _or.obj_id AS _obj_id
-//FROM tree _t
-//  JOIN object_reference _or ON ( _t.child=_or.ref_id )  
-//WHERE _t.path LIKE '" . $path . "'
-//ORDER BY _t.lft
-//        ";
-        
+  
+        $allHeadings = array();
+        $plan = array();
+
+        // find headings
         $sql = "SELECT 1
   , _t.child AS _ref_id
-  , _or.obj_id AS _obj_id
+  , _od.title AS _title
 FROM tree _t
   JOIN object_reference _or ON ( _t.child=_or.ref_id )  
   JOIN object_data _od ON ( _or.obj_id=_od.obj_id)
-WHERE _od.type='copa'
-   AND _or.deleted IS NULL
-   AND _t.path LIKE '" . $path . "'   
-   AND _od.obj_id IN (1618,1668,1552,892,893,894,998,895,896,897,898,899,900,901,902,903,904,905,906,907,908,909,910,911,912,913,914,915,916,917,918,919,920,921,922,923,924,925,926,927,928,929,930,931,932,933,934,935,936,937,938,939,940,941,1319,1233,1235,1237,1239,1240,1241,1242,1243,1244,1245,1253,1324,1325,1151,1444,1333,1255,1669,1331,1376,1326,1567,1445,1332,1219,1379,1327,1568,1451,1296,1461,1221,1328,1569,1294,1447,1415,1434,1329,1570,1416,1466,1218,1479,1330)
-   
-ORDER BY _t.lft, _t.path
+WHERE _t.tree = 1
+  AND _od.type = 'fold'
+  AND _or.deleted IS NULL
+  AND _t.parent = " . $ref_id . " 
+ORDER BY lft
         ";
-        $result = $this->db->query( $sql );
-        
-        $plan = array();
-        while( $line = $result->fetchAssoc() ) {            
-            $plan[ $line[ '_obj_id' ] ] = $line[ '_ref_id' ];            
+        $result = $db->query( $sql );
+        while( $line = $result->fetchAssoc() ) {
+            $allHeadings[ $line[ '_ref_id' ] ] = $line[ '_title' ];
         }
-        
+
+        foreach( $allHeadings as $id => $title ) {
+            $sql = "SELECT 1
+  , _t.child AS _ref_id
+  , _or.obj_id AS _obj_id
+  , _od.title AS _title
+FROM tree _t
+  JOIN object_reference _or ON ( _t.child=_or.ref_id )  
+  JOIN object_data _od ON ( _or.obj_id=_od.obj_id)
+WHERE _t.tree = 1
+  AND _od.type = 'copa'
+  AND _or.deleted IS NULL
+  AND _t.parent = " . $id . " 
+ORDER BY lft
+            ";
+            $result = $db->query( $sql );        
+            while( $line = $result->fetchAssoc() ) {            
+                $plan[ $line[ '_obj_id' ] ] = $line[ '_ref_id' ];
+            }       
+        }
+                
         $out = '<?php' . PHP_EOL
                . '$LENA_PLAN=array();' . PHP_EOL
         ;
