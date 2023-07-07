@@ -206,13 +206,13 @@ class ilLENAPluginGUI extends ilPageComponentPluginGUI {
         global $DIC;
         $tree = $DIC->repositoryTree();
         $ilSetting 	= $DIC->settings();
-        $tpl = $DIC["tpl"];
+        $tpl = $this->getPlugin()->getTemplate("tpl.content.html");
 
         if ($a_mode == "presentation") {
             $tpl->addCss('./Customizing/global/plugins/Services/COPage/PageComponent/LENA/templates/css/lena.css');
         }
         
-        $tpl = $this->getPlugin()->getTemplate("tpl.content.html");
+//        $tpl = $this->getPlugin()->getTemplate("tpl.content.html");
 
         $ref_id = (int)$_GET["ref_id"];       
         
