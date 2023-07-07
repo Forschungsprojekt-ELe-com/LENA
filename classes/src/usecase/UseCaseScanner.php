@@ -175,7 +175,7 @@ WHERE _t.tree = 1
   AND _t.parent = " . $ref_id . " 
 ORDER BY lft
         ";
-        $result = $db->query( $sql );
+        $result = $this->db->query( $sql );
         while( $line = $result->fetchAssoc() ) {
             $allHeadings[ $line[ '_ref_id' ] ] = $line[ '_title' ];
         }
@@ -194,7 +194,7 @@ WHERE _t.tree = 1
   AND _t.parent = " . $id . " 
 ORDER BY lft
             ";
-            $result = $db->query( $sql );        
+            $result = $this->db->query( $sql );        
             while( $line = $result->fetchAssoc() ) {            
                 $plan[ $line[ '_obj_id' ] ] = $line[ '_ref_id' ];
             }       
