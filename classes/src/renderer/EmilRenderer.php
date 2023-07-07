@@ -9,9 +9,9 @@ class EmilRenderer extends Renderer {
         $out .= '<div id="suggestions"><div class="customBG">';            
         
         $response = 'Aufgrund deine aktuellen Einstellungen schlage ich folgendes vor:';
-        if( count( $notVisited ) == 1 ) {
-            $response = '<b>finished</b>';
-        }         
+//        if( count( $notVisited ) == 1 ) {
+//            $response = '<b>finished</b>';
+//        }         
         $out .= '<div id="response">';
         $out .= $response;
         $out .= '</div>';
