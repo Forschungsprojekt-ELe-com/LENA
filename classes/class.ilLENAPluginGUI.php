@@ -65,6 +65,7 @@ class ilLENAPluginGUI extends ilPageComponentPluginGUI {
         }
         if( $usecaseID == 3 ) {
             $renderer                
+                ->addEmilRenderer()
                 ->addVisitedRenderer()
             ;
         }
