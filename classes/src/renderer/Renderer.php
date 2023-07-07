@@ -8,6 +8,8 @@ abstract class Renderer {
      * @return string
      */
     abstract public function render();
+
+
     
     protected $db;
     
@@ -66,5 +68,14 @@ abstract class Renderer {
     public function setVisited( $visited ) {
         $this->visited = $visited;
         return $this;
+    }
+    
+    /**
+     * 
+     * @param int $ref_id
+     * @return string
+     */
+    protected function getUrl( $ref_id ) {        
+        return str_replace( '666666', $ref_id, $this->baseUrl );
     }
 }

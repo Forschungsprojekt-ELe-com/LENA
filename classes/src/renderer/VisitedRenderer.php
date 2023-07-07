@@ -2,7 +2,10 @@
 
 class VisitedRenderer extends Renderer {
     
-    
+    /**
+     * 
+     * @return string
+     */
     public function render() {
         $out     = '';
         $data    = $this->visited->getVisitedList();
@@ -21,8 +24,8 @@ class VisitedRenderer extends Renderer {
         $out .= '<ul id="visitedList">';
         foreach( $temp as $id ) {
             $out .= '<li class="visitedItem">'
-                    . '<a href="' . $this->baseUrl . '?add=' . $id . '">'
-                    . 'MLE' . $id 
+                    . '<a href="' . $this->getUrl( $this->usecase->getRefId( $id ) ) . '">'
+                    . $this->usecase->getTitle( $id ) 
                     . '</a>'
                     . '</li>'
             ;

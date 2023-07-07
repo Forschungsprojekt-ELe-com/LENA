@@ -1,79 +1,95 @@
 <?php
 declare(strict_types=1);
+
+require_once __DIR__ . '/classes/_all.php';
+
 /**
  * LENA
  *
+ * @author Carsten Hellweg <hellweg@qualitus.de>
  * @author Jean-Luc Braun <braun@qualitus.de>
  * @ilCtrl_isCalledBy ilLENAConfigGUI: ilObjComponentSettingsGUI
  */
-class ilLENAConfigGUI extends ilPluginConfigGUI
-{
-	/**
-	 * @var ilCtrl
-	 */
-	protected ilCtrl $ilCtrl;
+class ilLENAConfigGUI extends ilPluginConfigGUI {
 
-	/**
-	 * @var ilLanguage
-	 */
-	protected ilLanguage $lng;
+    /**
+     * @var ilCtrl
+     */
+    protected ilCtrl $ilCtrl;
 
-	/**
-	 * @var ilSetting
-	 */
-	protected ilSetting $ilSetting;
+    /**
+     * @var ilLanguage
+     */
+    protected ilLanguage $lng;
 
-	/**
-	 * @var ilGlobalPageTemplate
-	 */
-	protected ilGlobalPageTemplate $tpl;
+    /**
+     * @var ilSetting
+     */
+    protected ilSetting $ilSetting;
 
-	/**
-	 * ilMassMaticsConfigGUI constructor.
-	 */
-	public function __construct()
-	{
-		global $DIC;
-		
-		$this->ilCtrl 		= $DIC->ctrl();
-		$this->lng 			= $DIC->language();
-		$this->ilSetting 	= $DIC->settings();
-		$this->tpl 			= $DIC->ui()->mainTemplate();
-	}
+    /**
+     * @var ilGlobalPageTemplate
+     */
+    protected ilGlobalPageTemplate $tpl;
 
-	/**
-	 * Handles all commmands, default is "configure"
-	 */
-	function performCommand($cmd)
-	{
-		switch ($cmd)
-		{
-			case "configure":
-			case "save":
-				$this->$cmd();
-				break;
+    /**
+     * ilMassMaticsConfigGUI constructor.
+     */
+    public function __construct() {
+        global $DIC;
 
-		}
-	}
+        $this->ilCtrl    = $DIC->ctrl();
+        $this->lng 	 = $DIC->language();
+        $this->ilSetting = $DIC->settings();
+        $this->tpl 	 = $DIC->ui()->mainTemplate();
 
-	/**
-	 * Configure screen
-	 */
-	function configure()
-	{
-		$form = $this->initConfigurationForm();
-		$this->tpl->setContent($form->getHTML());
-	}
+        // lena-scanner
+        global $DIC;
+        $db = $DIC->database();        
+        $facade = new UseCaseScannerFacade( $db );
+        if( strlen( $this->ilSetting->get("lena_usecase_1_crsid", "" ) > 0 ) ) {
+            $facade->addScanner( 1, $this->ilSetting->get( "lena_usecase_1_crsid" ) );
+        }
+        if( strlen( $this->ilSetting->get("lena_usecase_2_crsid", "" ) > 0 ) ) {
+            $facade->addScanner( 2, $this->ilSetting->get( "lena_usecase_2_crsid" ) );
+        }
+        if( strlen( $this->ilSetting->get("lena_usecase_3_crsid", "" ) > 0 ) ) {
+            $facade->addScanner( 1, $this->ilSetting->get( "lena_usecase_3_crsid" ) );
+        }
+        if( strlen( $this->ilSetting->get("lena_usecase_4_crsid", "" ) > 0 ) ) {
+            $facade->addScanner( 1, $this->ilSetting->get( "lena_usecase_4_crsid" ) );
+        }        
+        $facade->execute();
+    }
+
+    /**
+     * Handles all commmands, default is "configure"
+     */
+    function performCommand($cmd) {
+        switch ($cmd) {
+            case "configure":
+            case "save":
+                $this->$cmd();
+                break;
+        }
+    }
+
+    /**
+     * Configure screen
+     */
+    function configure() {
+        $form = $this->initConfigurationForm();
+        $this->tpl->setContent($form->getHTML());
+    }
 
     /**
      * Init configuration form.
      *
      * @return ilPropertyFormGUI form object
      */
-	public function initConfigurationForm(): ilPropertyFormGUI
-    {
-		$pl = $this->getPluginObject();
-		$form = new ilPropertyFormGUI();
+    public function initConfigurationForm(): ilPropertyFormGUI {                
+        $pl = $this->getPluginObject();
+        $form = new ilPropertyFormGUI();
 
         $usecase1_header = new ilFormSectionHeaderGUI();
         $usecase1_header->setTitle($pl->txt("usecase_1"));
@@ -115,45 +131,44 @@ class ilLENAConfigGUI extends ilPluginConfigGUI
         $usecase_4_crsid->setValue($this->ilSetting->get("lena_usecase_4_crsid"));
         $form->addItem($usecase_4_crsid);
 
-		$form->addCommandButton("save", $this->lng->txt("save"));
+        $form->addCommandButton("save", $this->lng->txt("save"));
 
-		$form->setTitle($pl->txt("plugin_configuration"));
-		$form->setFormAction($this->ilCtrl->getFormAction($this));
+        $form->setTitle($pl->txt("plugin_configuration"));
+        $form->setFormAction($this->ilCtrl->getFormAction($this));
 
-		return $form;
-	}
+        return $form;
+    }
 
-	/**
-	 * Save form input (currently does not save anything to db)
-	 *
-	 */
-	public function save()
-	{
-		$pl = $this->getPluginObject();
+    /**
+     * Save form input (currently does not save anything to db)
+     *
+     */
+    public function save() {
+        $pl = $this->getPluginObject();
 
-		$form = $this->initConfigurationForm();
-		if ($form->checkInput()) {
+        $form = $this->initConfigurationForm();
+        if ($form->checkInput()) {
             $usecase_1_ref_id	= $form->getInput("usecase_1_crsid");
-            //todo check if course
+            /** @todo check if course */
             $this->ilSetting->set('lena_usecase_1_crsid', $usecase_1_ref_id);
 
             $usecase_2_ref_id	= $form->getInput("usecase_2_crsid");
-            //todo check if course
+            /** @todo check if course */
             $this->ilSetting->set('lena_usecase_2_crsid', $usecase_2_ref_id);
 
             $usecase_3_ref_id	= $form->getInput("usecase_3_crsid");
-            //todo check if course
+            /** @todo check if course */
             $this->ilSetting->set('lena_usecase_3_crsid', $usecase_3_ref_id);
 
             $usecase_4_ref_id	= $form->getInput("usecase_4_crsid");
-            //todo check if course
+            /** @todo check if course */
             $this->ilSetting->set('lena_usecase_4_crsid', $usecase_4_ref_id);
 
             $this->tpl->setOnScreenMessage('success', $pl->txt("saving_invoked"), true);
-			$this->ilCtrl->redirect($this, "configure");
-		} else {
-			$form->setValuesByPost();
-			$this->tpl->setContent($form->getHtml());
-		}
-	}
+            $this->ilCtrl->redirect($this, "configure");
+        } else {
+            $form->setValuesByPost();
+            $this->tpl->setContent($form->getHtml());
+        }
+    }
 }

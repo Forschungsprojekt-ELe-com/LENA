@@ -19,28 +19,28 @@ class PlannedRenderer extends Renderer {
             $notfound = true;
             if( $id == $next ) {
                 $out .= '<li class="nextItem">'
-                        . '<a href="' . $this->baseUrl . '?add=' . $id . '">'
-                        . 'MLE' . $id
-                        . '</a>'
-                        . '</li>'
+                    . '<a href="' . $this->getUrl( $this->usecase->getRefId( $id ) ) . '">'
+                    . $this->usecase->getTitle( $id ) 
+                    . '</a>'
+                    . '</li>'
                 ;
                 $notfound = false;
             }
             
             if( $this->visited->isVisited( $id ) ) {
                 $out .= '<li class="visitedItem">'
-                        . '<a href="' . $this->baseUrl . '?add=' . $id . '">'
-                        . 'MLE' . $id
-                        . '</a>'
-                        . '</li>'
+                    . '<a href="' . $this->getUrl( $this->usecase->getRefId( $id ) ) . '">'
+                    . $this->usecase->getTitle( $id ) 
+                    . '</a>'
+                    . '</li>'
                 ;
                 $notfound = false;
             }
             
             if( $notfound ) {
                 $out .= '<li><span>'
-                        . 'MLE' . $id 
-                        . '</span></li>'
+                    . $this->usecase->getTitle( $id ) 
+                    . '</span></li>'
                 ;
             }
         }
@@ -48,7 +48,7 @@ class PlannedRenderer extends Renderer {
         $out .= '</div>';
         return $out;
     }
-    
+     
     /**
      * 
      * @return int

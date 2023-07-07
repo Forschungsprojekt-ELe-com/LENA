@@ -8,7 +8,8 @@
 
 ### **Installation**
 * Download the zip file corresponding to your ILIAS Version
-* Extract content into subdirectory [PATH-TO-ILIAS]/Customizing/global/plugins/Services/COPage/PageComponent/CourseCertificate within your main ILIAS directory
+* Extract content into subdirectory [PATH-TO-ILIAS]/Customizing/global/plugins/Services/COPage/PageComponent/LENA within your main ILIAS directory
+* Make sure, that the webserver can read and write in the dir .lenacache , [PATH-TO-ILIAS]/Customizing/global/plugins/Services/COPage/PageComponent/LENA/.lenacache
 * Enter ILIAS Administration > Plugins and activate/update and configure the plugin
 
 For more information please contact [Jean-Luc Braun](mailto:braun@qualitus.de)

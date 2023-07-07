@@ -1,10 +1,5 @@
 <?php
-/*
-require_once __DIR__ . '/journey/CustomerJourney.php';
-require_once __DIR__ . '/journey/CustomerJourneyFactory.php';
-require_once __DIR__ . '/journey/CustomerJourneyItemList.php';
-require_once __DIR__ . '/journey/CustomerJourneyItemListFactory.php';
-// */
+
 require_once __DIR__ . '/journey/Planned.php';
 require_once __DIR__ . '/journey/Visited.php';
 require_once __DIR__ . '/journey/VisitedFactory.php';
@@ -18,8 +13,10 @@ require_once __DIR__ . '/renderer/VisitedRenderer.php';
 require_once __DIR__ . '/usecase/UseCase.php';
 require_once __DIR__ . '/usecase/UseCaseFactory.php';
 require_once __DIR__ . '/usecase/UseCaseScanner.php';
+require_once __DIR__ . '/usecase/UseCaseScannerFacade.php';
 
 require_once __DIR__ . '/emil/Suggestion.php';
 require_once __DIR__ . '/emil/SuggestionFactory.php';
 require_once __DIR__ . '/emil/SuggestionFactoryMock.php';
+require_once __DIR__ . '/emil/EmilLogger.php';
 require_once __DIR__ . '/emil/AccessToken.php';

@@ -45,6 +45,7 @@ echo $renderer->render();
         $suggestion = $access->getSuggestion();
         echo '<pre>', print_r( $suggestion, true ), '</pre>';
         echo 'TOKEN: ' . $token . '<br />' . PHP_EOL;
-        echo '<a href="http://localhost:8080/my/LENA/classes/test/manual.php?token=' . $token . '" target="_blank">clickme</a>';
+//        echo '<a href="http://localhost:8080/my/LENA/classes/test/manual.php?token=' . $token . '" target="_blank">clickme</a>';
+        echo '<a href="http://localhost:8080/my/LENA/classes/api.php?token=' . $token . '" target="_blank">api</a>';
     }
     // */
