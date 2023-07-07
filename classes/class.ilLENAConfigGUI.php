@@ -47,16 +47,16 @@ class ilLENAConfigGUI extends ilPluginConfigGUI {
         global $DIC;
         $db = $DIC->database();        
         $facade = new UseCaseScannerFacade( $db );
-        if( strlen( $this->ilSetting->get("lena_usecase_1_crsid", "" ) > 0 ) ) {
+        if( ( $this->ilSetting->get("lena_usecase_1_crsid", "" ) ) ) {
             $facade->addScanner( 1, $this->ilSetting->get( "lena_usecase_1_crsid" ) );
         }
-        if( strlen( $this->ilSetting->get("lena_usecase_2_crsid", "" ) > 0 ) ) {
+        if( ( $this->ilSetting->get("lena_usecase_2_crsid", "" ) ) ) {
             $facade->addScanner( 2, $this->ilSetting->get( "lena_usecase_2_crsid" ) );
         }
-        if( strlen( $this->ilSetting->get("lena_usecase_3_crsid", "" ) > 0 ) ) {
+        if( ( $this->ilSetting->get("lena_usecase_3_crsid", "" ) ) ) {
             $facade->addScanner( 1, $this->ilSetting->get( "lena_usecase_3_crsid" ) );
         }
-        if( strlen( $this->ilSetting->get("lena_usecase_4_crsid", "" ) > 0 ) ) {
+        if( ( $this->ilSetting->get("lena_usecase_4_crsid", "" ) ) ) {
             $facade->addScanner( 1, $this->ilSetting->get( "lena_usecase_4_crsid" ) );
         }        
         $facade->execute();
