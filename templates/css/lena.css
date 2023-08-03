@@ -73,9 +73,9 @@
   width: 20px;
   height: 20px;
 }
-#plannedList li.nextItem > a,
-#list li.nextItem > a,
-#visitedList li.nextItem > a,
+#plannedList li.nextItem a,
+#list li.nextItem a,
+#visitedList li.nextItem a,
 #plannedList li.nextItem a:visited,
 #list li.nextItem a:visited,
 #visitedList li.nextItem a:visited {
@@ -119,9 +119,9 @@
 #visitedList li.visitedItem a:hover {
   color: black;
 }
-#plannedList li.suggestion > a,
-#list li.suggestion > a,
-#visitedList li.suggestion > a {
+#plannedList li.suggestion a,
+#list li.suggestion a,
+#visitedList li.suggestion a {
   color: black;
   line-height: 25px;
   text-decoration: none;
