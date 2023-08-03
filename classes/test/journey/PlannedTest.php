@@ -31,7 +31,7 @@ class PlannedTest extends TestCase {
         $this->assertEquals( 5, count( $temp ) );
     }
     
-    public function test() {        
+    public function testIntegrity() {        
         $this->assertTrue( $this->sut->isPlanned( 1 ) );
         $this->assertTrue( $this->sut->isPlanned( 3 ) );
         $this->assertTrue( $this->sut->isPlanned( 5 ) );
