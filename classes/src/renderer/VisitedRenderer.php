@@ -12,12 +12,19 @@ class VisitedRenderer extends Renderer {
 //        $out .= '<pre>' . print_r( $data, true ) . '</pre>';        
 
         $temp = array();
+        foreach( $data as $id ) {
+            if( ! isset( $temp[ $id ] ) ) {
+                $temp[ $id ] = $id;
+            }
+        }
+        /*
         for( $i=( count( $data ) - 1); $i >= 0 ; $i-- ) {
             $id = $data[ $i ];
             if( ! isset( $temp[ $id ] ) ) {
                 $temp[] = $id;
             }
         }
+        // */
 //        $out .= '<pre>' . print_r( $temp, true ) . '</pre>';
         $out .= '<div id="visitedBox">';
         //$out .= '<b>visited</b>';

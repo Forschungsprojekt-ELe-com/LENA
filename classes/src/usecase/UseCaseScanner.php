@@ -159,6 +159,9 @@ WHERE _t.path LIKE '" . $path . "'
      */
     public function serializePlan( $ref_id ) {
   
+        // besser 2 schleifen: 1. schleife: alle ordner typ: "fold" und 2. schleife: alle objekte unter ordner "copa" | "tst"
+        // $childs = $tree->getChildsByType( $ref_id );
+        
         $allHeadings = array();
         $plan = array();
 

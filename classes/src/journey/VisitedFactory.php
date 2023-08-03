@@ -22,7 +22,7 @@ FROM ut_lp_marks
 WHERE usr_id=" . $userId . "  
   AND status=2
   AND obj_id IN ( " . $inString . " )
-ORDER BY status_changed ASC
+ORDER BY status_changed DESC
         ";
         $visited = array();
         $result  = $this->db->query( $sql );
