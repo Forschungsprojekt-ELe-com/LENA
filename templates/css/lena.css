@@ -67,12 +67,13 @@
 #list li.visitedItem div.visitedItem,
 #visitedList li.visitedItem div.visitedItem {
   display: flex;
+  gap: 10px;
 }
 #plannedList li.visitedItem img,
 #list li.visitedItem img,
 #visitedList li.visitedItem img {
-  width: 25px;
-  height: auto;
+  width: auto;
+  height: 25px;
 }
 #plannedList li.visitedItem a,
 #list li.visitedItem a,
