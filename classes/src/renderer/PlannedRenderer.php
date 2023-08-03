@@ -19,9 +19,12 @@ class PlannedRenderer extends Renderer {
             $notfound = true;
             if( $id == $next ) {
                 $out .= '<li class="nextItem">'
+                    . '<div class="visitedItem">'
+                    . '<img src="./data/elecom/custom_icons/obj_' . $id . '/icon_custom.svg" />'
                     . '<a href="' . $this->getUrl( $this->usecase->getRefId( $id ) ) . '">'
                     . $this->usecase->getTitle( $id ) 
                     . '</a>'
+                    . '</div>'
                     . '</li>'
                 ;
                 $notfound = false;
@@ -29,18 +32,25 @@ class PlannedRenderer extends Renderer {
             
             if( $this->visited->isVisited( $id ) ) {
                 $out .= '<li class="visitedItem">'
+                    . '<div class="visitedItem">'
+                    . '<img src="./data/elecom/custom_icons/obj_' . $id . '/icon_custom.svg" />'
                     . '<a href="' . $this->getUrl( $this->usecase->getRefId( $id ) ) . '">'
                     . $this->usecase->getTitle( $id ) 
                     . '</a>'
+                    . '</div>'
                     . '</li>'
                 ;
                 $notfound = false;
             }
             
             if( $notfound ) {
-                $out .= '<li><span>'
+                $out .= '<li>'
+                    . '<div class="visitedItem">'
+                    . '<img src="./data/elecom/custom_icons/obj_' . $id . '/icon_custom.svg" />'
+                    . '<span>'
                     . $this->usecase->getTitle( $id ) 
-                    . '</span></li>'
+                    . '</span>'
+                    . '</div></li>'
                 ;
             }
         }
