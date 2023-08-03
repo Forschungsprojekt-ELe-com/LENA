@@ -45,6 +45,14 @@
 	margin: 0;
 	padding: 10px 0 0;
 	li {
+		div.visitedItem {
+			display: flex;
+			gap: 10px;
+			img {
+				width: 20px;
+				height: 20px;
+			}
+		}
 		span {
 			color: #aaa;
 			line-height: 25px;
@@ -52,9 +60,13 @@
 			font-weight: 400;
 		}
 		&.nextItem {
-			img {
-				width: 20px;
-				height: 20px;
+			div.visitedItem {
+				display: flex;
+				gap: 10px;
+				img {
+					width: 20px;
+					height: 20px;
+				}
 			}
 			> a, a:visited {
 				display: inline-block;
@@ -73,11 +85,12 @@
 			div.visitedItem {
 				display: flex;
 				gap: 10px;
+				img {
+					width: 20px;
+					height: 20px;
+				}
 			}
-			img {
-				width: 20px;
-				height: 20px;
-			}
+
 			a {
 				&, &:visited {
 					display: inline-block;

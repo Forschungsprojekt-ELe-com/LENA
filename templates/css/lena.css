@@ -41,6 +41,18 @@
   margin: 0;
   padding: 10px 0 0;
 }
+#plannedList li div.visitedItem,
+#list li div.visitedItem,
+#visitedList li div.visitedItem {
+  display: flex;
+  gap: 10px;
+}
+#plannedList li div.visitedItem img,
+#list li div.visitedItem img,
+#visitedList li div.visitedItem img {
+  width: 20px;
+  height: 20px;
+}
 #plannedList li span,
 #list li span,
 #visitedList li span {
@@ -49,9 +61,15 @@
   text-decoration: none;
   font-weight: 400;
 }
-#plannedList li.nextItem img,
-#list li.nextItem img,
-#visitedList li.nextItem img {
+#plannedList li.nextItem div.visitedItem,
+#list li.nextItem div.visitedItem,
+#visitedList li.nextItem div.visitedItem {
+  display: flex;
+  gap: 10px;
+}
+#plannedList li.nextItem div.visitedItem img,
+#list li.nextItem div.visitedItem img,
+#visitedList li.nextItem div.visitedItem img {
   width: 20px;
   height: 20px;
 }
@@ -78,9 +96,9 @@
   display: flex;
   gap: 10px;
 }
-#plannedList li.visitedItem img,
-#list li.visitedItem img,
-#visitedList li.visitedItem img {
+#plannedList li.visitedItem div.visitedItem img,
+#list li.visitedItem div.visitedItem img,
+#visitedList li.visitedItem div.visitedItem img {
   width: 20px;
   height: 20px;
 }
