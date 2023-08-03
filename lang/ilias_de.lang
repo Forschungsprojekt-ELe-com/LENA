@@ -1,9 +1,19 @@
-//
-// Copyright (c) 2017 Qualitus GmbH, GPL2, see docs/LICENSE
-//
-
 <!-- language file start -->
 cmd_insert#:#LENA einfügen
 currently_no_settings#:#Für diese Komponente gibt es keine Einstellungen.
 plugin_configuration#:#Einstellungen
-saving_invoked#:#Einstellungen gespeichert
+saving_invoked#:#Einstellungen gespeichert.
+edit_mode_warning_no_course#:#LENA: Kein Kurs erkannt
+usecase_1#:#LENA: Kurs 1 erkannt
+usecase_2#:#LENA: Kurs 2 erkannt
+usecase_3#:#LENA: Kurs 3 erkannt
+usecase_4#:#LENA: Kurs 4 erkannt
+usecase_1_crsid#:#Kurs 1
+usecase_2_crsid#:#Kurs 2
+usecase_3_crsid#:#Kurs 3
+usecase_4_crsid#:#Kurs 4
+crs_ref_id#:#Ref-ID des Kurses
+usecase_1_crsid_info#:#Wenn LENA in Kurs 1 eingefügt wird, zeigt sie Vorschläge für folgende MLEs an.
+usecase_2_crsid_info#:#Wenn LENA in Kurs 2 eingefügt wird, zeigt sie Vorschläge für folgende MLEs an.
+usecase_3_crsid_info#:#Wenn LENA in Kurs 3 eingefügt wird, zeigt sie Vorschläge für folgende MLEs an.
+usecase_4_crsid_info#:#Wenn LENA in Kurs 4 eingefügt wird, zeigt sie keine Vorschläge an. Sie muss dort eingefügt werden, damit der Lernstand richtig erfasst wird. Nur so ist ein Wechsel zwischen den Szenarios sichergestellt.
