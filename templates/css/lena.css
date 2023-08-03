@@ -49,11 +49,20 @@
   text-decoration: none;
   font-weight: 400;
 }
+#plannedList li.nextItem img,
+#list li.nextItem img,
+#visitedList li.nextItem img {
+  width: 20px;
+  height: 20px;
+}
 #plannedList li.nextItem > a,
 #list li.nextItem > a,
-#visitedList li.nextItem > a {
-  display: block;
-  color: black;
+#visitedList li.nextItem > a,
+#plannedList li.nextItem a:visited,
+#list li.nextItem a:visited,
+#visitedList li.nextItem a:visited {
+  display: inline-block;
+  color: #000;
   background-image: url("images/left-arrow.png");
   background-position: right center;
   background-repeat: no-repeat;
