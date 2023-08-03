@@ -79,10 +79,18 @@
 #list li.visitedItem a,
 #visitedList li.visitedItem a {
   display: inline-block;
-  color: green;
+  color: #555;
   line-height: 25px;
   text-decoration: none;
   font-weight: 700;
+}
+#plannedList li.visitedItem a:hover,
+#list li.visitedItem a:hover,
+#visitedList li.visitedItem a:hover,
+#plannedList li.visitedItem a:visited,
+#list li.visitedItem a:visited,
+#visitedList li.visitedItem a:visited {
+  color: black;
 }
 #plannedList li.suggestion > a,
 #list li.suggestion > a,
