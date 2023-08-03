@@ -12,9 +12,11 @@ class VisitedRenderer extends Renderer {
 //        $out .= '<pre>' . print_r( $data, true ) . '</pre>';        
 
         $temp = array();
+        $inArray = array();
         foreach( $data as $id ) {
-            if( ! isset( $temp[ $id ] ) ) {
-                $temp[ $id ] = $id;
+            if( ! isset( $inArray[ $id ] ) ) {
+                $inArray[ $id ] = $id;
+                $temp[] = $id;
             }
         }
         /*
