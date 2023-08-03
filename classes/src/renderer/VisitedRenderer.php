@@ -15,7 +15,7 @@ class VisitedRenderer extends Renderer {
         for( $i=( count( $data ) - 1); $i >= 0 ; $i-- ) {
             $id = $data[ $i ];
             if( ! isset( $temp[ $id ] ) ) {
-                $temp[ $id ] = $id;
+                $temp[] = $id;
             }
         }
 //        $out .= '<pre>' . print_r( $temp, true ) . '</pre>';
