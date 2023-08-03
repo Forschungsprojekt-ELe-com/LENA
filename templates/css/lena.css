@@ -72,7 +72,7 @@
 #plannedList li.visitedItem img,
 #list li.visitedItem img,
 #visitedList li.visitedItem img {
-  width: auto;
+  width: 25px;
   height: 25px;
 }
 #plannedList li.visitedItem a,
