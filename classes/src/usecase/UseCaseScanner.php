@@ -165,6 +165,22 @@ WHERE _t.path LIKE '" . $path . "'
         $allHeadings = array();
         $plan = array();
 
+        global $DIC;
+        $tree = $DIC->repositoryTree();
+        $folds = $tree->getChildsByType( $ref_id, 'fold' );
+        foreach( $folds as $id ) {
+            $copas = $tree->getChildsByType( $id, 'copa' );
+            foreach( $copas as $copa_id ) {
+                $plan[ $this->getObjId( $copa_id ) ] = $copa_id;
+            }
+            $tests = $tree->getChildsByType( $id, 'tst' );
+            foreach( $tests as $test_id ) {
+                $plan[ $this->getObjId( $test_id ) ] = $test_id;
+            }
+        }
+        
+        
+        /*
         // find headings
         $sql = "SELECT 1
   , _t.child AS _ref_id
@@ -202,6 +218,7 @@ ORDER BY lft
                 $plan[ $line[ '_obj_id' ] ] = $line[ '_ref_id' ];
             }       
         }
+        // */
                 
         $out = '<?php' . PHP_EOL
                . '$LENA_PLAN=array();' . PHP_EOL
