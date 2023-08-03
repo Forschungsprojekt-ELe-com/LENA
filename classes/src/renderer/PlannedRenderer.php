@@ -19,6 +19,7 @@ class PlannedRenderer extends Renderer {
             $notfound = true;
             if( $id == $next ) {
                 $out .= '<li class="nextItem">'
+                    . '<img src="./data/elecom/custom_icons/obj_' . $id . '/icon_custom.svg" />'
                     . '<a href="' . $this->getUrl( $this->usecase->getRefId( $id ) ) . '">'
                     . $this->usecase->getTitle( $id ) 
                     . '</a>'
@@ -29,6 +30,7 @@ class PlannedRenderer extends Renderer {
             
             if( $this->visited->isVisited( $id ) ) {
                 $out .= '<li class="visitedItem">'
+                    . '<img src="./data/elecom/custom_icons/obj_' . $id . '/icon_custom.svg" />'
                     . '<a href="' . $this->getUrl( $this->usecase->getRefId( $id ) ) . '">'
                     . $this->usecase->getTitle( $id ) 
                     . '</a>'
@@ -39,6 +41,7 @@ class PlannedRenderer extends Renderer {
             
             if( $notfound ) {
                 $out .= '<li><span>'
+                    . '<img src="./data/elecom/custom_icons/obj_' . $id . '/icon_custom.svg" />'
                     . $this->usecase->getTitle( $id ) 
                     . '</span></li>'
                 ;
