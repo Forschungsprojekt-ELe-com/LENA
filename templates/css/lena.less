@@ -66,14 +66,21 @@
 			}
 		}
 		&.visitedItem {
-			> a {
-				display: block;
+			div.visitedItem {
+				display: flex;
+			}
+			img {
+				width: 25px;
+				height: auto;
+			}
+			a {
+				display: inline-block;
 				color: green;
-				background-image: url("images/check.png");
-				background-position: right center;
-				background-repeat: no-repeat;
-				background-size: 16px;
-				padding-right: 30px;
+				//background-image: url("images/check.png");
+				//background-position: right center;
+				//background-repeat: no-repeat;
+				//background-size: 16px;
+				//padding-right: 30px;
 				line-height: 25px;
 				text-decoration: none;
 				font-weight: 700;

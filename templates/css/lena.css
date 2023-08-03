@@ -63,16 +63,22 @@
   text-decoration: none;
   font-weight: 700;
 }
-#plannedList li.visitedItem > a,
-#list li.visitedItem > a,
-#visitedList li.visitedItem > a {
-  display: block;
+#plannedList li.visitedItem div.visitedItem,
+#list li.visitedItem div.visitedItem,
+#visitedList li.visitedItem div.visitedItem {
+  display: flex;
+}
+#plannedList li.visitedItem img,
+#list li.visitedItem img,
+#visitedList li.visitedItem img {
+  width: 25px;
+  height: auto;
+}
+#plannedList li.visitedItem a,
+#list li.visitedItem a,
+#visitedList li.visitedItem a {
+  display: inline-block;
   color: green;
-  background-image: url("images/check.png");
-  background-position: right center;
-  background-repeat: no-repeat;
-  background-size: 16px;
-  padding-right: 30px;
   line-height: 25px;
   text-decoration: none;
   font-weight: 700;
