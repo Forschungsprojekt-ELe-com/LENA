@@ -24,6 +24,8 @@ class VisitedRenderer extends Renderer {
         $out .= '<ul id="visitedList">';
         foreach( $temp as $id ) {
             $out .= '<li class="visitedItem">'
+                    . '<img src="./data/elecom/custom_icons/obj_' . $id . '/icon_custom.svg" />'
+                        
                     . '<a href="' . $this->getUrl( $this->usecase->getRefId( $id ) ) . '">'
                     . $this->usecase->getTitle( $id ) 
                     . '</a>'
