@@ -77,7 +77,10 @@
 }
 #plannedList li.visitedItem a,
 #list li.visitedItem a,
-#visitedList li.visitedItem a {
+#visitedList li.visitedItem a,
+#plannedList li.visitedItem a:visited,
+#list li.visitedItem a:visited,
+#visitedList li.visitedItem a:visited {
   display: inline-block;
   color: #555;
   line-height: 25px;
@@ -86,10 +89,7 @@
 }
 #plannedList li.visitedItem a:hover,
 #list li.visitedItem a:hover,
-#visitedList li.visitedItem a:hover,
-#plannedList li.visitedItem a:visited,
-#list li.visitedItem a:visited,
-#visitedList li.visitedItem a:visited {
+#visitedList li.visitedItem a:hover {
   color: black;
 }
 #plannedList li.suggestion > a,

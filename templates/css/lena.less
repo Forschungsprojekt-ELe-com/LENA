@@ -75,20 +75,24 @@
 				height: 20px;
 			}
 			a {
-				display: inline-block;
-				color: #555;
-				//background-image: url("images/check.png");
-				//background-position: right center;
-				//background-repeat: no-repeat;
-				//background-size: 16px;
-				//padding-right: 30px;
-				line-height: 25px;
-				text-decoration: none;
-				font-weight: 700;
-				&:hover, &:visited {
+				&, &:visited {
+					display: inline-block;
+					color: #555;
+					//background-image: url("images/check.png");
+					//background-position: right center;
+					//background-repeat: no-repeat;
+					//background-size: 16px;
+					//padding-right: 30px;
+					line-height: 25px;
+					text-decoration: none;
+					font-weight: 700;
+				}
+				
+				&:hover {
 					color: black;
 				}
 			}
+
 		}
 		&.suggestion {
 			> a {
