@@ -45,6 +45,14 @@
 	margin: 0;
 	padding: 10px 0 0;
 	li {
+		div.visitedItem {
+			display: flex;
+			gap: 10px;
+			img {
+				width: 20px;
+				height: 20px;
+			}
+		}
 		span {
 			color: #aaa;
 			line-height: 25px;
@@ -52,9 +60,17 @@
 			font-weight: 400;
 		}
 		&.nextItem {
-			> a {
-				display: block;
-				color: black;
+			div.visitedItem {
+				display: flex;
+				gap: 10px;
+				img {
+					width: 20px;
+					height: 20px;
+				}
+			}
+			 a, a:visited {
+				display: inline-block;
+				color: #000;
 				background-image: url("images/left-arrow.png");
 				background-position: right center;
 				background-repeat: no-repeat;
@@ -62,18 +78,19 @@
 				padding-right: 30px;
 				line-height: 25px;
 				text-decoration: none;
-				font-weight: 700;
+				font-weight: 700;flex-grow: 2;
 			}
 		}
 		&.visitedItem {
 			div.visitedItem {
 				display: flex;
 				gap: 10px;
+				img {
+					width: 20px;
+					height: 20px;
+				}
 			}
-			img {
-				width: 20px;
-				height: 20px;
-			}
+
 			a {
 				&, &:visited {
 					display: inline-block;
@@ -87,7 +104,7 @@
 					text-decoration: none;
 					font-weight: 700;
 				}
-				
+
 				&:hover {
 					color: black;
 				}
@@ -95,7 +112,7 @@
 
 		}
 		&.suggestion {
-			> a {
+			 a {
 				color: black;
 				line-height: 25px;
 				text-decoration: none;
