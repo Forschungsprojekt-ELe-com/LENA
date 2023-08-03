@@ -72,17 +72,25 @@
 #plannedList li.visitedItem img,
 #list li.visitedItem img,
 #visitedList li.visitedItem img {
-  width: auto;
-  height: 25px;
+  width: 20px;
+  height: 20px;
 }
 #plannedList li.visitedItem a,
 #list li.visitedItem a,
-#visitedList li.visitedItem a {
+#visitedList li.visitedItem a,
+#plannedList li.visitedItem a:visited,
+#list li.visitedItem a:visited,
+#visitedList li.visitedItem a:visited {
   display: inline-block;
-  color: green;
+  color: #555;
   line-height: 25px;
   text-decoration: none;
   font-weight: 700;
+}
+#plannedList li.visitedItem a:hover,
+#list li.visitedItem a:hover,
+#visitedList li.visitedItem a:hover {
+  color: black;
 }
 #plannedList li.suggestion > a,
 #list li.suggestion > a,
