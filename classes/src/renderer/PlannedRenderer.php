@@ -11,11 +11,22 @@ class PlannedRenderer extends Renderer {
         $out = '';
         $data = $planned->getObjIdList();
         $next = $this->next();
+        $parentList = $this->usecase->getParents();
         
+        $oldTitle = '';
         $out .= '<div id="plannedBox">';
         //$out .= '<b>planned</b>';
         $out .= '<ul id="plannedList">';
         foreach( $data as $id ) {
+            $title = $this->usecase->getTitle( $parentList[ $id ] );
+            if( $oldTitle != $title ) {
+                if( strlen( $oldTitle ) > 0 ) {
+                    $out .= '</ul></li>';
+                }
+                $out .= '<li class="heading"><span>' . $title . '</span><ul>';
+            }
+            $oldTitle = $title;
+            
             $notfound = true;
             if( $id == $next ) {
                 $out .= '<li class="nextItem">'

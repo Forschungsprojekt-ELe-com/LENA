@@ -24,6 +24,12 @@ class UseCaseScanner {
      */    
     protected $titles;
     
+    /**
+     * 
+     * @var int[]
+     */
+    protected $parentList;
+    
     public function __construct( $db ) {
         $this->db = $db;
         $this->ref_ids = array();
@@ -45,7 +51,7 @@ class UseCaseScanner {
         $out = '<?php' . PHP_EOL
             . PHP_EOL
             . '$LENA_REF = array();' . PHP_EOL
-            . '$LENA_OBJ = array();' . PHP_EOL
+            . '$LENA_OBJ = array();' . PHP_EOL            
             . PHP_EOL
         ;
         foreach( $this->ref_ids as $ref_id => $obj_id ) {
@@ -62,7 +68,10 @@ class UseCaseScanner {
             $out .= '$LENA_TITLES[ ' . $obj_id . ' ] = \'' . $title . '\';' . PHP_EOL;            
         }                
         
-        
+        $out .= '$LENA_PARENTS = array();' . PHP_EOL;
+        foreach( $this->parentList as $child_obj_id => $parent_obj_id ) {                        
+            $out .= '$LENA_PARENTS[ ' . $child_obj_id . ' ] = ' . $parent_obj_id . ';' . PHP_EOL;            
+        }
         
         file_put_contents( UseCaseFactory::LOCATION . $usecaseNo . '.php', $out );
         
@@ -86,13 +95,21 @@ class UseCaseScanner {
             $path = $line[ 'path' ] . '.%';
         }
         
+        $parents = array();
+        
         $sql = "SELECT 1
   , _t.child AS _ref_id
   , _or.obj_id AS _obj_id
   , _od.title AS _title
+  , _t.parent AS _parent_ref_id
+  , _or2.obj_id AS _parent_obj_id
+  , _od2.title AS _parent_title
 FROM tree _t
   JOIN object_reference _or ON ( _t.child=_or.ref_id )
   JOIN object_data _od ON ( _od.obj_id=_or.obj_id )
+  
+  JOIN object_reference _or2 ON ( _t.parent=_or2.ref_id )
+  JOIN object_data _od2 ON ( _od2.obj_id=_or2.obj_id )
 WHERE _t.path LIKE '" . $path . "'
         ";
         $result = $this->db->query( $sql );
@@ -101,7 +118,11 @@ WHERE _t.path LIKE '" . $path . "'
             $this->ref_ids[ $line[ '_ref_id' ] ] = $line[ '_obj_id' ];
             $this->obj_ids[ $line[ '_obj_id' ] ] = $line[ '_ref_id' ];
             $this->titles[ $line[ '_obj_id' ] ]  = $line[ '_title' ];
+            
+            $this->titles[ $line[ '_parent_obj_id' ] ]  = $line[ '_parent_title' ];
+            $parents[ $line[ '_obj_id' ] ] = $line[ '_parent_obj_id' ];
         }
+        $this->parentList = $parents;
     }
     
     public function getTitles( $obj_id ) {
@@ -165,6 +186,7 @@ WHERE _t.path LIKE '" . $path . "'
         $allHeadings = array();
         $plan = array();
 
+        /*
         global $DIC;
         $tree = $DIC->repositoryTree();
         $folds = $tree->getChildsByType( $ref_id, 'fold' );
@@ -178,9 +200,9 @@ WHERE _t.path LIKE '" . $path . "'
                 $plan[ $this->getObjId( $test_id ) ] = $test_id;
             }
         }
+        // */
         
         
-        /*
         // find headings
         $sql = "SELECT 1
   , _t.child AS _ref_id
@@ -199,6 +221,7 @@ ORDER BY lft
             $allHeadings[ $line[ '_ref_id' ] ] = $line[ '_title' ];
         }
 
+        
         foreach( $allHeadings as $id => $title ) {
             $sql = "SELECT 1
   , _t.child AS _ref_id

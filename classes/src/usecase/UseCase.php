@@ -26,6 +26,12 @@ class UseCase {
      */
     protected $titles;
     
+    /**
+     * 
+     * @var int[] child_obj_id => parent_obj_id
+     */
+    protected $parentList;
+    
     
     /**
      * 
@@ -34,11 +40,12 @@ class UseCase {
      * @param int[] $objIdList $obj => $ref
      * @param string[] $titles
      */
-    public function __construct( $usecaseNumber, $refIdList = array(), $objIdList = array(), $titles = array() ) {
+    public function __construct( $usecaseNumber, $refIdList = array(), $objIdList = array(), $titles = array(), $parentList = array() ) {
         $this->usecaseNumber = $usecaseNumber;
         $this->refIdList     = $refIdList;
         $this->objIdList     = $objIdList;
         $this->titles        = $titles;
+        $this->parentList    = $headings;
     }
     
     /**
@@ -133,5 +140,13 @@ class UseCase {
      */
     public function getUsecaseNumber() {
         return $this->usecaseNumber;
+    }
+    
+    /**
+     * 
+     * @return int[]
+     */
+    public function getParents() {
+        return $this->parentList;
     }
 }
