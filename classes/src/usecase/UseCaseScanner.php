@@ -95,8 +95,6 @@ class UseCaseScanner {
             $path = $line[ 'path' ] . '.%';
         }
         
-        $parents = array();
-        
         $sql = "SELECT 1
   , _t.child AS _ref_id
   , _or.obj_id AS _obj_id
@@ -120,9 +118,8 @@ WHERE _t.path LIKE '" . $path . "'
             $this->titles[ $line[ '_obj_id' ] ]  = $line[ '_title' ];
             
             $this->titles[ $line[ '_parent_obj_id' ] ]  = $line[ '_parent_title' ];
-            $parents[ $line[ '_obj_id' ] ] = $line[ '_parent_obj_id' ];
+            $this->parentList[ $line[ '_obj_id' ] ] = $line[ '_parent_obj_id' ];
         }
-        $this->parentList = $parents;
     }
     
     public function getTitles( $obj_id ) {
