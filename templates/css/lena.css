@@ -41,6 +41,13 @@
   margin: 0;
   padding: 10px 0 0;
 }
+#plannedList li ul,
+#list li ul,
+#visitedList li ul {
+  list-style: none;
+  margin: 0;
+  padding: 10px 0 0;
+}
 #plannedList li div.visitedItem,
 #list li div.visitedItem,
 #visitedList li div.visitedItem {
@@ -60,6 +67,11 @@
   line-height: 25px;
   text-decoration: none;
   font-weight: 400;
+}
+#plannedList li.heading span,
+#list li.heading span,
+#visitedList li.heading span {
+  color: #777;
 }
 #plannedList li.nextItem div.visitedItem,
 #list li.nextItem div.visitedItem,
