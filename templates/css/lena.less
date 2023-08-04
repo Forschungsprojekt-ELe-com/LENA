@@ -45,6 +45,11 @@
 	margin: 0;
 	padding: 10px 0 0;
 	li {
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 10px 0 0;
+		}
 		div.visitedItem {
 			display: flex;
 			gap: 10px;
@@ -58,6 +63,11 @@
 			line-height: 25px;
 			text-decoration: none;
 			font-weight: 400;
+		}
+		&.heading {
+			span {
+				color: #777;
+			}
 		}
 		&.nextItem {
 			div.visitedItem {
