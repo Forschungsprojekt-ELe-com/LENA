@@ -159,7 +159,8 @@ WHERE _t.path LIKE '" . $path . "'
      * @return bool
      */        
     public function issetRef( $ref_id ) {
-        return isset( $this->ref_ids[ $ref_id ] );
+        $temp = $this->ref_ids;
+        return isset( $temp[ $ref_id ] );
     }
     
     /**
