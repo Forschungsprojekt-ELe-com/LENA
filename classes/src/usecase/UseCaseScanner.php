@@ -238,6 +238,24 @@ ORDER BY lft
             while( $line = $result->fetchAssoc() ) {            
                 $plan[ $line[ '_obj_id' ] ] = $line[ '_ref_id' ];
             }       
+            
+            $sql = "SELECT 1
+  , _t.child AS _ref_id
+  , _or.obj_id AS _obj_id
+  , _od.title AS _title
+FROM tree _t
+  JOIN object_reference _or ON ( _t.child=_or.ref_id )  
+  JOIN object_data _od ON ( _or.obj_id=_od.obj_id)
+WHERE _t.tree = 1
+  AND _od.type = 'tst'
+  AND _or.deleted IS NULL
+  AND _t.parent = " . $id . " 
+ORDER BY lft
+            ";
+            $result = $this->db->query( $sql );        
+            while( $line = $result->fetchAssoc() ) {            
+                $plan[ $line[ '_obj_id' ] ] = $line[ '_ref_id' ];
+            }       
         }
         // */
                 
