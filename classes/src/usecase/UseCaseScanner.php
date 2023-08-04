@@ -94,7 +94,7 @@ class UseCaseScanner {
         if( $line = $result->fetchAssoc() ) {
             $path = $line[ 'path' ] . '.%';
         }
-        
+         
         $sql = "SELECT 1
   , _t.child AS _ref_id
   , _or.obj_id AS _obj_id
