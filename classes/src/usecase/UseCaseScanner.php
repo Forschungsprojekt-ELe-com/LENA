@@ -186,7 +186,7 @@ WHERE _t.path LIKE '" . $path . "'
         $allHeadings = array();
         $plan = array();
 
-        /*
+        
         global $DIC;
         $tree = $DIC->repositoryTree();
         $folds = $tree->getChildsByType( $ref_id, 'fold' );
@@ -202,7 +202,7 @@ WHERE _t.path LIKE '" . $path . "'
         }
         // */
         
-        
+        /*
         // find headings
         $sql = "SELECT 1
   , _t.child AS _ref_id
