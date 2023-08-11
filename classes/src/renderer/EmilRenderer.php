@@ -55,14 +55,21 @@ class EmilRenderer extends Renderer {
 
 	$out .= '<script>';
 	$out .= 'let endpoint = "./Customizing/global/plugins/Services/COPage/PageComponent/LENA/classes/api.php";';
-	$out .= 'let url = endpoint + "?token=' . $_SESSION[ 'qu_lena_token' ] . '";';  // TODO params
+	$out .= 'let url = endpoint + "?token=' . $_SESSION[ 'qu_lena_token' ] . '";';
         
 	$out .= 'console.log(url);';
 	$out .= '$.get(url, function(response) {';
-	// data.recommend array
 	$out .=     'console.log(response);';
 	$out .=     'if (meta.status == "NOK") return;';
 	$out .=     '$("#response").text(data.reason);';
+	$out .=     'let ulElem = $("#list");';
+	$out .=     'ulElem.empty();';
+	$out .=     'for (let id in data.recommend) {';
+	$out .=         'let aElem = $("<a href=\"' . $this->baseUrl . '?add=" + id + "\">" + data.recommend[id] + "</a>");';
+	$out .=         'let liElem = $("<li class=\"suggestion\"></li>");';
+	$out .=         'liElem.append(aElem);';
+        $out .=         'ulElem.append(liElem)';
+        $out .=     '}';
         $out .= '})';
 	$out .= '</script>';
 
