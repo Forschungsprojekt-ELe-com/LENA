@@ -36,6 +36,7 @@ class EmilRenderer extends Renderer {
         $out .= '</div>';
 
         $out .= '<ul id="list">';
+        /*
         foreach( $suggestions as $id ) {            
             $out .= // JS-PART
                   '<li class="suggestion">'                
@@ -46,6 +47,7 @@ class EmilRenderer extends Renderer {
                 // /JS
             ;
         }
+        */
         $out .= '</ul>';
         
         $out .= '</div></div>';
