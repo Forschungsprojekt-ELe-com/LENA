@@ -17,8 +17,14 @@ class EmilRenderer extends Renderer {
     
     
     public function render() {
-        $suggestions = $this->getSuggestionsList(); // array( 1,2,3 );
         $out = '';
+        
+        $this->controller();
+        $out .= '<script type="text/javascript">var QU_LENA_TOKEN="' . $_SESSION[ 'qu_lena_token' ] . '";</script>';
+        
+        
+        $suggestions = $this->getSuggestionsList(); // array( 1,2,3 );
+        
         $out .= '<div id="emil">';        
         $out .= '<div id="suggestions"><div class="customBG">';            
         
@@ -54,4 +60,17 @@ class EmilRenderer extends Renderer {
         return $out;
     }
 
+    protected function controller() {
+        global $DIC;
+        $user = $DIC->user();
+        $userId = $user->getId();        
+
+        $access = new AccessToken( $userId );
+        
+        if( isset( $_SESSION[ 'qu_lena_token' ] ) ) {
+            $access->destroyToken( $_SESSION[ 'qu_lena_token' ] );
+        }
+        $token = $access->createToken();
+        $_SESSION[ 'qu_lena_token' ] = $token; 
+    }
 }
