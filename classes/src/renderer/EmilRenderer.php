@@ -41,7 +41,16 @@ class EmilRenderer extends Renderer {
         
         $out .= '</div></div>';
         $out .= '</div>';
-        
+
+	$out .= '<script>';
+	$out .= 'let endpoint = "./Customizing/global/plugins/Services/COPage/PageComponent/LENA/classes/api.php";';
+	$out .= 'let url = endpoint;';  // TODO params
+	$out .= 'console.log(url);';
+	$out .= '$.get(url, function(response) {';
+	$out .=     'console.log(response);';
+        $out .= '})';
+	$out .= '</script>';
+
         return $out;
     }
 
