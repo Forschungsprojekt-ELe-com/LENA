@@ -17,7 +17,8 @@ $status    = 'NOK';
 $reason    = '';
 $recommend = array();
 
-if( ! $access->isEmptyResult() ) {
+//if( ! $access->isEmptyResult() ) 
+{
     $suggestion = $access->getSuggestion();
 //    if( $suggestion->isOk() ) 
     {
