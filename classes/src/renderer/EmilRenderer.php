@@ -20,7 +20,7 @@ class EmilRenderer extends Renderer {
         $out = '';
         
         $this->controller();
-        $out .= '<script type="text/javascript">var QU_LENA_TOKEN="' . $_SESSION[ 'qu_lena_token' ] . '";</script>';
+        $out .= '<script type="text/javascript">let QU_LENA_TOKEN="' . $_SESSION[ 'qu_lena_token' ] . '";</script>';
         
         
         $suggestions = $this->getSuggestionsList(); // array( 1,2,3 );
@@ -50,7 +50,8 @@ class EmilRenderer extends Renderer {
 
 	$out .= '<script>';
 	$out .= 'let endpoint = "./Customizing/global/plugins/Services/COPage/PageComponent/LENA/classes/api.php";';
-	$out .= 'let url = endpoint;';  // TODO params
+	$out .= 'let url = endpoint + "?token=' . $_SESSION[ 'qu_lena_token' ] . '";';  // TODO params
+        
 	$out .= 'console.log(url);';
 	$out .= '$.get(url, function(response) {';
 	$out .=     'console.log(response);';
