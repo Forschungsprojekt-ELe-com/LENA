@@ -72,8 +72,8 @@ class Suggestion {
             
             if( isset( $data->recommend ) ) {
                 $recommendList = $data->recommend;
-                foreach( $recommendList as $recommend ) {
-                    $this->recommend[] = 0 + $recommend;
+                foreach( $recommendList as $id => $recommend ) {
+                    $this->recommend[ 0 + $id ] = '' . $recommend;
                 }
             }
             
@@ -88,7 +88,7 @@ class Suggestion {
      * @return bool
      */
     public function isOk() {
-        return $this->metaStatus;
+        return ( $this->metaStatus == 'OK' );
     }
 
     /**

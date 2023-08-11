@@ -17,11 +17,13 @@ $status    = 'NOK';
 $reason    = '';
 $recommend = array();
 
-if( ! $access->isEmptyResult() ) {
+//if( ! $access->isEmptyResult() ) 
+{
     $suggestion = $access->getSuggestion();
-    if( $suggestion->isOk() ) {
+//    if( $suggestion->isOk() ) 
+    {
         $status    = 'OK';
-        $reason    = $suggestion->getReason();
+        $reason    = 'huhu' . $suggestion->getReason();
         $recommend = $suggestion->getRecommend();
     }
 }
