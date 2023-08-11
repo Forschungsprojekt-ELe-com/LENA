@@ -60,6 +60,16 @@ class EmilRenderer extends Renderer {
 	$out .= 'console.log(url);';
 	$out .= '$.get(url, function(response) {';
 	$out .=     'console.log(response);';
+	$out .=     'if (meta.status == "NOK") return;';
+	$out .=     '$("#response").text(data.reason);';
+	$out .=     'let ulElem = $("#list");';
+	$out .=     'ulElem.empty();';
+	$out .=     'for (let id in data.recommend) {';
+	$out .=         'let aElem = $("<a href=\"' . $this->baseUrl . '?add=" + id + "\">" + data.recommend[id] + "</a>");';
+	$out .=         'let liElem = $("<li class=\"suggestion\"></li>");';
+	$out .=         'liElem.append(aElem);';
+        $out .=         'ulElem.append(liElem)';
+        $out .=     '}';
         $out .= '})';
 	$out .= '</script>';
 
