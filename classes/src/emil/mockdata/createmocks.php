@@ -23,7 +23,7 @@ $data = array();
 $meta[ 'transmitted' ] = 'now() ;)';
 $meta[ 'status' ]      = 'OK';
 
-$data[ 'recommend' ] = array( 123, 345, 567 );
+$data[ 'recommend' ] = array( 123 => "MLE1", 345 => "MLE2", 567 => "MLE3" );
 
 $out = json_encode( array( 
     'meta' => $meta

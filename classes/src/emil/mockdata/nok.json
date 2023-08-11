@@ -4,5 +4,7 @@
         "reason": "keine lust",
         "status": "NOK"
     },
-    "data": {}
+    "data": {
+        "recommend": []
+    }
 }
