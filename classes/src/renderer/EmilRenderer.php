@@ -54,7 +54,10 @@ class EmilRenderer extends Renderer {
         
 	$out .= 'console.log(url);';
 	$out .= '$.get(url, function(response) {';
+	// data.recommend array
 	$out .=     'console.log(response);';
+	$out .=     'if (meta.status == "NOK") return;';
+	$out .=     '$("#response").text(data.reason);';
         $out .= '})';
 	$out .= '</script>';
 
