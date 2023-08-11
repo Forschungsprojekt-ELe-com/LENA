@@ -20,27 +20,30 @@ class EmilRenderer extends Renderer {
         $out = '';
         
         $this->controller();
-        $out .= '<script type="text/javascript">let QU_LENA_TOKEN="' . $_SESSION[ 'qu_lena_token' ] . '";</script>';
-        
-        
-        $suggestions = $this->getSuggestionsList(); // array( 1,2,3 );
+        $out .= '<script type="text/javascript">'
+                . 'let QU_LENA_BASEURL="' . $this->baseUrl . '";'
+                . 'let QU_LENA_TOKEN="' . $_SESSION[ 'qu_lena_token' ] . '";'
+                . '</script>';                        
         
         $out .= '<div id="emil">';        
         $out .= '<div id="suggestions"><div class="customBG">';            
         
-        $response = 'Aufgrund deine aktuellen Einstellungen schlage ich folgendes vor:';
-//        if( count( $notVisited ) == 1 ) {
-//            $response = '<b>finished</b>';
-//        }         
+        
+        $response = 'Aufgrund deine aktuellen Einstellungen schlage ich folgendes vor:'; // data->reason
+        
+        
         $out .= '<div id="response">';
-        $out .= $response;
         $out .= '</div>';
 
         $out .= '<ul id="list">';
         foreach( $suggestions as $id ) {            
-            $out .= '<li class="suggestion"><a href="' . $this->baseUrl . '?add=' . $itemId . '">'
-                 . 'MLE' . $itemId 
-                . '</a></li>'
+            $out .= // JS-PART
+                  '<li class="suggestion">'                
+                . '<a href="' . $this->baseUrl . '?add=' . $itemId . '">'
+                . 'MLE' . $itemId                 
+                . '</a>'
+                . '</li>'
+                // /JS
             ;
         }
         $out .= '</ul>';

@@ -232,7 +232,7 @@ WHERE _t.tree = 1
   AND _od.type = 'copa'
   AND _or.deleted IS NULL
   AND _t.parent = " . $id . " 
-ORDER BY lft
+ORDER BY lft DESC
             ";
             $result = $this->db->query( $sql );        
             while( $line = $result->fetchAssoc() ) {            
