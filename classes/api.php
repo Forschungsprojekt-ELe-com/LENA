@@ -19,7 +19,8 @@ $recommend = array();
 
 if( ! $access->isEmptyResult() ) {
     $suggestion = $access->getSuggestion();
-    if( $suggestion->isOk() ) {
+//    if( $suggestion->isOk() ) 
+    {
         $status    = 'OK';
         $reason    = $suggestion->getReason();
         $recommend = $suggestion->getRecommend();
