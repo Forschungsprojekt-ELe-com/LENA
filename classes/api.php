@@ -23,7 +23,7 @@ $recommend = array();
 //    if( $suggestion->isOk() ) 
     {
         $status    = 'OK';
-        $reason    = $suggestion->getReason();
+        $reason    = 'huhu' . $suggestion->getReason();
         $recommend = $suggestion->getRecommend();
     }
 }
