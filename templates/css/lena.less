@@ -2,7 +2,7 @@
 #emil {
 	display: flex;
 	flex-direction: column;
-	align-items: end;
+	align-items: flex-start;
 	 #visitedBox {
 		 padding-left: 100px;
 	 }
@@ -64,11 +64,7 @@
 			text-decoration: none;
 			font-weight: 400;
 		}
-		&.heading {
-			span {
-				color: #777;
-			}
-		}
+
 		&.nextItem {
 			div.visitedItem {
 				display: flex;
@@ -129,6 +125,11 @@
 }
 #plannedBox {
 	li {
+		&.heading {
+			span {
+				color: #777;
+			}
+		}
 		&.visitedItem {
 			a {
 				&, &:visited {

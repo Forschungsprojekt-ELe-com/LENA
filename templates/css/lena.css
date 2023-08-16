@@ -1,7 +1,7 @@
 #emil {
   display: flex;
   flex-direction: column;
-  align-items: end;
+  align-items: flex-start;
 }
 #emil #visitedBox {
   padding-left: 100px;
@@ -67,11 +67,6 @@
   line-height: 25px;
   text-decoration: none;
   font-weight: 400;
-}
-#plannedList li.heading span,
-#list li.heading span,
-#visitedList li.heading span {
-  color: #777;
 }
 #plannedList li.nextItem div.visitedItem,
 #list li.nextItem div.visitedItem,
@@ -139,6 +134,9 @@
   line-height: 25px;
   text-decoration: none;
   font-weight: 700;
+}
+#plannedBox li.heading span {
+  color: #777;
 }
 #plannedBox li.visitedItem a,
 #plannedBox li.visitedItem a:visited {
