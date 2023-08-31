@@ -203,7 +203,7 @@ WHERE _t.path LIKE '" . $path . "'
                 $debug .= '     COPA: ' . $copa[ 'title' ] . PHP_EOL;
             }
             $testList = $tree->getChildsByType( $id, 'tst' );
-            $debug .= 'TEST LIST---------------------' . print_r( $testList, true ) . PHP_EOL;
+//            $debug .= 'TEST LIST---------------------' . print_r( $testList, true ) . PHP_EOL;
             foreach( $testList as $test ) {
                 $test_id = $test[ 'child' ];
                 $plan[ $this->getObjId( $test_id ) ] = $test_id;
