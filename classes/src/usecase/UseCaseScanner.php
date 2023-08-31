@@ -190,21 +190,24 @@ WHERE _t.path LIKE '" . $path . "'
         $tree = $DIC->repositoryTree();
         $foldList = $tree->getChildsByType( $ref_id, 'fold' );
         
-        $debug .= 'FOLD LIST---------------------' . print_r( $foldList, true ) . PHP_EOL;
+//        $debug .= 'FOLD LIST---------------------' . print_r( $foldList, true ) . PHP_EOL;
         
         foreach( $foldList as $fold ) {
             $id = $fold[ 'child' ];
+            $debug .= 'FOLD: ' . $fold[ 'title' ] . PHP_EOL;
             $copaList = $tree->getChildsByType( $id, 'copa' );
-            $debug .= 'COPA LIST---------------------' . print_r( $copaList, true ) . PHP_EOL;
+//            $debug .= 'COPA LIST---------------------' . print_r( $copaList, true ) . PHP_EOL;            
             foreach( $copaList as $copa ) {
                 $copa_id = $copa[ 'child' ];
                 $plan[ $this->getObjId( $copa_id ) ] = $copa_id;
+                $debug .= '     COPA: ' . $copa[ 'title' ] . PHP_EOL;
             }
             $testList = $tree->getChildsByType( $id, 'tst' );
             $debug .= 'TEST LIST---------------------' . print_r( $testList, true ) . PHP_EOL;
             foreach( $testList as $test ) {
                 $test_id = $test[ 'child' ];
                 $plan[ $this->getObjId( $test_id ) ] = $test_id;
+                $debug .= '     TEST: ' . $test[ 'title' ] . PHP_EOL;
             }
         }
         if( strlen( $debug ) > 0 ) {
