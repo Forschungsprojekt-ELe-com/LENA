@@ -13,6 +13,12 @@ class Planned {
      * @var int[]
      */
     protected $plannedList;
+    
+    /**
+     * 
+     * @var int[]
+     */
+    protected $lookup;
 
     /**
      * Use this to create the Planned Instance.
@@ -29,9 +35,13 @@ class Planned {
     
     private function __construct() {
         $this->plannedList = array();
+        $this->lookup      = array();
         if( is_file( __DIR__ . '/../../../.lenacache/planned.php' ) ) {
             include __DIR__ . '/../../../.lenacache/planned.php';
             $this->plannedList = $LENA_PLAN;
+            foreach( $LENA_PLAN as $ref_id ) {
+                $this->lookup[ $ref_id ] = 1;
+            }
         }
     }
            
@@ -41,6 +51,7 @@ class Planned {
      * @return bool
      */
     public function isPlanned( $obj_id ) {
+        return isset( $this->lookup( $ref_id ) );
         return isset( $this->plannedList[ $obj_id ] ); 
     }
     
@@ -49,6 +60,7 @@ class Planned {
      * @return int[]
      */
     public function getObjIdList() {
+        return $this->plannedList;
         return array_keys( $this->plannedList );
     }
 }
