@@ -41,10 +41,13 @@ class UseCaseScannerFacade {
         $scanner = new UseCaseScanner( $this->db );
         foreach( $this->useCaseData as $usecaseNo => $ref_id ) {
             $scanner->serializeUseCase( $usecaseNo, $ref_id );
-        }
-        if( $this->plannedId > 0 ) {
-            $scanner->serializePlan( $this->plannedId );
-        }
+            if( 
+                ( $usecaseNo == 2 )
+                && ( $this->plannedId > 0 )
+            ) {
+                $scanner->serializePlan( $this->plannedId );
+            }
+        }        
     }
     
     protected function deleteOldFiles() {
