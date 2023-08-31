@@ -51,7 +51,8 @@ class Planned {
      * @return bool
      */
     public function isPlanned( $obj_id ) {
-        return isset( $this->lookup( $ref_id ) );
+        return isset( $this->lookup[ $ref_id ] );
+        
         return isset( $this->plannedList[ $obj_id ] ); 
     }
     
