@@ -198,13 +198,13 @@ WHERE _t.path LIKE '" . $path . "'
             $debug .= 'COPA LIST---------------------' . print_r( $copaList, true ) . PHP_EOL;
             foreach( $copaList as $copa ) {
                 $copa_id = $copa[ 'child' ];
-                $plan[] = $this->getObjId( $copa_id );
+                $plan[ $this->getObjId( $copa_id ) ] = $copa_id;
             }
             $testList = $tree->getChildsByType( $id, 'tst' );
             $debug .= 'TEST LIST---------------------' . print_r( $testList, true ) . PHP_EOL;
             foreach( $testList as $test ) {
                 $test_id = $test[ 'child' ];
-                $plan[] = $this->getObjId( $test_id );
+                $plan[ $this->getObjId( $test_id ) ] = $test_id;
             }
         }
         if( strlen( $debug ) > 0 ) {
