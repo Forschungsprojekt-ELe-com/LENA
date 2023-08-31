@@ -187,16 +187,19 @@ WHERE _t.path LIKE '" . $path . "'
         
         global $DIC;
         $tree = $DIC->repositoryTree();
-        $folds = $tree->getChildsByType( $ref_id, 'fold' );
-        file_put_contents( __DIR__ . '/../../../.lenacache/debug.txt', print_r( $folds, true ) );  
-        /*
-        foreach( $folds as $id ) {
-            $copas = $tree->getChildsByType( $id, 'copa' );
-            foreach( $copas as $copa_id ) {
+        $foldList = $tree->getChildsByType( $ref_id, 'fold' );
+        file_put_contents( __DIR__ . '/../../../.lenacache/debug.txt', print_r( $foldList, true ) );  
+        
+        foreach( $foldList as $fold ) {
+            $id = $fold[ 'child' ];
+            $copaList = $tree->getChildsByType( $id, 'copa' );
+            foreach( $copaList as $copa ) {
+                $copa_id = $copa[ 'child' ];
                 $plan[ $this->getObjId( $copa_id ) ] = $copa_id;
             }
-            $tests = $tree->getChildsByType( $id, 'tst' );
-            foreach( $tests as $test_id ) {
+            $testList = $tree->getChildsByType( $id, 'tst' );
+            foreach( $testList as $test ) {
+                $test_id = $test[ 'child' ];
                 $plan[ $this->getObjId( $test_id ) ] = $test_id;
             }
         }
