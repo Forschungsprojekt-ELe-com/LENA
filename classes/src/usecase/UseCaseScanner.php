@@ -188,7 +188,7 @@ WHERE _t.path LIKE '" . $path . "'
         global $DIC;
         $tree = $DIC->repositoryTree();
         $foldList = $tree->getChildsByType( $ref_id, 'fold' );
-        file_put_contents( __DIR__ . '/../../../.lenacache/debug.txt', print_r( $foldList, true ) );  
+        
         
         foreach( $foldList as $fold ) {
             $id = $fold[ 'child' ];
@@ -203,9 +203,10 @@ WHERE _t.path LIKE '" . $path . "'
                 $plan[ $this->getObjId( $test_id ) ] = $test_id;
             }
         }
+        file_put_contents( __DIR__ . '/../../../.lenacache/debug.txt', print_r( $plan, true ) );  
         // */
         
-        
+        /*
         // find headings
         $sql = "SELECT 1
   , _t.child AS _ref_id
