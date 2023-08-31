@@ -188,7 +188,7 @@ WHERE _t.path LIKE '" . $path . "'
         global $DIC;
         $tree = $DIC->repositoryTree();
         $folds = $tree->getChildsByType( $ref_id, 'fold' );
-        file_put_contents( __DIR__ . '/../../.lenacache/debug.txt', print_r( $folds, true ) );  
+        file_put_contents( __DIR__ . '/../../../.lenacache/debug.txt', print_r( $folds, true ) );  
         /*
         foreach( $folds as $id ) {
             $copas = $tree->getChildsByType( $id, 'copa' );
