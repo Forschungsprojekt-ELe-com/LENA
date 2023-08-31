@@ -184,10 +184,12 @@ WHERE _t.path LIKE '" . $path . "'
         $allHeadings = array();
         $plan = array();
 
-        /*
+        
         global $DIC;
         $tree = $DIC->repositoryTree();
         $folds = $tree->getChildsByType( $ref_id, 'fold' );
+        file_put_contents( __DIR__ . '/../../.lenacache/debug.txt', print_r( $folds, true ) );  
+        /*
         foreach( $folds as $id ) {
             $copas = $tree->getChildsByType( $id, 'copa' );
             foreach( $copas as $copa_id ) {
