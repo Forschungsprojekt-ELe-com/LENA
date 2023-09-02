@@ -45,7 +45,7 @@ class UseCase {
         $this->refIdList     = $refIdList;
         $this->objIdList     = $objIdList;
         $this->titles        = $titles;
-        $this->parentList    = $headings;
+        $this->parentList    = $parentList;
     }
     
     /**
