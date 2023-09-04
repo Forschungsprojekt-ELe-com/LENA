@@ -19,7 +19,7 @@ class VisitedFactory {
         $sql = "
 SELECT ut_lp_marks.obj_id AS _obj_id
 FROM ut_lp_marks
-JOIN object_reference _or ON ( ut_lp_marks.ref_id=_or.ref_id )    
+JOIN object_reference _or ON ( ut_lp_marks.obj_id=_or.obj_id )    
 WHERE usr_id=" . $userId . "
   AND _or.deleted IS NULL
   AND status=2
