@@ -23,7 +23,7 @@ JOIN object_reference _or ON ( ut_lp_marks.ref_id=_or.ref_id )
 WHERE usr_id=" . $userId . "
   AND _or.deleted IS NULL
   AND status=2
-  AND _or.obj_id IN ( " . $inString . " )
+  AND ut_lp_marks.obj_id IN ( " . $inString . " )
 ORDER BY status_changed DESC
         ";
         $visited = array();
