@@ -19,7 +19,9 @@ class VisitedFactory {
         $sql = "
 SELECT obj_id AS _obj_id
 FROM ut_lp_marks
-WHERE usr_id=" . $userId . "  
+JOIN object_reference _or ON ( ut_lp_marks.ref_id=_or.ref_id )    
+WHERE usr_id=" . $userId . "
+  AND _or.deleted IS NULL
   AND status=2
   AND obj_id IN ( " . $inString . " )
 ORDER BY status_changed DESC
