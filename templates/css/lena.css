@@ -42,18 +42,17 @@
   margin: 0;
   padding: 10px 0 0;
 }
-#plannedList li ul,
-#list li ul,
-#visitedList li ul {
-  list-style: none;
-  margin: 0;
-  padding: 10px 0 0;
+#plannedList li.heading span,
+#list li.heading span,
+#visitedList li.heading span {
+  color: #777;
 }
 #plannedList li div.visitedItem,
 #list li div.visitedItem,
 #visitedList li div.visitedItem {
   display: flex;
   gap: 10px;
+  align-items: center;
 }
 #plannedList li div.visitedItem img,
 #list li div.visitedItem img,
@@ -148,14 +147,15 @@
 .ilc_section_TitelQuiz + h3.ilHeader {
   display: none;
 }
-#plannedList li.heading {
+#plannedList > li.heading {
   margin-bottom: 20px;
-  background-color: #ccc;
+  background-color: #ddd;
 }
-#plannedList li.heading span {
-  color: #aaa;
+#plannedList > li.heading > span {
+  padding-left: 10px;
+  color: #555;
 }
-#plannedList li.heading ul {
+#plannedList > li.heading ul {
   list-style: none;
   margin: 0;
   padding: 10px 0 0;
