@@ -136,12 +136,6 @@
   text-decoration: none;
   font-weight: 700;
 }
-#plannedBox li.heading {
-  margin-bottom: 20px;
-}
-#plannedBox li.heading span {
-  color: #777;
-}
 #plannedBox li.visitedItem a,
 #plannedBox li.visitedItem a:visited {
   background-image: url("images/check.png");
@@ -153,4 +147,17 @@
 }
 .ilc_section_TitelQuiz + h3.ilHeader {
   display: none;
+}
+#plannedList li.heading {
+  margin-bottom: 20px;
+  background-color: #ccc;
+}
+#plannedList li.heading span {
+  color: #aaa;
+}
+#plannedList li.heading ul {
+  list-style: none;
+  margin: 0;
+  padding: 10px 0 0;
+  background-color: #fff;
 }
