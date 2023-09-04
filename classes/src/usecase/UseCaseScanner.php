@@ -101,14 +101,13 @@ class UseCaseScanner {
   , _od.title AS _title
   , _t.parent AS _parent_ref_id
   , _or2.obj_id AS _parent_obj_id
-  , _od2.title AS _parent_title
-FROM tree _t
-  JOIN object_reference _or ON ( _t.child=_or.ref_id )
-  JOIN object_data _od ON ( _od.obj_id=_or.obj_id )
   
-  JOIN object_reference _or2 ON ( _t.parent=_or2.ref_id )
-  JOIN object_data _od2 ON ( _od2.obj_id=_or2.obj_id )
-WHERE _t.path LIKE '" . $path . "%'
+FROM tree _t
+  JOIN object_reference _or ON ( _t.child=_or.ref_id AND _or.deleted IS NULL)
+  JOIN object_data _od ON ( _od.obj_id=_or.obj_id )  
+  JOIN object_reference _or2 ON ( _t.parent=_or2.ref_id AND _or2.deleted IS NULL )
+  
+WHERE _t.path LIKE '" . $path . "'
         ";
         $result = $this->db->query( $sql );
         
@@ -225,8 +224,8 @@ FROM tree _t
   JOIN container_sorting _cs ON ( _t.child=_cs.child_id AND _orParent.obj_id=_cs.obj_id )
 WHERE _t.tree = 1
   AND _or.deleted IS NULL
-    AND _t.parent = " . $id . " 
-  ORDER BY _cs.position
+  AND _t.parent = " . $id . " 
+ORDER BY _cs.position
             ";
             $debug .= PHP_EOL . PHP_EOL . $sql;
             $result = $this->db->query( $sql );        
