@@ -179,7 +179,7 @@ WHERE _t.path LIKE '" . $path . "'
     public function serializePlan( $ref_id ) {
   
         // besser 2 schleifen: 1. schleife: alle ordner typ: "fold" und 2. schleife: alle objekte unter ordner "copa" | "tst"
-        // $childs = $tree->getChildsByType( $ref_id );
+        // $childs = $tree->getChildsByType( $ref_id );                
         
         $allHeadings = array();
         $plan = array();
@@ -190,12 +190,25 @@ WHERE _t.path LIKE '" . $path . "'
         $tree = $DIC->repositoryTree();
         $foldList = $tree->getChildsByType( $ref_id, 'fold' );
         
+        $sortedFolderList = ilContainerSorting::_getInstance( $this->getObjId( $ref_id ) );
+        $sortedFolders    = $sortedFolderList->sortItems( array( 'my_ref' => $foldList ) );
+        $foldList         = $sortedFolders['my_ref'];
+        
+        
 //        $debug .= 'FOLD LIST---------------------' . print_r( $foldList, true ) . PHP_EOL;
         
         foreach( $foldList as $fold ) {
             $id = $fold[ 'child' ];
             $debug .= 'FOLD: ' . $fold[ 'title' ] . PHP_EOL;
             $copaList = $tree->getChildsByType( $id, 'copa' );
+            
+            $sortedCopaList = ilContainerSorting::_getInstance( $fold );
+            $sortedCopa     = $sortedCopaList->sortItems( array( 'my_ref' => $copaList ) );
+            $copaList       = $sortedFolders[ 'my_ref' ];
+        
+            
+            
+            
 //            $debug .= 'COPA LIST---------------------' . print_r( $copaList, true ) . PHP_EOL;            
             foreach( $copaList as $copa ) {
                 $copa_id = $copa[ 'child' ];
@@ -273,7 +286,26 @@ ORDER BY lft
             }       
         }
         // */
-                
+
+        $plan = array();
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         $out = '<?php' . PHP_EOL
                . '$LENA_PLAN=array();' . PHP_EOL
         ;
