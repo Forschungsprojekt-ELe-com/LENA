@@ -202,7 +202,7 @@ WHERE _t.path LIKE '" . $path . "'
             $debug .= 'FOLD: ' . $fold[ 'title' ] . PHP_EOL;
             $copaList = $tree->getChildsByType( $id, 'copa' );
             
-            $sortedCopaList = ilContainerSorting::_getInstance( $fold );
+            $sortedCopaList = ilContainerSorting::_getInstance( $this->getObjId( $fold ) );
             $sortedCopa     = $sortedCopaList->sortItems( array( 'my_ref' => $copaList ) );
             $copaList       = $sortedFolders[ 'my_ref' ];
         
