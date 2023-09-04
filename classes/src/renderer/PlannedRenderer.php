@@ -34,7 +34,7 @@ class PlannedRenderer extends Renderer {
                 $out .= '<li class="nextItem">'
                     . '<div class="visitedItem">';                                    
                 if( $this->usecase->isTest( $ref_id ) ) {
-                    $out .= './Customizing/global/skin/elecom/images/icon_tst.svg';
+                    $out .= '<img src="./Customizing/global/skin/elecom/images/icon_tst.svg">';
                 } else {
                     $out .= '<img src="./data/elecom/custom_icons/obj_' . $id . '/icon_custom.svg" />';
                 }
@@ -53,7 +53,7 @@ class PlannedRenderer extends Renderer {
                     . '<div class="visitedItem">'
                 ;
                 if( $this->usecase->isTest( $ref_id ) ) {
-                    $out .= './Customizing/global/skin/elecom/images/icon_tst.svg';
+                    $out .= '<img src="./Customizing/global/skin/elecom/images/icon_tst.svg">';
                 } else {
                     $out .= '<img src="./data/elecom/custom_icons/obj_' . $id . '/icon_custom.svg" />';
                 }
@@ -72,7 +72,7 @@ class PlannedRenderer extends Renderer {
                     . '<div class="visitedItem">';
                 
                 if( $this->usecase->isTest( $ref_id ) ) {
-                    $out .= './Customizing/global/skin/elecom/images/icon_tst.svg';
+                    $out .= '<img src="./Customizing/global/skin/elecom/images/icon_tst.svg">';
                 } else {
                     $out .= '<img src="./data/elecom/custom_icons/obj_' . $id . '/icon_custom.svg" />';
                 }
