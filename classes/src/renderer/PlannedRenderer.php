@@ -32,10 +32,14 @@ class PlannedRenderer extends Renderer {
             $notfound = true;
             if( $id == $next ) {
                 $out .= '<li class="nextItem">'
-                    . '<div class="visitedItem">'
-                    . '<img src="./data/elecom/custom_icons/obj_' . $id . '/icon_custom.svg" />'
-//                    . '<a href="' . $this->getUrl( $this->usecase->getRefId( $id ) ) . '">'
-                    . '<a href="' . $this->getUrl( $ref_id ) . '">'
+                    . '<div class="visitedItem">';                                    
+                if( $this->usecase->isTest( $ref_id ) ) {
+                    $out .= './Customizing/global/skin/elecom/images/icon_tst.svg';
+                } else {
+                    $out .= '<img src="./data/elecom/custom_icons/obj_' . $id . '/icon_custom.svg" />';
+                }
+                
+                $out .= '<a href="' . $this->getUrl( $ref_id ) . '">'
                     . $this->usecase->getTitle( $id ) 
                     . '</a>'
                     . '</div>'
@@ -47,9 +51,14 @@ class PlannedRenderer extends Renderer {
             if( $this->visited->isVisited( $id ) ) {
                 $out .= '<li class="visitedItem">'
                     . '<div class="visitedItem">'
-                    . '<img src="./data/elecom/custom_icons/obj_' . $id . '/icon_custom.svg" />'
-//                    . '<a href="' . $this->getUrl( $this->usecase->getRefId( $id ) ) . '">'
-                    . '<a href="' . $this->getUrl( $ref_id ) . '">'
+                ;
+                if( $this->usecase->isTest( $ref_id ) ) {
+                    $out .= './Customizing/global/skin/elecom/images/icon_tst.svg';
+                } else {
+                    $out .= '<img src="./data/elecom/custom_icons/obj_' . $id . '/icon_custom.svg" />';
+                }
+                
+                $out .= '<a href="' . $this->getUrl( $ref_id ) . '">'
                     . $this->usecase->getTitle( $id ) 
                     . '</a>'
                     . '</div>'
@@ -60,9 +69,15 @@ class PlannedRenderer extends Renderer {
             
             if( $notfound ) {
                 $out .= '<li>'
-                    . '<div class="visitedItem">'
-                    . '<img src="./data/elecom/custom_icons/obj_' . $id . '/icon_custom.svg" />'
-                    . '<span>'
+                    . '<div class="visitedItem">';
+                
+                if( $this->usecase->isTest( $ref_id ) ) {
+                    $out .= './Customizing/global/skin/elecom/images/icon_tst.svg';
+                } else {
+                    $out .= '<img src="./data/elecom/custom_icons/obj_' . $id . '/icon_custom.svg" />';
+                }
+                
+                $out .= '<span>'
                     . $this->usecase->getTitle( $id ) 
                     . '</span>'
                     . '</div></li>'

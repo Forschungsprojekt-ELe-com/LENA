@@ -30,11 +30,18 @@ class UseCaseScanner {
      */
     protected $parentList;
     
+    /**
+     * 
+     * @var int[]
+     */
+    protected $testList;
+    
     public function __construct( $db ) {
         $this->db = $db;
-        $this->ref_ids = array();
-        $this->obj_ids = array();                        
-        $this->titles  = array();                        
+        $this->ref_ids  = array();
+        $this->obj_ids  = array();                        
+        $this->titles   = array();                        
+        $this->testList = array();                        
     }
     
     /**
@@ -73,6 +80,14 @@ class UseCaseScanner {
             $out .= '$LENA_PARENTS[ ' . $child_obj_id . ' ] = ' . $parent_obj_id . ';' . PHP_EOL;            
         }
         
+        $out .= PHP_EOL 
+                . '$LENA_TESTS = array();' . PHP_EOL;
+                
+        foreach( $this->testList as $ref_id => $obj_id ) {                        
+            $out .= '$LENA_TESTS[ ' . $ref_id . ' ] = ' . $obj_id . ';' . PHP_EOL;            
+        }
+        
+        
         file_put_contents( UseCaseFactory::LOCATION . $usecaseNo . '.php', $out );
         
         /*
@@ -102,6 +117,7 @@ class UseCaseScanner {
   , _t.parent AS _parent_ref_id
   , _or2.obj_id AS _parent_obj_id
   , _od2.title AS _parent_title
+  , _od.type AS _type
 FROM tree _t
   JOIN object_reference _or ON ( _t.child=_or.ref_id AND _or.deleted IS NULL)
   JOIN object_data _od ON ( _od.obj_id=_or.obj_id )  
@@ -118,6 +134,9 @@ WHERE _t.path LIKE '" . $path . "'
             
             $this->titles[ $line[ '_parent_obj_id' ] ]  = $line[ '_parent_title' ];
             $this->parentList[ $line[ '_obj_id' ] ] = $line[ '_parent_obj_id' ];
+            if( $line[ '_type' ] == 'tst' ){
+                $this->testList[ $line[ '_ref_id' ] ] = $line[ '_obj_id' ];
+            }
         }
     }
     

@@ -17,7 +17,14 @@ class UseCaseFactory {
             $LENA_TITLES = array();
             $LENA_PARENTS= array();
             include $cacheFileName;
-            $out = new UseCase( $usecaseNumber, $LENA_REF, $LENA_OBJ, $LENA_TITLES, $LENA_PARENTS );
+            $out = new UseCase( 
+                $usecaseNumber
+                , $LENA_REF
+                , $LENA_OBJ
+                , $LENA_TITLES
+                , $LENA_PARENTS
+                , $LENA_TESTS  
+            );
             return $out;
         }
         
