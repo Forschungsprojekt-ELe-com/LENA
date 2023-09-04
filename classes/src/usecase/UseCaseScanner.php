@@ -177,11 +177,106 @@ WHERE _t.path LIKE '" . $path . "%'
         return isset( $this->obj_ids[ $obj_id ] );
     }
     
+    
     /**
      * 
      * @param int $ref_id
      */
     public function serializePlan( $ref_id ) {
+  
+        // besser 2 schleifen: 1. schleife: alle ordner typ: "fold" und 2. schleife: alle objekte unter ordner "copa" | "tst"
+        // $childs = $tree->getChildsByType( $ref_id );                
+        
+        $allHeadings = array();
+        $plan = array();
+
+        $debug = '';
+        
+        // find headings
+        $sql = "SELECT 1
+  , _t.child AS _ref_id
+  , _od.title AS _title
+FROM tree _t
+  JOIN object_reference _or ON ( _t.child=_or.ref_id )    
+  JOIN object_data _od ON ( _or.obj_id=_od.obj_id)
+WHERE _t.tree = 1
+  AND _od.type = 'fold'
+  AND _or.deleted IS NULL
+  AND _t.parent = " . $ref_id . " 
+        ";
+        $result = $this->db->query( $sql );
+        while( $line = $result->fetchAssoc() ) {
+            $allHeadings[ $line[ '_ref_id' ] ] = $line[ '_title' ];
+        }
+
+        
+        foreach( $allHeadings as $id => $title ) {
+            $sql = "SELECT 1
+  , _od.type AS _type
+  , _orParent.obj_id AS _parentOBJID
+  
+  , _t.child AS _ref_id
+  , _od.title AS _title  
+FROM tree _t
+  JOIN object_reference _or ON ( _t.child=_or.ref_id )  
+  JOIN object_reference _orParent ON ( _t.parent=_orParent.ref_id)
+  JOIN object_data _od ON ( _or.obj_id=_od.obj_id)
+  JOIN container_sorting _cs ON ( _t.child=_cs.child_id AND _orParent.obj_id=_cs.obj_id )
+WHERE _t.tree = 1
+  AND _or.deleted IS NULL
+    AND _t.parent = " . $id . " 
+  ORDER BY _cs.position
+            ";
+            $result = $this->db->query( $sql );        
+            while( $line = $result->fetchAssoc() ) {            
+                $plan[ $line[ '_obj_id' ] ] = $line[ '_ref_id' ];
+            }                               
+        }
+        
+        /*
+        $sql = "SELECT 1
+  , _t.child AS _ref_id
+  , _or.obj_id AS _obj_id
+  , _od.title AS _title
+FROM tree _t
+  JOIN object_reference _or ON ( _t.child=_or.ref_id )  
+  JOIN object_data _od ON ( _or.obj_id=_od.obj_id)
+WHERE _t.tree = 1
+  AND _od.type = 'tst'
+  AND _or.deleted IS NULL
+  AND _t.parent = " . $id . " 
+ORDER BY lft
+            ";
+        $result = $this->db->query( $sql );        
+        while( $line = $result->fetchAssoc() ) {            
+            $plan[ $line[ '_obj_id' ] ] = $line[ '_ref_id' ];
+        }               
+        // */
+        
+        $out = '<?php' . PHP_EOL
+               . '$LENA_PLAN=array();' . PHP_EOL
+        ;
+        
+        foreach( $plan as $obj_id => $ref_id ) {            
+            $out .= '$LENA_PLAN[ ' . $obj_id . ' ] = ' . $ref_id . ';' . PHP_EOL;
+        }       
+
+        if( strlen( $debug ) > 0 ) {
+            file_put_contents( __DIR__ . '/../../../.lenacache/debug.txt', $debug );  
+        }
+
+        
+        file_put_contents( UseCaseFactory::LOCATION . 'planned.php', $out );        
+    }
+    
+    
+    
+    
+    /**
+     * 
+     * @param int $ref_id
+     */
+    public function serializePlanOld( $ref_id ) {
   
         // besser 2 schleifen: 1. schleife: alle ordner typ: "fold" und 2. schleife: alle objekte unter ordner "copa" | "tst"
         // $childs = $tree->getChildsByType( $ref_id );                
