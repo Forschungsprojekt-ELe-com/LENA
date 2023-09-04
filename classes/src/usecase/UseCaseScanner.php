@@ -159,6 +159,9 @@ WHERE _t.path LIKE '" . $path . "%'
      * @return bool
      */        
     public function issetRef( $ref_id ) {
+        if( empty( $ref_id ) ){
+            return false;
+        }
         return isset( $this->ref_ids[ $ref_id ] );
     }
     
@@ -168,6 +171,9 @@ WHERE _t.path LIKE '" . $path . "%'
      * @return bool
      */
     public function issetObj( $obj_id ) {
+        if( empty( $obj_id ) ) {
+            return false;
+        }
         return isset( $this->obj_ids[ $obj_id ] );
     }
     
