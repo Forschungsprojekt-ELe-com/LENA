@@ -216,6 +216,7 @@ WHERE _t.tree = 1
   , _orParent.obj_id AS _parentOBJID
   
   , _t.child AS _ref_id
+  , _or.obj_id AS _obj_id
   , _od.title AS _title  
 FROM tree _t
   JOIN object_reference _or ON ( _t.child=_or.ref_id )  
@@ -227,6 +228,7 @@ WHERE _t.tree = 1
     AND _t.parent = " . $id . " 
   ORDER BY _cs.position
             ";
+            $debug .= PHP_EOL . PHP_EOL . $sql;
             $result = $this->db->query( $sql );        
             while( $line = $result->fetchAssoc() ) {            
                 $plan[ $line[ '_obj_id' ] ] = $line[ '_ref_id' ];
