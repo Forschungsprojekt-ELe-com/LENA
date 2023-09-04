@@ -9,7 +9,8 @@ class PlannedRenderer extends Renderer {
     public function render() {
         $planned = Planned::getInstance();
         $out = '';
-        $data = $planned->getObjIdList();
+//        $data = $planned->getObjIdList();
+        $data = $planned->getPlannedList();
         $next = $this->next();
         $parentList = $this->usecase->getParents();
         
@@ -17,7 +18,8 @@ class PlannedRenderer extends Renderer {
         $out .= '<div id="plannedBox">';
         //$out .= '<b>planned</b>';
         $out .= '<ul id="plannedList">';
-        foreach( $data as $id ) {
+//        foreach( $data as $id ) {
+        foreach( $data as $id => $ref_id ) {
             $title = $this->usecase->getTitle( $parentList[ $id ] );
             if( $oldTitle != $title ) {
                 if( strlen( $oldTitle ) > 0 ) {
@@ -32,7 +34,8 @@ class PlannedRenderer extends Renderer {
                 $out .= '<li class="nextItem">'
                     . '<div class="visitedItem">'
                     . '<img src="./data/elecom/custom_icons/obj_' . $id . '/icon_custom.svg" />'
-                    . '<a href="' . $this->getUrl( $this->usecase->getRefId( $id ) ) . '">'
+//                    . '<a href="' . $this->getUrl( $this->usecase->getRefId( $id ) ) . '">'
+                    . '<a href="' . $this->getUrl( $ref_id ) . '">'
                     . $this->usecase->getTitle( $id ) 
                     . '</a>'
                     . '</div>'
@@ -45,7 +48,8 @@ class PlannedRenderer extends Renderer {
                 $out .= '<li class="visitedItem">'
                     . '<div class="visitedItem">'
                     . '<img src="./data/elecom/custom_icons/obj_' . $id . '/icon_custom.svg" />'
-                    . '<a href="' . $this->getUrl( $this->usecase->getRefId( $id ) ) . '">'
+//                    . '<a href="' . $this->getUrl( $this->usecase->getRefId( $id ) ) . '">'
+                    . '<a href="' . $this->getUrl( $ref_id ) . '">'
                     . $this->usecase->getTitle( $id ) 
                     . '</a>'
                     . '</div>'

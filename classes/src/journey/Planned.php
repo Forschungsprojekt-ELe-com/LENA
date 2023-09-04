@@ -51,4 +51,12 @@ class Planned {
     public function getObjIdList() {
         return array_keys( $this->plannedList );
     }
+    
+    /**
+     * 
+     * @return array   obj_id => ref_id
+     */
+    public function getPlannedList() {
+        return $this->plannedList;
+    }
 }
