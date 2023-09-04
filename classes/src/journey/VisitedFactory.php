@@ -17,7 +17,7 @@ class VisitedFactory {
     public function create( $usecase, $userId ) {
         $inString = $usecase->getObjIdInstring();
         $sql = "
-SELECT obj_id AS _obj_id
+SELECT ut_lp_marks.obj_id AS _obj_id
 FROM ut_lp_marks
 JOIN object_reference _or ON ( ut_lp_marks.ref_id=_or.ref_id )    
 WHERE usr_id=" . $userId . "
