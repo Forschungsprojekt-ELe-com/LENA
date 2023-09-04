@@ -195,10 +195,11 @@ WHERE _t.path LIKE '" . $path . "%'
         $tree = $DIC->repositoryTree();
         $foldList = $tree->getChildsByType( $ref_id, 'fold' );
         
+        /*
         $sortedFolderList = ilContainerSorting::_getInstance( $this->getObjId( $ref_id ) );
         $sortedFolders    = $sortedFolderList->sortItems( array( 'my_ref' => $foldList ) );
         $foldList         = $sortedFolders['my_ref'];
-        
+        // */
         
 //        $debug .= 'FOLD LIST---------------------' . print_r( $foldList, true ) . PHP_EOL;
         
@@ -207,10 +208,11 @@ WHERE _t.path LIKE '" . $path . "%'
             $debug .= 'FOLD: ' . $fold[ 'title' ] . PHP_EOL;
             $copaList = $tree->getChildsByType( $id, 'copa' );
             
+            /*
             $sortedCopaList = ilContainerSorting::_getInstance( $this->getObjId( $fold ) );
             $sortedCopa     = $sortedCopaList->sortItems( array( 'my_ref' => $copaList ) );
             $copaList       = $sortedFolders[ 'my_ref' ];
-        
+            // */
             
             
             
