@@ -108,7 +108,7 @@ FROM tree _t
   
   JOIN object_reference _or2 ON ( _t.parent=_or2.ref_id )
   JOIN object_data _od2 ON ( _od2.obj_id=_or2.obj_id )
-WHERE _t.path LIKE '" . $path . "'
+WHERE _t.path LIKE '" . $path . "%'
         ";
         $result = $this->db->query( $sql );
         
@@ -159,8 +159,7 @@ WHERE _t.path LIKE '" . $path . "'
      * @return bool
      */        
     public function issetRef( $ref_id ) {
-        $temp = $this->ref_ids;
-        return isset( $temp[ $ref_id ] );
+        return isset( $this->ref_ids[ $ref_id ] );
     }
     
     /**
