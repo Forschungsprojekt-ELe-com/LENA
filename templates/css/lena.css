@@ -185,7 +185,8 @@
 }
 #plannedBox #plannedList li.visitedItem a,
 #plannedBox #plannedList li.visitedItem a:visited {
-  background-image: url("images/check.png");
+  background-image: url("images/next.svg");
+  background-color: #ffff04;
   background-position: right center;
   background-repeat: no-repeat;
   background-size: 16px;
@@ -210,6 +211,11 @@
 #plannedBox #plannedList li.nextItem a:visited {
   display: inline-block;
   color: #0199F4;
+  background-image: url("images/right-arrow.png");
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-size: 20px;
+  padding-right: 30px;
   line-height: 25px;
   text-decoration: none;
   font-weight: 700;
