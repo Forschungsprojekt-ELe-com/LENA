@@ -77,8 +77,8 @@
 #plannedList li.nextItem div.visitedItem img,
 #list li.nextItem div.visitedItem img,
 #visitedList li.nextItem div.visitedItem img {
-  width: 20px;
-  height: 20px;
+  width: 0;
+  height: 0;
 }
 #plannedList li.nextItem a,
 #list li.nextItem a,
@@ -87,12 +87,11 @@
 #list li.nextItem a:visited,
 #visitedList li.nextItem a:visited {
   display: inline-block;
-  color: #000;
-  background-image: url("images/left-arrow.png");
+  color: #4472c4;
+  background-image: none;
   background-position: right center;
   background-repeat: no-repeat;
   background-size: 20px;
-  padding-right: 30px;
   line-height: 25px;
   text-decoration: none;
   font-weight: 700;
