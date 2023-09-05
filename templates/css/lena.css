@@ -87,9 +87,9 @@
 #list li.currentItem a:visited,
 #visitedList li.currentItem a:visited {
   display: inline-block;
-  color: #7a7a7a;
+  color: #555;
   background-image: url("images/current.svg");
-  background-color: #ffff04;
+  background-color: #ffff0488;
   background-position: right center;
   background-repeat: no-repeat;
   background-size: 20px;
@@ -195,9 +195,9 @@
 #plannedBox #plannedList li.currentItem a,
 #plannedBox #plannedList li.currentItem a:visited {
   display: inline-block;
-  color: #7a7a7a;
+  color: #555;
   background-image: url("images/current.svg");
-  background-color: #ffff04;
+  background-color: #ffff0488;
   background-position: right center;
   background-repeat: no-repeat;
   background-size: 20px;
