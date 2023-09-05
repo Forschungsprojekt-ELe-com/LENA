@@ -68,6 +68,36 @@
   text-decoration: none;
   font-weight: 400;
 }
+#plannedList li.current div.visitedItem,
+#list li.current div.visitedItem,
+#visitedList li.current div.visitedItem {
+  display: flex;
+  gap: 10px;
+}
+#plannedList li.current div.visitedItem img,
+#list li.current div.visitedItem img,
+#visitedList li.current div.visitedItem img {
+  width: 20px;
+  height: 20px;
+}
+#plannedList li.current a,
+#list li.current a,
+#visitedList li.current a,
+#plannedList li.current a:visited,
+#list li.current a:visited,
+#visitedList li.current a:visited {
+  display: inline-block;
+  color: #7a7a7a;
+  background-image: url("images/left-arrow.png");
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-size: 20px;
+  padding-right: 30px;
+  line-height: 25px;
+  text-decoration: none;
+  font-weight: 700;
+  flex-grow: 2;
+}
 #plannedList li.nextItem div.visitedItem,
 #list li.nextItem div.visitedItem,
 #visitedList li.nextItem div.visitedItem {
@@ -88,10 +118,6 @@
 #visitedList li.nextItem a:visited {
   display: inline-block;
   color: #0199F4;
-  background-image: none;
-  background-position: right center;
-  background-repeat: no-repeat;
-  background-size: 20px;
   line-height: 25px;
   text-decoration: none;
   font-weight: 700;
