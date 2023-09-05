@@ -82,7 +82,7 @@ class EmilRenderer extends Renderer {
         $user = $DIC->user();
         $userId = $user->getId();        
 
-        $access = new AccessToken( $userId );
+        $access = new AccessToken( $userId, $this->usecase->getUsecaseNumber() );
         
         if( isset( $_SESSION[ 'qu_lena_token' ] ) ) {
             $access->destroyToken( $_SESSION[ 'qu_lena_token' ] );
