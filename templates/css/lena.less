@@ -66,7 +66,29 @@
 			text-decoration: none;
 			font-weight: 400;
 		}
-
+		&.current {
+			div.visitedItem {
+				display: flex;
+				gap: 10px;
+				img {
+					width: 20px;
+					height: 20px;
+				}
+			}
+			a, a:visited {
+				display: inline-block;
+				color: #7a7a7a;
+				background-image: url("images/left-arrow.png");
+				background-position: right center;
+				background-repeat: no-repeat;
+				background-size: 20px;
+				padding-right: 30px;
+				line-height: 25px;
+				text-decoration: none;
+				font-weight: 700;
+				flex-grow: 2;
+			}
+		}
 		&.nextItem {
 			div.visitedItem {
 				display: flex;
@@ -78,12 +100,12 @@
 			}
 			 a, a:visited {
 				display: inline-block;
-				color: #000;
-				background-image: url("images/left-arrow.png");
-				background-position: right center;
-				background-repeat: no-repeat;
-				background-size: 20px;
-				padding-right: 30px;
+				color: #0199F4;
+				//background-image: url("images/left-arrow.png");
+				//background-position: right center;
+				//background-repeat: no-repeat;
+				//background-size: 20px;
+				//padding-right: 30px;
 				line-height: 25px;
 				text-decoration: none;
 				font-weight: 700;
