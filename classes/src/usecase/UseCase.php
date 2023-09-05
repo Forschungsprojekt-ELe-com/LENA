@@ -167,4 +167,15 @@ class UseCase {
     public function getParents() {
         return $this->parentList;
     }
+    
+    /**
+     * 
+     * @param int $ref_id
+     * @return bool
+     */
+    public function isCurrent( $ref_id = 0 ) {
+        return ( ( isset( $_REQUEST[ 'ref_id' ] ) )
+                && ( $_REQUEST[ 'ref_id' ] == $ref_id ) )
+        ;
+    }
 }

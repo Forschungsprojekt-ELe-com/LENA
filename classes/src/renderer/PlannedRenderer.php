@@ -32,8 +32,7 @@ class PlannedRenderer extends Renderer {
             $notfound = true;
             
             if(    $notfound 
-                && ( isset( $_REQUEST[ 'ref_id' ] ) )
-                && ( $_REQUEST[ 'ref_id' ] == $ref_id )
+                && ( $this->usecase->isCurrent( $ref_id ) )
             ) {
                 $out .= $this->renderElement( $id, $ref_id, 'currentItem' );                
                 $notfound = false;
