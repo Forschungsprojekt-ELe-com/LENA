@@ -16,6 +16,7 @@ if( ! $access->evaluateToken( $token ) ) {
 $status    = 'NOK';
 $reason    = '';
 $recommend = array();
+$titles    = array();
 
 //if( ! $access->isEmptyResult() ) 
 {    
@@ -25,7 +26,7 @@ $recommend = array();
         $status      = 'OK';
         $reason      = '' . $suggestion->getReason();
         $recommend   = $suggestion->getRecommend();
-        /*
+        
         $temp   = $suggestion->getRecommend();
         $usecase = null;
         $out = array();
@@ -35,8 +36,10 @@ $recommend = array();
                 $usecase = $usecaseFactory->createByUsecaseNumber( $access->getUsecaseId() );
             }
             $out[] = $usecase->getRefId( $item );
+            $titles[ $item ] = $usecase->getTitle( $item );
         }
-        $recommend = $out;
+//        $recommend = $out;
+//       
         // */
     }
 }
@@ -49,6 +52,7 @@ $result = array(
     , 'data' => array(
                       'reason'    => $reason
                     , 'recommend' => $recommend
+                    , 'titles'    => $titles
                 )
 );
 
