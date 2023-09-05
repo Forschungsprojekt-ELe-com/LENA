@@ -21,7 +21,9 @@ class SuggestionFactory {
     
     
     public function execute() {        
-        $temp = '{ }';
+//        $temp = '{}';
+        $emil = new EmilClient( $this->userid );
+        $temp = $emil->execute();        
         return new Suggestion( $temp );
     }
 }

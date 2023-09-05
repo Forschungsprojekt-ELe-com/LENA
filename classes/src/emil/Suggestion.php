@@ -60,8 +60,8 @@ class Suggestion {
             if( isset( $meta->reason ) ) {
                 $this->metaReason = '' . $meta->reason;
             }
-            if( isset( $meta->transmitted ) ) {
-                $this->metaTransmitted = '' . $meta->transmitted;
+            if( isset( $meta->transmitted_at ) ) {
+                $this->metaTransmitted = '' . $meta->transmitted_at;
             }
         }
         
@@ -70,15 +70,15 @@ class Suggestion {
         if( isset( $result->data ) ) {
             $data = $result->data;
             
-            if( isset( $data->recommend ) ) {
-                $recommendList = $data->recommend;
+            if( isset( $data->MLE_ref_id ) ) {
+                $recommendList = $data->MLE_ref_id;
                 foreach( $recommendList as $id => $recommend ) {
                     $this->recommend[ 0 + $id ] = '' . $recommend;
                 }
             }
             
-            if( isset( $data->reason ) ) {
-                $this->reason = '' . $data->reason;
+            if( isset( $data->recommendation_reason ) ) {
+                $this->reason = '' . $data->recommendation_reason;
             }
         }
     }
@@ -88,7 +88,8 @@ class Suggestion {
      * @return bool
      */
     public function isOk() {
-        return ( $this->metaStatus == 'OK' );
+        return ( count( $this->recommend ) > 0 );
+//        return ( $this->metaStatus == 'OK' );
     }
 
     /**

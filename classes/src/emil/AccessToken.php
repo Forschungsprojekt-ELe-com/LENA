@@ -32,13 +32,21 @@ class AccessToken {
     
     /**
      * 
+     * @var int
+     */
+    protected $usecase;
+    
+    /**
+     * 
      * @param int $user_id
      */
-    public function __construct( $user_id = 0 ) {
+    public function __construct( $user_id = 0, $usecase = 0 ) {
         $this->userId     = $user_id;
+        $this->usecase    = $usecase;
+        
         $this->userHash   = $this->userId;
         $this->resultJson = '{}';
-        $this->token      = '';
+        $this->token      = '';        
     }
     
     /**
@@ -54,6 +62,7 @@ class AccessToken {
         $out = '<?php' . PHP_EOL
                 . '$LENA_USER=' . $this->userId . ';' . PHP_EOL
                 . '$LENA_HASH="' . $this->userHash . '";' . PHP_EOL
+                . '$LENA_UC="' . $this->usecase . '";' . PHP_EOL
                 . '$LENA_RESULT="{}";' . PHP_EOL
         ;
         file_put_contents( AccessToken::LOCATION . $filename . '.php', $out );
@@ -97,6 +106,7 @@ class AccessToken {
             $this->userId     = $LENA_USER;
             $this->userHash   = $LENA_HASH;
             $this->resultJson = $LENA_RESULT;
+            $this->usecase    = $LENA_UC;
             $this->token      = $token;
             return true;
         }           
@@ -110,8 +120,8 @@ class AccessToken {
      */
     public function getSuggestion() {             
         if( $this->isEmptyResult() ) {
-            $suggestionFactory = new SuggestionFactoryMock( $this->userId, $this->userHash );
-//            $suggestionFactory = new SuggestionFactory( $this->userId, $this->userHash );
+//            $suggestionFactory = new SuggestionFactoryMock( $this->userId, $this->userHash );
+            $suggestionFactory = new SuggestionFactory( $this->userId, $this->userHash );
             $suggestion       = $suggestionFactory->execute();
 
             if( $suggestion->isOk() ) {
@@ -161,5 +171,13 @@ class AccessToken {
                 unlink( AccessToken::LOCATION . $filename ); 
             }
         }
+    }
+    
+    /**
+     * 
+     * @return int
+     */
+    public function getUsecaseId() {
+        return $this->usecase;
     }
 }

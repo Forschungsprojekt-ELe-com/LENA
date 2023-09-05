@@ -17,14 +17,24 @@ $status    = 'NOK';
 $reason    = '';
 $recommend = array();
 
-//if( ! $access->isEmptyResult() ) 
+if( ! $access->isEmptyResult() ) 
 {
     $suggestion = $access->getSuggestion();
-//    if( $suggestion->isOk() ) 
+    if( $suggestion->isOk() ) 
     {
-        $status    = 'OK';
-        $reason    = 'huhu' . $suggestion->getReason();
-        $recommend = $suggestion->getRecommend();
+        $status = 'OK';
+        $reason = '' . $suggestion->getReason();
+        $temp   = $suggestion->getRecommend();
+        $usecase = null;
+        $out = array();
+        foreach( $temp as $item ) {
+            if( $usecase == null ) {
+                $usecaseFactory = new UseCaseFactory();
+                $usecase = $usecaseFactory->createByUsecaseNumber( $access->getUsecaseId() );
+            }
+            $out[] = $usecase->getRefId( $item );
+        }
+        $recommend = $out;
     }
 }
 
