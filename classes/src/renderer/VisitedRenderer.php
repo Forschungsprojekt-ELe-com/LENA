@@ -25,9 +25,14 @@ class VisitedRenderer extends Renderer {
         //$out .= '<b>visited</b>';
         $out .= '<ul id="visitedList">';
         foreach( $temp as $id ) {
-            $out .= '<li class="visitedItem"><div class="visitedItem">'
-                    . '<img src="./data/elecom/custom_icons/obj_' . $id . '/icon_custom.svg" />'
+            $out .= '<li class="visitedItem"><div class="visitedItem">';
+            if( $this->usecase->isTest( $ref_id ) ) {
+                $out .= '<img src="./Customizing/global/skin/elecom/images/icon_tst.svg">';
+            } else {
+                $out .= '<img src="./data/elecom/custom_icons/obj_' . $id . '/icon_custom.svg" />';
+            }                
                         
+            $out .= ''
                     . '<a href="' . $this->getUrl( $this->usecase->getRefId( $id ) ) . '">'
                     . $this->usecase->getTitle( $id ) 
                     . '</a>'
