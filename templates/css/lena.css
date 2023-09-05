@@ -77,8 +77,8 @@
 #plannedList li.nextItem div.visitedItem img,
 #list li.nextItem div.visitedItem img,
 #visitedList li.nextItem div.visitedItem img {
-  width: 0;
-  height: 0;
+  width: 20px;
+  height: 20px;
 }
 #plannedList li.nextItem a,
 #list li.nextItem a,
