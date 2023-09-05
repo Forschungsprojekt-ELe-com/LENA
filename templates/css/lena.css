@@ -88,7 +88,7 @@
 #visitedList li.currentItem a:visited {
   display: inline-block;
   color: #7a7a7a;
-  background-image: url("images/next.svg");
+  background-image: url("images/current.svg");
   background-color: #ffff04;
   background-position: right center;
   background-repeat: no-repeat;
@@ -185,8 +185,7 @@
 }
 #plannedBox #plannedList li.visitedItem a,
 #plannedBox #plannedList li.visitedItem a:visited {
-  background-image: url("images/next.svg");
-  background-color: #ffff04;
+  background-image: url("images/check.png");
   background-position: right center;
   background-repeat: no-repeat;
   background-size: 16px;
@@ -197,7 +196,8 @@
 #plannedBox #plannedList li.currentItem a:visited {
   display: inline-block;
   color: #7a7a7a;
-  background-image: url("images/left-arrow.png");
+  background-image: url("images/current.svg");
+  background-color: #ffff04;
   background-position: right center;
   background-repeat: no-repeat;
   background-size: 20px;
