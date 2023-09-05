@@ -68,24 +68,24 @@
   text-decoration: none;
   font-weight: 400;
 }
-#plannedList li.current div.visitedItem,
-#list li.current div.visitedItem,
-#visitedList li.current div.visitedItem {
+#plannedList li.currentItem div.visitedItem,
+#list li.currentItem div.visitedItem,
+#visitedList li.currentItem div.visitedItem {
   display: flex;
   gap: 10px;
 }
-#plannedList li.current div.visitedItem img,
-#list li.current div.visitedItem img,
-#visitedList li.current div.visitedItem img {
+#plannedList li.currentItem div.visitedItem img,
+#list li.currentItem div.visitedItem img,
+#visitedList li.currentItem div.visitedItem img {
   width: 20px;
   height: 20px;
 }
-#plannedList li.current a,
-#list li.current a,
-#visitedList li.current a,
-#plannedList li.current a:visited,
-#list li.current a:visited,
-#visitedList li.current a:visited {
+#plannedList li.currentItem a,
+#list li.currentItem a,
+#visitedList li.currentItem a,
+#plannedList li.currentItem a:visited,
+#list li.currentItem a:visited,
+#visitedList li.currentItem a:visited {
   display: inline-block;
   color: #7a7a7a;
   background-image: url("images/left-arrow.png");
@@ -187,8 +187,8 @@
   padding-right: 30px;
   flex-grow: 2;
 }
-#plannedBox #plannedList li.current a,
-#plannedBox #plannedList li.current a:visited {
+#plannedBox #plannedList li.currentItem a,
+#plannedBox #plannedList li.currentItem a:visited {
   display: inline-block;
   color: #7a7a7a;
   background-image: url("images/left-arrow.png");
