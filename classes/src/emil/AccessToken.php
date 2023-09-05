@@ -168,8 +168,31 @@ class AccessToken {
             }
             $filetime = ctime( AccessToken::LOCATION . $filename );
             if( $filetime < $timestamp ) {
-                unlink( AccessToken::LOCATION . $filename ); 
+                unlink( AccessToken::LOCATION . '/' . $filename ); 
             }
+        }
+    }
+    
+    
+    /**
+     * deletes all tokens
+     */
+    public function cleanUpTokens() {                                
+        $dir = scandir( AccessToken::LOCATION );        
+        foreach( $dir as $filename ) {
+            echo AccessToken::LOCATION . $filename . PHP_EOL;
+            if( 
+                ( $filename == '.' )
+                || ( $filename == '..' )
+                || ( $filename == '.gitkeep' )
+            ) {
+                continue ; 
+            }
+            if( ! is_file( $filename ) ) {
+                continue ;
+            }            
+            
+            unlink( AccessToken::LOCATION . $filename );             
         }
     }
     

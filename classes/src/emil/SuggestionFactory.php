@@ -22,7 +22,7 @@ class SuggestionFactory {
     
     public function execute() {        
 //        $temp = '{}';
-        $emil = new EmilClient( $this->userid );
+        $emil = new EmilClient( $this->userId );
         $temp = $emil->execute();        
         return new Suggestion( $temp );
     }
