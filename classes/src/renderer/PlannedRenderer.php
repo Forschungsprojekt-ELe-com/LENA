@@ -30,40 +30,26 @@ class PlannedRenderer extends Renderer {
             $oldTitle = $title;
             
             $notfound = true;
-            if( $id == $next ) {
-                $out .= '<li class="nextItem">'
-                    . '<div class="visitedItem">';                                    
-                if( $this->usecase->isTest( $ref_id ) ) {
-                    $out .= '<img src="./Customizing/global/skin/elecom/images/icon_tst.svg">';
-                } else {
-                    $out .= '<img src="./data/elecom/custom_icons/obj_' . $id . '/icon_custom.svg" />';
-                }
-                
-                $out .= '<a href="' . $this->getUrl( $ref_id ) . '">'
-                    . $this->usecase->getTitle( $id ) 
-                    . '</a>'
-                    . '</div>'
-                    . '</li>'
-                ;
+            
+            if(    $notfound 
+                && ( isset( $_REQUEST[ 'ref_id' ] ) )
+                && ( $_REQUEST[ 'ref_id' ] == $ref_id )
+            ) {
+                $out .= $this->renderElement( $id, $ref_id, 'currentItem' );                
                 $notfound = false;
             }
             
-            if( $this->visited->isVisited( $id ) ) {
-                $out .= '<li class="visitedItem">'
-                    . '<div class="visitedItem">'
-                ;
-                if( $this->usecase->isTest( $ref_id ) ) {
-                    $out .= '<img src="./Customizing/global/skin/elecom/images/icon_tst.svg">';
-                } else {
-                    $out .= '<img src="./data/elecom/custom_icons/obj_' . $id . '/icon_custom.svg" />';
-                }
-                
-                $out .= '<a href="' . $this->getUrl( $ref_id ) . '">'
-                    . $this->usecase->getTitle( $id ) 
-                    . '</a>'
-                    . '</div>'
-                    . '</li>'
-                ;
+            if(    $notfound 
+                && ( $id == $next )
+            ) {
+                $out .= $this->renderElement( $id, $ref_id, 'nextItem' );                
+                $notfound = false;
+            }
+            
+            if(    $notfound 
+                && ( $this->visited->isVisited( $id ) )
+            ) {
+                $out .= $this->renderElement( $id, $ref_id, 'visitedItem' );                                
                 $notfound = false;
             }
             
@@ -106,5 +92,31 @@ class PlannedRenderer extends Renderer {
             }
         }
         return $next;
+    }
+    
+    /**
+     * 
+     * @param int $id
+     * @param int $ref_id
+     * @param string $title
+     * @return string
+     */
+    protected function renderElement( $id, $ref_id, $title ) {
+        $out = '';
+        $out .= '<li class="' . $title . '">'
+            . '<div class="visitedItem">';                                    
+        if( $this->usecase->isTest( $ref_id ) ) {
+            $out .= '<img src="./Customizing/global/skin/elecom/images/icon_tst.svg">';
+        } else {
+            $out .= '<img src="./data/elecom/custom_icons/obj_' . $id . '/icon_custom.svg" />';
+        }
+
+        $out .= '<a href="' . $this->getUrl( $ref_id ) . '">'
+            . $this->usecase->getTitle( $id ) 
+            . '</a>'
+            . '</div>'
+            . '</li>'
+        ;
+        return $out;
     }
 }
