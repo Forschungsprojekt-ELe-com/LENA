@@ -22,8 +22,10 @@ $recommend = array();
     $suggestion = $access->getSuggestion();
     if( $suggestion->isOk() ) 
     {
-        $status = 'OK';
-        $reason = '' . $suggestion->getReason();
+        $status      = 'OK';
+        $reason      = '' . $suggestion->getReason();
+        $recommend   = $suggestion->getRecommend();
+        /*
         $temp   = $suggestion->getRecommend();
         $usecase = null;
         $out = array();
@@ -35,6 +37,7 @@ $recommend = array();
             $out[] = $usecase->getRefId( $item );
         }
         $recommend = $out;
+        // */
     }
 }
 
