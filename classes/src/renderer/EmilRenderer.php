@@ -65,7 +65,7 @@ class EmilRenderer extends Renderer {
 	$out .=     'let ulElem = $("#list");';
 	$out .=     'ulElem.empty();';
 	$out .=     'for (let id in response.data.recommend) {';
-	$out .=         'let link = "' . $this->baseUrl . '".replace("666666", id);';
+	$out .=         'let link = "' . $this->baseUrl . '".replace("666666-", id);';
 	$out .=         'let aElem = $("<a href=\"" + link + "\">" + response.data.titles[id] + "</a>");';
 	$out .=         'let liElem = $("<li class=\"suggestion\"></li>");';
 	$out .=         'liElem.append(aElem);';
