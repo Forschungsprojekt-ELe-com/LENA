@@ -87,7 +87,7 @@
 #list li.currentItem a:visited,
 #visitedList li.currentItem a:visited {
   display: inline-block;
-  color: #7a7a7a;
+  color: #000;
   background-image: url("images/current.svg");
   background-color: #ffff04;
   background-position: right center;
@@ -195,7 +195,7 @@
 #plannedBox #plannedList li.currentItem a,
 #plannedBox #plannedList li.currentItem a:visited {
   display: inline-block;
-  color: #7a7a7a;
+  color: #000;
   background-image: url("images/current.svg");
   background-color: #ffff04;
   background-position: right center;
