@@ -101,6 +101,9 @@
 			 a, a:visited {
 				display: inline-block;
 				color: #0199F4;
+				 //todo: hervorheben?
+				 /*background-color: #ffff04;*/
+
 				//background-image: url("images/left-arrow.png");
 				//background-position: right center;
 				//background-repeat: no-repeat;
@@ -138,16 +141,26 @@
 
 		}
 		&.suggestion {
-			 a {
+			div.visitedItem {
+				display: flex;
+				gap: 10px;
+				img {
+					width: 20px;
+					height: 20px;
+				}
+			}
+			a, a:visited {
+				display: inline-block;
 				color: black;
 				line-height: 25px;
 				text-decoration: none;
 				font-weight: 700;
+				flex-grow: 2;
 			}
 		}
 	}
 }
-#plannedBox {
+#plannedBox #plannedList {
 	li {
 		&.visitedItem {
 			a {
@@ -159,6 +172,36 @@
 					padding-right: 30px;
 					flex-grow: 2;
 				}
+			}
+		}
+		&.current {
+			a, a:visited {
+				display: inline-block;
+				color: #7a7a7a;
+				background-image: url("images/left-arrow.png");
+				background-position: right center;
+				background-repeat: no-repeat;
+				background-size: 20px;
+				padding-right: 30px;
+				line-height: 25px;
+				text-decoration: none;
+				font-weight: 700;
+				flex-grow: 2;
+			}
+		}
+		&.nextItem {
+			a, a:visited {
+				display: inline-block;
+				color: #0199F4;
+				//background-image: url("images/left-arrow.png");
+				//background-position: right center;
+				//background-repeat: no-repeat;
+				//background-size: 20px;
+				//padding-right: 30px;
+				line-height: 25px;
+				text-decoration: none;
+				font-weight: 700;
+				flex-grow: 2;
 			}
 		}
 	}
