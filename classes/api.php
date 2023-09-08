@@ -25,8 +25,8 @@ $titles    = array();
     {
         $status      = 'OK';
         $reason      = '' . $suggestion->getReason();
-        $recommend   = $suggestion->getRecommend();
         
+//        $recommend   = $suggestion->getRecommend();        
         $temp   = $suggestion->getRecommend();
         $usecase = null;
         $out = array();
@@ -38,7 +38,7 @@ $titles    = array();
             $out[] = $usecase->getRefId( $item );
             $titles[ $item ] = $usecase->getTitle( $item );
         }
-//        $recommend = $out;
+        $recommend = $out;
 //       
         // */
     }
