@@ -56,9 +56,7 @@ class EmilRenderer extends Renderer {
 	$out .= '<script>';
 	$out .= 'let endpoint = "./Customizing/global/plugins/Services/COPage/PageComponent/LENA/classes/api.php";';
 	$out .= 'let url = endpoint + "?token=' . $_SESSION[ 'qu_lena_token' ] . '&t=' . $microtime . '";';  // TODO params
-        
 	$out .= 'console.log(url);';
-	$out .= 'getSuggestions();';
 
 	$out .= 'var getSuggestions = function() {';
 	$out .=     '$.get(url, function(response) {';
@@ -79,6 +77,8 @@ class EmilRenderer extends Renderer {
         $out .=         '}';
         $out .=     '});';
         $out .= '};';
+
+	$out .= 'getSuggestions();';
 	$out .= '</script>';
 
         return $out;
