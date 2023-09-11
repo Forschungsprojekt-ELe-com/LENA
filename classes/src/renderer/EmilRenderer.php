@@ -64,7 +64,7 @@ class EmilRenderer extends Renderer {
 	$out .=     '$.get(url, function(response) {';
 	$out .=         'console.log(response);';
 	$out .=         'if (response.meta.status == "NOK") {';
-	$out .=             'setTimeout(() => { getSuggestions(); }, 3000);';
+	$out .=             'setTimeout(function() { getSuggestions(); }, 3000);';
 	$out .=             'return;';
         $out .=         '}';
 	$out .=         '$("#response").text(response.data.reason);';
