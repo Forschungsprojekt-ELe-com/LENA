@@ -16,7 +16,8 @@
   background-image: url("images/chatbot.png");
   background-position: top left;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: auto 150px;
+  min-height: 150px;
 }
 #suggestions > div.customBG {
   float: right;
