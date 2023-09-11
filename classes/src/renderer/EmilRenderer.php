@@ -58,20 +58,27 @@ class EmilRenderer extends Renderer {
 	$out .= 'let url = endpoint + "?token=' . $_SESSION[ 'qu_lena_token' ] . '&t=' . $microtime . '";';  // TODO params
         
 	$out .= 'console.log(url);';
-	$out .= '$.get(url, function(response) {';
-	$out .=     'console.log(response);';
-	$out .=     'if (response.meta.status == "NOK") return;';
-	$out .=     '$("#response").text(response.data.reason);';
-	$out .=     'let ulElem = $("#list");';
-	$out .=     'ulElem.empty();';
-	$out .=     'for (let id in response.data.titles) {';
-	$out .=         'let link = "' . $this->baseUrl . '".replace("666666", id);';
-	$out .=         'let aElem = $("<a href=\"" + link + "\">" + response.data.titles[id] + "</a>");';
-	$out .=         'let liElem = $("<li class=\"suggestion\"></li>");';
-	$out .=         'liElem.append(aElem);';
-        $out .=         'ulElem.append(liElem)';
-        $out .=     '}';
-        $out .= '})';
+	$out .= 'getSuggestions();';
+
+	$out .= 'var getSuggestions = function() {';
+	$out .=     '$.get(url, function(response) {';
+	$out .=         'console.log(response);';
+	$out .=         'if (response.meta.status == "NOK") {';
+	$out .=             'setTimeout(() => { getSuggestions(); }, 3000);';
+	$out .=             'return;';
+        $out .=         '}';
+	$out .=         '$("#response").text(response.data.reason);';
+	$out .=         'let ulElem = $("#list");';
+	$out .=         'ulElem.empty();';
+	$out .=         'for (let id in response.data.titles) {';
+	$out .=             'let link = "' . $this->baseUrl . '".replace("666666", id);';
+	$out .=             'let aElem = $("<a href=\"" + link + "\">" + response.data.titles[id] + "</a>");';
+	$out .=             'let liElem = $("<li class=\"suggestion\"></li>");';
+	$out .=             'liElem.append(aElem);';
+        $out .=             'ulElem.append(liElem)';
+        $out .=         '}';
+        $out .=     '});';
+        $out .= '};';
 	$out .= '</script>';
 
         return $out;
