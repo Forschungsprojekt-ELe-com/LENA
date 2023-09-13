@@ -71,8 +71,8 @@ class UseCaseScanner {
                 . '$LENA_TITLES = array();' . PHP_EOL
                 . PHP_EOL
         ;
-        foreach( $this->titles as $obj_id => $title ) {
-            $out .= '$LENA_TITLES[ ' . $obj_id . ' ] = \'' . $title . '\';' . PHP_EOL;            
+        foreach( $this->titles as $ref_id => $title ) {
+            $out .= '$LENA_TITLES[ ' . $ref_id . ' ] = \'' . $title . '\';' . PHP_EOL;
         }                
         
         $out .= '$LENA_PARENTS = array();' . PHP_EOL;

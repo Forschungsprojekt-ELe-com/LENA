@@ -63,7 +63,7 @@ class PlannedRenderer extends Renderer {
                 }
                 
                 $out .= '<span>'
-                    . $this->usecase->getTitle( $ref_id )
+                    . $this->usecase->getTitle( $id )
                     . '</span>'
                     . '</div></li>'
                 ;
