@@ -35,8 +35,21 @@ $titles    = array();
                 $usecaseFactory = new UseCaseFactory();
                 $usecase = $usecaseFactory->createByUsecaseNumber( $access->getUsecaseId() );
             }
-            $out[] = $usecase->getRefId( $item );
-            $titles[ $item ] = $usecase->getTitle( $item );
+            //$out[] = $usecase->getRefId( $item );
+            $out[] = $item;
+
+
+            //todo ?
+            //für TST url + Icon brauchen wir den Typ
+
+            //alles was kein copa oder tst soll raus?
+
+            //$typ = $usecase->getTyp( $item );
+            //$titles[ $item ] = array( "title" => $usecase->getTitle( $item ), "type" => $typ );
+
+
+
+            $titles[ $item ] = $usecase->getTitle( $usecase->getRefId( $item ) );
         }
         $recommend = $out;
 //       
