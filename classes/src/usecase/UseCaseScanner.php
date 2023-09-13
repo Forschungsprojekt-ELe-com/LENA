@@ -135,7 +135,8 @@ WHERE _t.path LIKE '" . $path . "'
 
             //$this->titles[ $line[ '_parent_obj_id' ] ]  = $line[ '_parent_title' ];
             $this->titles[ $line[ '_parent_ref_id' ] ]  = $line[ '_parent_title' ];
-            $this->parentList[ $line[ '_obj_id' ] ] = $line[ '_parent_obj_id' ];
+            //$this->parentList[ $line[ '_obj_id' ] ] = $line[ '_parent_obj_id' ];
+            $this->parentList[ $line[ '_obj_id' ] ] = $line[ '_parent_ref_id' ];
             if( $line[ '_type' ] == 'tst' ){
                 $this->testList[ $line[ '_ref_id' ] ] = $line[ '_obj_id' ];
             }
