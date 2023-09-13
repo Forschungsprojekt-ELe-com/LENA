@@ -92,14 +92,14 @@ class UseCase {
     
     /**
      * 
-     * @param int $crs_obj_id
+     * @param int $crs_ref_id
      * @return string
      */
-    public function getTitle( $crs_obj_id ) {
-        if( isset( $this->titles[ $crs_obj_id ] ) ) {
-            return $this->titles[ $crs_obj_id ];
+    public function getTitle( $crs_ref_id ) {
+        if( isset( $this->titles[ $crs_ref_id ] ) ) {
+            return $this->titles[ $crs_ref_id ];
         }
-        return 'NO_TITLE_FOR:' . $crs_obj_id . '!';
+        return 'NO_TITLE_FOR:' . $crs_ref_id . '!';
     }
     
     /**
