@@ -111,7 +111,7 @@ class PlannedRenderer extends Renderer {
         }
 
         $out .= '<a href="' . $this->getUrl( $ref_id ) . '">'
-            . $this->usecase->getTitle( $id ) 
+            . $this->usecase->getTitle( $ref_id )
             . '</a>'
             . '</div>'
             . '</li>'
