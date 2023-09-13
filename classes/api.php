@@ -35,8 +35,7 @@ $titles    = array();
                 $usecaseFactory = new UseCaseFactory();
                 $usecase = $usecaseFactory->createByUsecaseNumber( $access->getUsecaseId() );
             }
-            //$out[] = $usecase->getRefId( $item );
-            $out[] = $item;
+            $out[] = $usecase->getRefId( $item );
 
 
             //todo ?
