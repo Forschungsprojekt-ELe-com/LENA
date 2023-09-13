@@ -130,12 +130,9 @@ WHERE _t.path LIKE '" . $path . "'
         while( $line = $result->fetchAssoc() ) {
             $this->ref_ids[ $line[ '_ref_id' ] ] = $line[ '_obj_id' ];
             $this->obj_ids[ $line[ '_obj_id' ] ] = $line[ '_ref_id' ];
-            //$this->titles[ $line[ '_obj_id' ] ]  = $line[ '_title' ];
             $this->titles[ $line[ '_ref_id' ] ]  = $line[ '_title' ];
 
-            //$this->titles[ $line[ '_parent_obj_id' ] ]  = $line[ '_parent_title' ];
             $this->titles[ $line[ '_parent_ref_id' ] ]  = $line[ '_parent_title' ];
-            //$this->parentList[ $line[ '_obj_id' ] ] = $line[ '_parent_obj_id' ];
             $this->parentList[ $line[ '_obj_id' ] ] = $line[ '_parent_ref_id' ];
             if( $line[ '_type' ] == 'tst' ){
                 $this->testList[ $line[ '_ref_id' ] ] = $line[ '_obj_id' ];
@@ -143,9 +140,9 @@ WHERE _t.path LIKE '" . $path . "'
         }
     }
     
-    public function getTitles( $obj_id ) {
-        if( $this->issetObj( $obj_id ) ) {
-            return $this->titles[ $obj_id ];
+    public function getTitles( $ref_id ) {
+        if( $this->issetObj( $ref_id ) ) {
+            return $this->titles[ $ref_id ];
         }
         return "";
     }
