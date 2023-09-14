@@ -26,6 +26,23 @@
   padding: 20px;
   border-radius: 20px;
 }
+#suggestions li.suggestion div.suggestion {
+  display: flex;
+  gap: 10px;
+}
+#suggestions li.suggestion div.suggestion img {
+  width: 20px;
+  height: 20px;
+}
+#suggestions li.suggestion a,
+#suggestions li.suggestion a:visited {
+  display: inline-block;
+  color: black;
+  line-height: 25px;
+  text-decoration: none;
+  font-weight: 700;
+  flex-grow: 2;
+}
 #plannedBox {
   background-color: white;
   padding: 20px;
@@ -38,37 +55,32 @@
 }
 #plannedList,
 #list,
-#visitedList,
-#suggestions {
+#visitedList {
   list-style: none;
   margin: 0;
   padding: 10px 0 0;
 }
 #plannedList li.heading span,
 #list li.heading span,
-#visitedList li.heading span,
-#suggestions li.heading span {
+#visitedList li.heading span {
   color: #777;
 }
 #plannedList li div.visitedItem,
 #list li div.visitedItem,
-#visitedList li div.visitedItem,
-#suggestions li div.visitedItem {
+#visitedList li div.visitedItem {
   display: flex;
   gap: 10px;
   align-items: center;
 }
 #plannedList li div.visitedItem img,
 #list li div.visitedItem img,
-#visitedList li div.visitedItem img,
-#suggestions li div.visitedItem img {
+#visitedList li div.visitedItem img {
   width: 20px;
   height: 20px;
 }
 #plannedList li span,
 #list li span,
-#visitedList li span,
-#suggestions li span {
+#visitedList li span {
   color: #aaa;
   line-height: 25px;
   text-decoration: none;
@@ -76,26 +88,22 @@
 }
 #plannedList li.currentItem div.visitedItem,
 #list li.currentItem div.visitedItem,
-#visitedList li.currentItem div.visitedItem,
-#suggestions li.currentItem div.visitedItem {
+#visitedList li.currentItem div.visitedItem {
   display: flex;
   gap: 10px;
 }
 #plannedList li.currentItem div.visitedItem img,
 #list li.currentItem div.visitedItem img,
-#visitedList li.currentItem div.visitedItem img,
-#suggestions li.currentItem div.visitedItem img {
+#visitedList li.currentItem div.visitedItem img {
   width: 20px;
   height: 20px;
 }
 #plannedList li.currentItem a,
 #list li.currentItem a,
 #visitedList li.currentItem a,
-#suggestions li.currentItem a,
 #plannedList li.currentItem a:visited,
 #list li.currentItem a:visited,
-#visitedList li.currentItem a:visited,
-#suggestions li.currentItem a:visited {
+#visitedList li.currentItem a:visited {
   display: inline-block;
   color: #555;
   background-image: url("images/current.svg");
@@ -111,26 +119,22 @@
 }
 #plannedList li.nextItem div.visitedItem,
 #list li.nextItem div.visitedItem,
-#visitedList li.nextItem div.visitedItem,
-#suggestions li.nextItem div.visitedItem {
+#visitedList li.nextItem div.visitedItem {
   display: flex;
   gap: 10px;
 }
 #plannedList li.nextItem div.visitedItem img,
 #list li.nextItem div.visitedItem img,
-#visitedList li.nextItem div.visitedItem img,
-#suggestions li.nextItem div.visitedItem img {
+#visitedList li.nextItem div.visitedItem img {
   width: 20px;
   height: 20px;
 }
 #plannedList li.nextItem a,
 #list li.nextItem a,
 #visitedList li.nextItem a,
-#suggestions li.nextItem a,
 #plannedList li.nextItem a:visited,
 #list li.nextItem a:visited,
-#visitedList li.nextItem a:visited,
-#suggestions li.nextItem a:visited {
+#visitedList li.nextItem a:visited {
   display: inline-block;
   color: #0199F4;
   background-image: url("images/right-arrow.png");
@@ -145,26 +149,22 @@
 }
 #plannedList li.visitedItem div.visitedItem,
 #list li.visitedItem div.visitedItem,
-#visitedList li.visitedItem div.visitedItem,
-#suggestions li.visitedItem div.visitedItem {
+#visitedList li.visitedItem div.visitedItem {
   display: flex;
   gap: 10px;
 }
 #plannedList li.visitedItem div.visitedItem img,
 #list li.visitedItem div.visitedItem img,
-#visitedList li.visitedItem div.visitedItem img,
-#suggestions li.visitedItem div.visitedItem img {
+#visitedList li.visitedItem div.visitedItem img {
   width: 20px;
   height: 20px;
 }
 #plannedList li.visitedItem a,
 #list li.visitedItem a,
 #visitedList li.visitedItem a,
-#suggestions li.visitedItem a,
 #plannedList li.visitedItem a:visited,
 #list li.visitedItem a:visited,
-#visitedList li.visitedItem a:visited,
-#suggestions li.visitedItem a:visited {
+#visitedList li.visitedItem a:visited {
   display: inline-block;
   color: #555;
   line-height: 25px;
@@ -173,32 +173,27 @@
 }
 #plannedList li.visitedItem a:hover,
 #list li.visitedItem a:hover,
-#visitedList li.visitedItem a:hover,
-#suggestions li.visitedItem a:hover {
+#visitedList li.visitedItem a:hover {
   color: black;
 }
 #plannedList li.suggestion div.suggestion,
 #list li.suggestion div.suggestion,
-#visitedList li.suggestion div.suggestion,
-#suggestions li.suggestion div.suggestion {
+#visitedList li.suggestion div.suggestion {
   display: flex;
   gap: 10px;
 }
 #plannedList li.suggestion div.suggestion img,
 #list li.suggestion div.suggestion img,
-#visitedList li.suggestion div.suggestion img,
-#suggestions li.suggestion div.suggestion img {
+#visitedList li.suggestion div.suggestion img {
   width: 20px;
   height: 20px;
 }
 #plannedList li.suggestion a,
 #list li.suggestion a,
 #visitedList li.suggestion a,
-#suggestions li.suggestion a,
 #plannedList li.suggestion a:visited,
 #list li.suggestion a:visited,
-#visitedList li.suggestion a:visited,
-#suggestions li.suggestion a:visited {
+#visitedList li.suggestion a:visited {
   display: inline-block;
   color: black;
   line-height: 25px;
