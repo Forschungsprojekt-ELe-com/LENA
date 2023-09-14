@@ -70,10 +70,10 @@ class EmilRenderer extends Renderer {
 	$out .=         'ulElem.empty();';
 	$out .=         'for (let refid in response.data.titles) {';
 	$out .=             'let link = "' . $this->baseUrl . '".replace("666666", refid);';
-	$out .=             'let path = "./data/elecom/custom_icons/obj_" + response.data.titles[refid].objid + "/icon_custom.svg"';
+	$out .=             'let path = "./data/elecom/custom_icons/obj_" + response.data.titles[refid].objid + "/icon_custom.svg";';
 	$out .=             'if (response.data.titles[refid].type == "tst") {';
 	$out .=                 'link = "' . $this->baseUrl . '".replace("copa", "tst");';
-	$out .=                 'path = "./Customizing/global/skin/elecom/images/icon_tst.svg"';
+	$out .=                 'path = "./Customizing/global/skin/elecom/images/icon_tst.svg";';
 	$out .=             '}';
 	$out .=             'let icoElem = $("<img src=\"" + path + "\"/>");';
 	$out .=             'let aElem = $("<a href=\"" + link + "\">" + response.data.titles[refid].title + "</a>");';
@@ -81,7 +81,7 @@ class EmilRenderer extends Renderer {
 	$out .=             'liElem.append(icoElem);';
 	$out .=             'liElem.append(aElem);';
 	$out .=             'liElem.children().wrapAll("<div class=\"suggestion\" />");';
-	$out .=             'ulElem.append(liElem)';
+	$out .=             'ulElem.append(liElem);';
 	$out .=         '}';
 	$out .=     '});';
 	$out .= '};';
