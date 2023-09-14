@@ -69,13 +69,18 @@ abstract class Renderer {
         $this->visited = $visited;
         return $this;
     }
-    
+
     /**
-     * 
+     *
      * @param int $ref_id
+     * @param bool $is_test
      * @return string
      */
-    protected function getUrl( $ref_id ) {        
+    protected function getUrl(int $ref_id , $is_test = false ): string
+    {
+        if ( $is_test ) {
+            return str_replace( 'copa_666666', 'tst_' . $ref_id, $this->baseUrl );
+        }
         return str_replace( '666666', $ref_id, $this->baseUrl );
     }
 }

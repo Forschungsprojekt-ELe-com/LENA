@@ -110,7 +110,7 @@ class PlannedRenderer extends Renderer {
             $out .= '<img src="./data/elecom/custom_icons/obj_' . $id . '/icon_custom.svg" />';
         }
 
-        $out .= '<a href="' . $this->getUrl( $ref_id ) . '">'
+        $out .= '<a href="' . $this->getUrl( $ref_id, $this->usecase->isTest( $ref_id ) ) . '">'
             . $this->usecase->getTitle( $ref_id )
             . '</a>'
             . '</div>'
