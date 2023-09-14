@@ -68,11 +68,11 @@ class EmilRenderer extends Renderer {
 	$out .=         '$("#response").text(response.data.reason);';
 	$out .=         'let ulElem = $("#list");';
 	$out .=         'ulElem.empty();';
-	$out .=         'for (let id in response.data.titles) {';
-	// if (response.data.titles[id][1] == "tst") ...
-	$out .=             'let link = "' . $this->baseUrl . '".replace("666666", id);';
+	$out .=         'for (let refid in response.data.titles) {';
+	// if (response.data.titles[refid][1] == "tst") ...
+	$out .=             'let link = "' . $this->baseUrl . '".replace("666666", refid);';
 	//todo
-	$out .=             'let aElem = $("<a href=\"" + link + "\"><img src=\"./data/elecom/custom_icons/obj_" + id + "/icon_custom.svg\">" + response.data.titles[id] + "</a>");';
+	$out .=             'let aElem = $("<a href=\"" + link + "\"><img src=\"./data/elecom/custom_icons/obj_" + response.data.titles[refid].objid + "/icon_custom.svg\">" + response.data.titles[refid].title + "</a>");';
 	$out .=             'let liElem = $("<li class=\"suggestion\"></li>");';
 	$out .=             'liElem.append(aElem);';
         $out .=             'ulElem.append(liElem)';
