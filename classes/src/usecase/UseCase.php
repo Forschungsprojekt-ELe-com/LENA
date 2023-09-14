@@ -180,9 +180,9 @@ class UseCase {
         ;
     }
 
-    public function getType(int $item): string
+    public function getType(int $ref_id): string
     {
-        if ($this->isTest($item)) {
+        if ($this->isTest($ref_id)) {
             return "tst";
         }
         return "";
