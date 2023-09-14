@@ -173,9 +173,18 @@ class UseCase {
      * @param int $ref_id
      * @return bool
      */
-    public function isCurrent( $ref_id = 0 ) {
+    public function isCurrent(int $ref_id = 0 ): bool
+    {
         return ( ( isset( $_REQUEST[ 'ref_id' ] ) )
                 && ( $_REQUEST[ 'ref_id' ] == $ref_id ) )
         ;
+    }
+
+    public function getType(int $item): string
+    {
+        if ($this->isTest($item)) {
+            return "tst";
+        }
+        return "";
     }
 }

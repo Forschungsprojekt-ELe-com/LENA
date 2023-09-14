@@ -45,8 +45,8 @@ $titles    = array();
 
             $titles[ $usecase->getRefId( $item ) ] = array(
                 "title" => $usecase->getTitle( $usecase->getRefId( $item )),
-                "objid" => $item//,
-                //"type" => $usecase->getType( $item )
+                "objid" => $item,
+                "type" => $usecase->getType( $item )
                 );
         }
         $recommend = $out;
