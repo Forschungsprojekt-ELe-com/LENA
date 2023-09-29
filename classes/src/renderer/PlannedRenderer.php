@@ -25,7 +25,7 @@ class PlannedRenderer extends Renderer {
                 if( strlen( $oldTitle ) > 0 ) {
                     $out .= '</ul></div></li>';
                 }
-                $out .= '<li class="heading"><div data-role="collapsible"><h5><span>' . $title . '</span></h5><ul>';
+                $out .= '<li class="heading"><div><span class="block_heading">' . $title . '</span><ul>';
             }
             $oldTitle = $title;
             
