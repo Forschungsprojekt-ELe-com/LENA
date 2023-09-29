@@ -23,9 +23,9 @@ class PlannedRenderer extends Renderer {
             $title = $this->usecase->getTitle( $parentList[ $id ] );
             if( $oldTitle != $title ) {
                 if( strlen( $oldTitle ) > 0 ) {
-                    $out .= '</ul></li>';
+                    $out .= '</ul></div></li>';
                 }
-                $out .= '<li class="heading"><span>' . $title . '</span><ul>';
+                $out .= '<li class="heading"><div data-role="collapsible"><h5><span>' . $title . '</span></h5><ul>';
             }
             $oldTitle = $title;
             
