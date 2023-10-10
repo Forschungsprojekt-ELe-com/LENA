@@ -7,8 +7,7 @@ class VisitedFactory {
     public function __construct( $db ) {
         $this->db = $db;
     }
-    
-    
+        
     /**
      * 
      * @param UseCase $usecase
@@ -16,20 +15,6 @@ class VisitedFactory {
      * @return Visited
      */
     public function create( $usecase, $userId ) {
-        global $DIC;
-        $nav = $DIC["ilNavigationHistory"];
-        $itemList = $nav->getItems();
-        echo '<h1>', print_r( $itemList, true );
-        return new Visited( array() );
-    }
-    
-    /**
-     * 
-     * @param UseCase $usecase
-     * @param int     $userId
-     * @return Visited
-     */
-    public function create2( $usecase, $userId ) {
         $inString = $usecase->getObjIdInstring();
         $sql = "
 SELECT ut_lp_marks.obj_id AS _obj_id
