@@ -61,9 +61,9 @@ class VisitedRenderer extends Renderer {
         $itemList = $nav->getItems();
         $refIdList = array();
         foreach( $itemList as $item ) {
-            $refIdList[] = $item[ 'id' ];
+            $refIdList[] = $item[ 'ref_id' ];
         }
-        return $refIdList;
+//        return $refIdList;
         
         $usecaseList = array();
         $usecaseList[ 0 ] = UseCaseFactory::createByUsecaseNumber( 1 );
