@@ -8,7 +8,7 @@ class VisitedRenderer extends Renderer {
      */
     public function render() {
         $out     = '';
-        $data    = $this->visited->getVisitedList();
+        $data    = $this->fetchData(); // $this->visited->getVisitedList();
 //        $out .= '<pre>' . print_r( $data, true ) . '</pre>';        
 
         $temp = array();
@@ -53,5 +53,36 @@ class VisitedRenderer extends Renderer {
 
         
         return $debug . $out;
+    }
+    
+    protected function fetchData() {
+        global $DIC;
+        $nav = $DIC["ilNavigationHistory"];
+        $itemList = $nav->getItems();
+        $refIdList = array();
+        foreach( $itemList as $item ) {
+            $refIdList[] = $item[ 'id' ];
+        }
+        
+        $usecaseList = array();
+        $usecaseList[ 0 ] = UseCaseFactory::createByUsecaseNumber( 1 );
+        $usecaseList[ 1 ] = UseCaseFactory::createByUsecaseNumber( 2 );
+        $usecaseList[ 2 ] = UseCaseFactory::createByUsecaseNumber( 3 );
+        $usecaseList[ 3 ] = UseCaseFactory::createByUsecaseNumber( 4 );
+        
+        $objIdList = array();
+        foreach( $refIdList as $refId ) {
+            $found = false;
+            foreach( $usecaseList as $usecase ) {
+                if( $found ) {
+                    continue;
+                }
+                if( $usecase->issetRef( $refId ) ) {
+                    $found = true;
+                    $objIdList[] = $usecase->getObjId( $refId );
+                }
+            }
+        }
+        return $objIdList;
     }
 }
