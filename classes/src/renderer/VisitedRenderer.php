@@ -63,6 +63,7 @@ class VisitedRenderer extends Renderer {
         foreach( $itemList as $item ) {
             $refIdList[] = $item[ 'id' ];
         }
+        return $refIdList;
         
         $usecaseList = array();
         $usecaseList[ 0 ] = UseCaseFactory::createByUsecaseNumber( 1 );
