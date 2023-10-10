@@ -74,9 +74,9 @@ class VisitedRenderer extends Renderer {
         foreach( $refIdList as $refId ) {
             $found = false;
             foreach( $usecaseList as $usecase ) {
-                if( $found ) {
-                    continue;
-                }
+//                if( $found ) {
+//                    continue;
+//                }
                 if( $usecase->issetRef( $refId ) ) {
                     $found = true;
                     $objIdList[] = $usecase->getObjId( $refId );
