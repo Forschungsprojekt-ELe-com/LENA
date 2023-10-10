@@ -8,7 +8,12 @@ class VisitedRenderer extends Renderer {
      */
     public function render() {
         $out     = '';
-        $data    = $this->fetchData(); // $this->visited->getVisitedList();
+        $data    = $this->fetchData(); 
+        $solvedList = $this->visited->getVisitedList();
+        foreach( $solvedList as $solved ) {
+            $data[] = $solved;
+        }
+        
 //        $out .= '<pre>' . print_r( $data, true ) . '</pre>';        
 
         $temp = array();
