@@ -16,7 +16,8 @@
   background-image: url("images/chatbot.png");
   background-position: top left;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: auto 150px;
+  min-height: 150px;
 }
 #suggestions > div.customBG {
   float: right;
@@ -24,6 +25,23 @@
   background-color: white;
   padding: 20px;
   border-radius: 20px;
+}
+#suggestions li.suggestion div.suggestion {
+  display: flex;
+  gap: 10px;
+}
+#suggestions li.suggestion div.suggestion img {
+  width: 20px;
+  height: 20px;
+}
+#suggestions li.suggestion a,
+#suggestions li.suggestion a:visited {
+  display: inline-block;
+  color: black;
+  line-height: 25px;
+  text-decoration: none;
+  font-weight: 700;
+  flex-grow: 2;
 }
 #plannedBox {
   background-color: white;
@@ -158,15 +176,15 @@
 #visitedList li.visitedItem a:hover {
   color: black;
 }
-#plannedList li.suggestion div.visitedItem,
-#list li.suggestion div.visitedItem,
-#visitedList li.suggestion div.visitedItem {
+#plannedList li.suggestion div.suggestion,
+#list li.suggestion div.suggestion,
+#visitedList li.suggestion div.suggestion {
   display: flex;
   gap: 10px;
 }
-#plannedList li.suggestion div.visitedItem img,
-#list li.suggestion div.visitedItem img,
-#visitedList li.suggestion div.visitedItem img {
+#plannedList li.suggestion div.suggestion img,
+#list li.suggestion div.suggestion img,
+#visitedList li.suggestion div.suggestion img {
   width: 20px;
   height: 20px;
 }

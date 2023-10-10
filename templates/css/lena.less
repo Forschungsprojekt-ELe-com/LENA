@@ -20,7 +20,8 @@
 	background-image: url("images/chatbot.png");
 	background-position: top left;
 	background-repeat: no-repeat;
-	background-size: contain;
+	background-size: auto 150px;
+	min-height: 150px;
 	> div.customBG {
 		float: right;
 		width: 100%;
@@ -29,6 +30,26 @@
 		background-color: white;
 		padding: 20px;
 		border-radius: 20px;
+	}
+	li {
+		&.suggestion {
+			div.suggestion {
+				display: flex;
+				gap: 10px;
+				img {
+					width: 20px;
+					height: 20px;
+				}
+			}
+			a, a:visited {
+				display: inline-block;
+				color: black;
+				line-height: 25px;
+				text-decoration: none;
+				font-weight: 700;
+				flex-grow: 2;
+			}
+		}
 	}
 }
 #plannedBox {
@@ -140,7 +161,7 @@
 
 		}
 		&.suggestion {
-			div.visitedItem {
+			div.suggestion {
 				display: flex;
 				gap: 10px;
 				img {

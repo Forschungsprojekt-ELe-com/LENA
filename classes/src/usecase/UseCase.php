@@ -92,14 +92,14 @@ class UseCase {
     
     /**
      * 
-     * @param int $crs_obj_id
+     * @param int $crs_ref_id
      * @return string
      */
-    public function getTitle( $crs_obj_id ) {
-        if( isset( $this->titles[ $crs_obj_id ] ) ) {
-            return $this->titles[ $crs_obj_id ];
+    public function getTitle( $crs_ref_id ) {
+        if( isset( $this->titles[ $crs_ref_id ] ) ) {
+            return $this->titles[ $crs_ref_id ];
         }
-        return 'NO_TITLE_FOR:' . $crs_obj_id . '!';
+        return 'NO_TITLE_FOR:' . $crs_ref_id . '!';
     }
     
     /**
@@ -173,9 +173,18 @@ class UseCase {
      * @param int $ref_id
      * @return bool
      */
-    public function isCurrent( $ref_id = 0 ) {
+    public function isCurrent(int $ref_id = 0 ): bool
+    {
         return ( ( isset( $_REQUEST[ 'ref_id' ] ) )
                 && ( $_REQUEST[ 'ref_id' ] == $ref_id ) )
         ;
+    }
+
+    public function getType(int $ref_id): string
+    {
+        if ($this->isTest($ref_id)) {
+            return "tst";
+        }
+        return "";
     }
 }

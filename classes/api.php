@@ -36,7 +36,18 @@ $titles    = array();
                 $usecase = $usecaseFactory->createByUsecaseNumber( $access->getUsecaseId() );
             }
             $out[] = $usecase->getRefId( $item );
-            $titles[ $item ] = $usecase->getTitle( $item );
+
+
+            //todo ?
+            //für TST url + Icon brauchen wir den Typ und ObjId und refId
+
+            //alles was kein copa oder tst soll raus?
+
+            $titles[ $usecase->getRefId( $item ) ] = array(
+                "title" => $usecase->getTitle( $usecase->getRefId( $item )),
+                "objid" => $item,
+                "type" => $usecase->getType( $usecase->getRefId( $item ) )
+                );
         }
         $recommend = $out;
 //       
