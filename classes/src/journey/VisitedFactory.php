@@ -20,6 +20,7 @@ class VisitedFactory {
         $nav = $DIC["ilNavigationHistory"];
         $itemList = $nav->getItems();
         echo '<h1>', print_r( $itemList, true );
+        return new Visited( array() );
     }
     
     /**
