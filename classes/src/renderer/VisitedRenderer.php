@@ -45,10 +45,10 @@ class VisitedRenderer extends Renderer {
 
         // add debug
         $debug = '';
-        global $DIC;
-        $nav = $DIC["ilNavigationHistory"];
-        $itemList = $nav->getItems();
-        $debug .= '<h1>itemlist</h1><pre>' . print_r( $itemList, true ) . '</pre>';
+//        global $DIC;
+//        $nav = $DIC["ilNavigationHistory"];
+//        $itemList = $nav->getItems();
+        $debug .= '<h1>itemlist</h1><pre>' . print_r( $temp, true ) . '</pre>';
 
 
         
