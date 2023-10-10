@@ -42,7 +42,16 @@ class VisitedRenderer extends Renderer {
         }
         $out .= '</ul>';
         $out .= '</div>';
+
+        // add debug
+        $debug = '';
+        global $DIC;
+        $nav = $DIC["ilNavigationHistory"];
+        $itemList = $nav->getItems();
+        $debug .= '<h1>itemlist</h1><pre>' . print_r( $itemList, true ) . '</pre>';
+
+
         
-        return $out;
+        return $debug . $out;
     }
 }
