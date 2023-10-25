@@ -7,7 +7,7 @@ class VisitedFactory {
     public function __construct( $db ) {
         $this->db = $db;
     }
-    
+        
     /**
      * 
      * @param UseCase $usecase

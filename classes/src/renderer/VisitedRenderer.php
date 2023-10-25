@@ -8,7 +8,12 @@ class VisitedRenderer extends Renderer {
      */
     public function render() {
         $out     = '';
-        $data    = $this->visited->getVisitedList();
+        $data    = $this->fetchData(); 
+        $solvedList = $this->visited->getVisitedList();
+        foreach( $solvedList as $solved ) {
+            $data[] = $solved;
+        }
+        
 //        $out .= '<pre>' . print_r( $data, true ) . '</pre>';        
 
         $temp = array();
@@ -42,7 +47,48 @@ class VisitedRenderer extends Renderer {
         }
         $out .= '</ul>';
         $out .= '</div>';
+
+        // add debug
+        $debug = '';
+//        $debug .= '<h1>itemlist</h1><pre>' . print_r( $temp, true ) . '</pre>';
+
+
         
-        return $out;
+        return $debug . $out;
+    }
+    
+    protected function fetchData() {
+        global $DIC;
+        $nav = $DIC["ilNavigationHistory"];
+        $itemList = $nav->getItems();
+        $refIdList = array();
+        foreach( $itemList as $item ) {
+            $refIdList[] = $item[ 'ref_id' ];
+        }
+//        return $refIdList;
+        
+        $usecaseList = array();
+        $usecaseList[ 0 ] = UseCaseFactory::createByUsecaseNumber( 1 );
+        $usecaseList[ 1 ] = UseCaseFactory::createByUsecaseNumber( 2 );
+        $usecaseList[ 2 ] = UseCaseFactory::createByUsecaseNumber( 3 );
+        $usecaseList[ 3 ] = UseCaseFactory::createByUsecaseNumber( 4 );
+        
+        $objIdList = array();
+        foreach( $refIdList as $refId ) {
+            $found = false;
+            foreach( $usecaseList as $usecase ) {
+                if( $found ) {
+                    continue;
+                }
+                if( $usecase->issetRef( $refId ) ) {
+                    $found = true;
+                    $id = $usecase->getObjId( $refId );
+                    if( $id > 0 ) {
+                        $objIdList[] = $id;
+                    }
+                }
+            }
+        }
+        return $objIdList;
     }
 }
