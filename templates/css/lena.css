@@ -3,12 +3,23 @@
   flex-direction: column;
   align-items: stretch;
 }
+@media only screen and (max-width: 768px) {
+  #emil {
+    flex-wrap: wrap;
+  }
+}
 #emil #visitedBox {
   padding-left: 100px;
 }
 #quLenaPlugin {
   max-width: 33%;
   margin: 30px 0;
+}
+@media only screen and (max-width: 768px) {
+  #quLenaPlugin {
+    max-width: 100%;
+    margin: 15px 0 0;
+  }
 }
 #suggestions {
   padding-left: 100px;
