@@ -74,10 +74,12 @@
 #plannedList li.heading span,
 #list li.heading span,
 #visitedList li.heading span {
-  color: #777;
+  color: #0164f4;
   display: block;
   width: 100%;
   padding: 5px 10px;
+  border-radius: 10px;
+  background-color: #f5f4f5;
 }
 #plannedList li div.visitedItem,
 #list li div.visitedItem,
@@ -119,9 +121,8 @@
 #list li.currentItem a:visited,
 #visitedList li.currentItem a:visited {
   display: inline-block;
-  color: #555;
+  color: #777;
   background-image: url("images/current.svg");
-  background-color: #ffff0488;
   background-position: right center;
   background-repeat: no-repeat;
   background-size: 20px;
@@ -180,7 +181,7 @@
 #list li.visitedItem a:visited,
 #visitedList li.visitedItem a:visited {
   display: inline-block;
-  color: #555;
+  color: #777;
   line-height: 25px;
   text-decoration: none;
   font-weight: 700;
@@ -227,9 +228,8 @@
 #plannedBox #plannedList li.currentItem a,
 #plannedBox #plannedList li.currentItem a:visited {
   display: inline-block;
-  color: #555;
+  color: #777;
   background-image: url("images/current.svg");
-  background-color: #ffff0488;
   background-position: right center;
   background-repeat: no-repeat;
   background-size: 20px;
@@ -258,7 +258,6 @@
 }
 #plannedList > li.heading {
   margin-bottom: 20px;
-  background-color: #ddd;
 }
 #plannedList > li.heading > span {
   padding-left: 10px;
