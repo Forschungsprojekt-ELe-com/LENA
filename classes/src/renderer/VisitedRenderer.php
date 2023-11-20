@@ -27,7 +27,7 @@ class VisitedRenderer extends Renderer {
 
 //        $out .= '<pre>' . print_r( $temp, true ) . '</pre>';
         $out .= '<div id="visitedBox">';
-        //$out .= '<b>visited</b>';
+        $out .= '<div id="toggleVisited">Ihre Historie:</div>';
         $out .= '<ul id="visitedList">';
         foreach( $temp as $id ) {
             $out .= '<li class="visitedItem"><div class="visitedItem">';
