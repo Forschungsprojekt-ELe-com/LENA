@@ -74,8 +74,7 @@
 #plannedList li.heading span,
 #list li.heading span,
 #visitedList li.heading span {
-  color: #0164f4;
-  display: block;
+  color: #555;
 }
 #plannedList li div.visitedItem,
 #list li div.visitedItem,
@@ -255,8 +254,7 @@
 #plannedList > li.heading {
   margin-bottom: 20px;
 }
-#plannedList > li.heading > span {
-  padding-left: 10px;
+#plannedList > li.heading > div > span {
   color: #555;
   width: 100%;
   padding: 5px 10px;
