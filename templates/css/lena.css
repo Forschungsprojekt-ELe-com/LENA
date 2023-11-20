@@ -75,6 +75,9 @@
 #list li.heading span,
 #visitedList li.heading span {
   color: #777;
+  display: block;
+  width: 100%;
+  padding: 5px 10px;
 }
 #plannedList li div.visitedItem,
 #list li div.visitedItem,
