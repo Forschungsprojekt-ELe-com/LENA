@@ -18,6 +18,7 @@
 @media only screen and (max-width: 768px) {
   #quLenaPlugin {
     max-width: 100%;
+    width: 100%;
     margin: 15px 0 0;
   }
 }
