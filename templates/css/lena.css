@@ -268,7 +268,8 @@
   cursor: pointer;
   background-image: url("images/tree_col.svg");
   background-repeat: no-repeat;
-  background-position: right center;
+  background-position: right calc(100% - 30px);
+  background-size: 20px;
 }
 #plannedList > li.heading > div > span:hover {
   background-image: url("images/tree_exp.svg");
