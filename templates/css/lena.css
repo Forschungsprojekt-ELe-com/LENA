@@ -268,18 +268,14 @@
   cursor: pointer;
   background-image: url("images/tree_col.svg");
   background-repeat: no-repeat;
-  background-position: right calc(100% - 30px);
+  background-position: calc(100% - 30px) center;
   background-size: 20px;
 }
 #plannedList > li.heading > div > span:hover {
   background-image: url("images/tree_exp.svg");
-  background-repeat: no-repeat;
-  background-position: right center;
 }
 #plannedList > li.heading > div > span:not([slide]) {
   background-image: url("images/tree_exp.svg");
-  background-repeat: no-repeat;
-  background-position: right center;
 }
 #plannedList > li.heading ul {
   list-style: none;
