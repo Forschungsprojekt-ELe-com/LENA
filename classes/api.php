@@ -44,7 +44,7 @@ $titles    = array();
             //alles was kein copa oder tst soll raus?
 
             $titles[ $usecase->getRefId( $item ) ] = array(
-                "title" => $usecase->getTitle( $usecase->getRefId( $item )),
+                "title" => $usecase->getTitle( $usecase->getRefId( $item ), $item ),
                 "objid" => $item,
                 "type" => $usecase->getType( $usecase->getRefId( $item ) )
                 );
