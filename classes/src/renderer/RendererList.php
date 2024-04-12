@@ -20,10 +20,12 @@ $(document).ready(function () {
 });
 </script>';
         $out .= '<a id="lena_teaser" href="#"></a>';
+        $out .= '<div id="quLenaPluginWrapper">';
         $out .= '<div id="quLenaPlugin">';
         foreach( $this->rendererList as $renderer ) {
             $out .= $renderer->render();
         }        
+        $out .= '</div>';
         $out .= '</div>';
         return $out;
     }
