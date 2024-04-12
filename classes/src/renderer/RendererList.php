@@ -14,7 +14,14 @@ class RendererList extends Renderer {
 $(document).ready(function () {
 	$("#lena_teaser").click(function (event) {
 		event.preventDefault();
-		$("#quLenaPluginWrapper").toggle("1000");
+        $("#lena_teaser").hide();
+		$("#quLenaPluginWrapper").show("1000");
+		return false;
+	});
+    $("#close").click(function (event) {
+		event.preventDefault();
+		$("#quLenaPluginWrapper").hide("1000");
+        $("#lena_teaser").show("1000");
 		return false;
 	});
 });
@@ -22,6 +29,7 @@ $(document).ready(function () {
         $out .= '<a id="lena_teaser" href="#"></a>';
         $out .= '<div id="quLenaPluginWrapper">';
         $out .= '<div id="quLenaPlugin">';
+        $out .= '<a href="#" id="close"></a>';
         foreach( $this->rendererList as $renderer ) {
             $out .= $renderer->render();
         }        
