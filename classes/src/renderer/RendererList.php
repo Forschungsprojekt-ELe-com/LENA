@@ -14,7 +14,7 @@ class RendererList extends Renderer {
 $(document).ready(function () {
 	$("#lena_teaser").click(function (event) {
 		event.preventDefault();
-		$("#quLenaPlugin").toggle("1000");
+		$("#quLenaPluginWrapper").toggle("1000");
 		return false;
 	});
 });
