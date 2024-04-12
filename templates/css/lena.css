@@ -16,8 +16,8 @@
   position: fixed;
   right: 25px;
   text-decoration: none;
-  width: 60px;
-  height: 100px;
+  width: 100px;
+  height: 150px;
   background-image: url("images/chatbot.png");
   background-repeat: no-repeat;
   background-position: center;
@@ -50,12 +50,7 @@
   }
 }
 #suggestions {
-  padding-left: 100px;
   margin-bottom: 30px;
-  background-image: url("images/chatbot.png");
-  background-position: top left;
-  background-repeat: no-repeat;
-  background-size: auto 150px;
   min-height: 150px;
 }
 #suggestions > div.customBG {
