@@ -38,8 +38,8 @@
 }
 #close {
   position: absolute;
-  right: 32px;
-  top: 32px;
+  right: 15px;
+  top: 15px;
   width: 32px;
   height: 32px;
   opacity: 0.3;
@@ -63,12 +63,13 @@
   transform: rotate(-45deg);
 }
 #quLenaPlugin {
+  position: relative;
   max-width: 33%;
   width: 33%;
   margin: 30px auto 0;
   background-color: white;
   border-radius: 20px;
-  padding-top: 50px;
+  padding-top: 40px;
 }
 @media only screen and (max-width: 768px) {
   #quLenaPlugin {
