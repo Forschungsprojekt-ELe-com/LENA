@@ -25,6 +25,8 @@
   z-index: 1040;
 }
 #quLenaPluginWrapper {
+  overflow-x: hidden;
+  overflow-y: auto;
   display: none;
   position: fixed;
   top: 0;
@@ -36,9 +38,7 @@
 #quLenaPlugin {
   max-width: 33%;
   width: 33%;
-  margin: 30px 0;
-  padding-left: 30px;
-  margin: auto;
+  margin: 30px auto 0;
 }
 @media only screen and (max-width: 768px) {
   #quLenaPlugin {
