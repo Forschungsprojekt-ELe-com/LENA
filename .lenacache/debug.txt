@@ -1,0 +1,109 @@
+
+
+SELECT 1
+  , _od.type AS _type
+  , _orParent.obj_id AS _parentOBJID
+  
+  , _t.child AS _ref_id
+  , _or.obj_id AS _obj_id
+  , _od.title AS _title  
+FROM tree _t
+  JOIN object_reference _or ON ( _t.child=_or.ref_id )  
+  JOIN object_reference _orParent ON ( _t.parent=_orParent.ref_id)
+  JOIN object_data _od ON ( _or.obj_id=_od.obj_id)
+  JOIN container_sorting _cs ON ( _t.child=_cs.child_id AND _orParent.obj_id=_cs.obj_id )
+WHERE _t.tree = 1
+  AND _or.deleted IS NULL
+  AND _t.parent = 860 
+ORDER BY _cs.position
+            
+
+SELECT 1
+  , _od.type AS _type
+  , _orParent.obj_id AS _parentOBJID
+  
+  , _t.child AS _ref_id
+  , _or.obj_id AS _obj_id
+  , _od.title AS _title  
+FROM tree _t
+  JOIN object_reference _or ON ( _t.child=_or.ref_id )  
+  JOIN object_reference _orParent ON ( _t.parent=_orParent.ref_id)
+  JOIN object_data _od ON ( _or.obj_id=_od.obj_id)
+  JOIN container_sorting _cs ON ( _t.child=_cs.child_id AND _orParent.obj_id=_cs.obj_id )
+WHERE _t.tree = 1
+  AND _or.deleted IS NULL
+  AND _t.parent = 861 
+ORDER BY _cs.position
+            
+
+SELECT 1
+  , _od.type AS _type
+  , _orParent.obj_id AS _parentOBJID
+  
+  , _t.child AS _ref_id
+  , _or.obj_id AS _obj_id
+  , _od.title AS _title  
+FROM tree _t
+  JOIN object_reference _or ON ( _t.child=_or.ref_id )  
+  JOIN object_reference _orParent ON ( _t.parent=_orParent.ref_id)
+  JOIN object_data _od ON ( _or.obj_id=_od.obj_id)
+  JOIN container_sorting _cs ON ( _t.child=_cs.child_id AND _orParent.obj_id=_cs.obj_id )
+WHERE _t.tree = 1
+  AND _or.deleted IS NULL
+  AND _t.parent = 862 
+ORDER BY _cs.position
+            
+
+SELECT 1
+  , _od.type AS _type
+  , _orParent.obj_id AS _parentOBJID
+  
+  , _t.child AS _ref_id
+  , _or.obj_id AS _obj_id
+  , _od.title AS _title  
+FROM tree _t
+  JOIN object_reference _or ON ( _t.child=_or.ref_id )  
+  JOIN object_reference _orParent ON ( _t.parent=_orParent.ref_id)
+  JOIN object_data _od ON ( _or.obj_id=_od.obj_id)
+  JOIN container_sorting _cs ON ( _t.child=_cs.child_id AND _orParent.obj_id=_cs.obj_id )
+WHERE _t.tree = 1
+  AND _or.deleted IS NULL
+  AND _t.parent = 863 
+ORDER BY _cs.position
+            
+
+SELECT 1
+  , _od.type AS _type
+  , _orParent.obj_id AS _parentOBJID
+  
+  , _t.child AS _ref_id
+  , _or.obj_id AS _obj_id
+  , _od.title AS _title  
+FROM tree _t
+  JOIN object_reference _or ON ( _t.child=_or.ref_id )  
+  JOIN object_reference _orParent ON ( _t.parent=_orParent.ref_id)
+  JOIN object_data _od ON ( _or.obj_id=_od.obj_id)
+  JOIN container_sorting _cs ON ( _t.child=_cs.child_id AND _orParent.obj_id=_cs.obj_id )
+WHERE _t.tree = 1
+  AND _or.deleted IS NULL
+  AND _t.parent = 864 
+ORDER BY _cs.position
+            
+
+SELECT 1
+  , _od.type AS _type
+  , _orParent.obj_id AS _parentOBJID
+  
+  , _t.child AS _ref_id
+  , _or.obj_id AS _obj_id
+  , _od.title AS _title  
+FROM tree _t
+  JOIN object_reference _or ON ( _t.child=_or.ref_id )  
+  JOIN object_reference _orParent ON ( _t.parent=_orParent.ref_id)
+  JOIN object_data _od ON ( _or.obj_id=_od.obj_id)
+  JOIN container_sorting _cs ON ( _t.child=_cs.child_id AND _orParent.obj_id=_cs.obj_id )
+WHERE _t.tree = 1
+  AND _or.deleted IS NULL
+  AND _t.parent = 1618 
+ORDER BY _cs.position
+            

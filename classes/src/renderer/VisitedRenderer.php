@@ -61,6 +61,7 @@ class VisitedRenderer extends Renderer {
     
     protected function fetchData() {
         global $DIC;
+        /** @var $nav ilNavigationHistory */
         $nav = $DIC["ilNavigationHistory"];
         $itemList = $nav->getItems();
         $refIdList = array();

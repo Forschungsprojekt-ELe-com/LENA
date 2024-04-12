@@ -10,6 +10,16 @@ class RendererList extends Renderer {
     
     public function render() {
         $out = '';
+        $out .= '<script>
+$(document).ready(function () {
+	$("#lena_teaser").click(function (event) {
+		event.preventDefault();
+		$("#quLenaPlugin").show("1000");
+		return false;
+	});
+});
+</script>';
+        $out .= '<a id="lena_teaser" href="#"></a>';
         $out .= '<div id="quLenaPlugin">';
         foreach( $this->rendererList as $renderer ) {
             $out .= $renderer->render();
