@@ -15,12 +15,12 @@ $(document).ready(function () {
 	$("#lena_teaser").click(function (event) {
 		event.preventDefault();
         $("#lena_teaser").hide();
-		$("#quLenaPluginWrapper").show("1000");
+		$("#quLenaPluginWrapper").slideDown("1000");
 		return false;
 	});
     $("#close").click(function (event) {
 		event.preventDefault();
-		$("#quLenaPluginWrapper").hide("1000");
+		$("#quLenaPluginWrapper").slideUp("1000");
         $("#lena_teaser").show("1000");
 		return false;
 	});
