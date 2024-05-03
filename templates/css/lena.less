@@ -42,6 +42,21 @@
 	left: 0;
 	background-color: #0008;
 }
+#lena_teaser {
+	&.UC-4 {
+		display: none;
+		+ #quLenaPluginWrapper {
+			overflow: auto;
+			display: block;
+			position: static;
+			z-index: 1000;
+			background-color: transparent;
+			#close {
+				display: none;
+			}
+		}
+	}
+}
 #close {
 	position: absolute;
 	right: 15px;

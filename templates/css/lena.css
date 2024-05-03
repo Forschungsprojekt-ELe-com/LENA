@@ -36,6 +36,19 @@
   left: 0;
   background-color: #0008;
 }
+#lena_teaser.UC-4 {
+  display: none;
+}
+#lena_teaser.UC-4 + #quLenaPluginWrapper {
+  overflow: auto;
+  display: block;
+  position: static;
+  z-index: 1000;
+  background-color: transparent;
+}
+#lena_teaser.UC-4 + #quLenaPluginWrapper #close {
+  display: none;
+}
 #close {
   position: absolute;
   right: 15px;
