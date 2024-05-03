@@ -230,8 +230,9 @@ class ilLENAPluginGUI extends ilPageComponentPluginGUI {
         $usecase        = $usecaseFactory->createByRefIdNumber( $ref_id );
 
         $this->backID = 0;
-        if( isset( $a_properties[ 'lena_usecase_4_crsid' ] ) ) {
-            $this->backID = $a_properties[ 'lena_usecase_4_crsid' ];
+        $settings = $DIC->settings();
+        if( strlen( '' . $settings->get( 'lena_usecase_4_crsid' ) > 0 ) ) {
+            $this->backID = $settings->get( 'lena_usecase_4_crsid' );
         }
         
         $message = '';
