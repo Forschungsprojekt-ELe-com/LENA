@@ -49,6 +49,14 @@
 #lena_teaser.UC-4 + #quLenaPluginWrapper #close {
   display: none;
 }
+#lena_teaser.UC-4 + #quLenaPluginWrapper #quLenaPlugin {
+  max-width: none;
+  width: auto;
+  margin: 30px auto 0;
+  background-color: white;
+  border-radius: 20px;
+  padding: 30px;
+}
 #close {
   position: absolute;
   right: 15px;
