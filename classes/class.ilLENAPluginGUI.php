@@ -14,6 +14,12 @@ require_once __DIR__ . '/src/_all.php';
 class ilLENAPluginGUI extends ilPageComponentPluginGUI {
     
     /**
+     * 
+     * @var int
+     */
+    protected $backID;
+    
+    /**
      * main renderer of the lena-box
      * 
      * @return string
@@ -37,6 +43,7 @@ class ilLENAPluginGUI extends ilPageComponentPluginGUI {
             ->setBaseUrl( $baseUrl )
             ->setUsecase( $usecase )            
             ->setVisited( $visited )
+            ->setBackToCourseId( $this->backID )
         ;        
         return $renderer->render();                    
     }
@@ -222,6 +229,11 @@ class ilLENAPluginGUI extends ilPageComponentPluginGUI {
         $usecaseFactory = new UseCaseFactory();
         $usecase        = $usecaseFactory->createByRefIdNumber( $ref_id );
 
+        $this->backID = 0;
+        if( isset( $a_properties[ 'lena_usecase_4_crsid' ] ) ) {
+            $this->backID = $a_properties[ 'lena_usecase_4_crsid' ];
+        }
+        
         $message = '';
         $content = '';
         $editMode = false;

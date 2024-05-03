@@ -68,6 +68,19 @@ $(document).ready(function () {
     
     /**
      * 
+     * @param int
+     * @return $this
+     */
+    public function setBackToCourseId( $backToCourseId ) {
+        parent::setBackToCourseId( $backToCourseId );
+        foreach( $this->rendererList as $renderer ) {
+            $renderer->backToCourseId( $backToCourseId );
+        }             
+        return $this;
+    }
+    
+    /**
+     * 
      * @param Visited $visited
      * @return $this
      */

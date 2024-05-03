@@ -31,7 +31,13 @@ abstract class Renderer {
      */
     protected $visited = null;
     
-
+    /**
+     * 
+     * @var int
+     */
+    protected $backToCourseId;
+    
+    
     /**
      * 
      * @param type $db
@@ -67,6 +73,16 @@ abstract class Renderer {
      */
     public function setVisited( $visited ) {
         $this->visited = $visited;
+        return $this;
+    }
+    
+    /**
+     * 
+     * @param int
+     * @return $this
+     */
+    public function setBackToCourseId( $backToCourseId ) {
+        $this->backToCourseId = $backToCourseId;
         return $this;
     }
 

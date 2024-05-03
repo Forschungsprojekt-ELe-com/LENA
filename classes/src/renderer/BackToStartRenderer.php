@@ -4,8 +4,8 @@ class BackToStartRenderer extends Renderer {
     
     public function render() {
         $out = '';
-        
-        $out .= '<h1>huhu</h1>';
+                
+        $out .= '<a href="goto.php?target=crs_' . $this->backToCourseId . '">back</a>';
         
         return $out;
     }
