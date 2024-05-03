@@ -207,10 +207,11 @@ class ilLENAPluginGUI extends ilPageComponentPluginGUI {
         global $DIC;
         $tree = $DIC->repositoryTree();
         $ilSetting 	= $DIC->settings();
-        $tpl = $DIC["tpl"];
+        $tpl = $DIC->ui()->mainTemplate();
 
         if ($a_mode == "presentation") {
             $tpl->addCss('./Customizing/global/plugins/Services/COPage/PageComponent/LENA/templates/css/lena.css');
+            $tpl->addJavaScript('./Customizing/global/plugins/Services/COPage/PageComponent/LENA/templates/js/jquery-ui.min.js');
         }
         
         $tpl = $this->getPlugin()->getTemplate("tpl.content.html");
