@@ -26,7 +26,9 @@ $(document).ready(function () {
 	});
 });
 </script>';
-        $out .= '<a id="lena_teaser" href="#"></a>';
+        $out .= '<a id="lena_teaser" href="#" class="UC-' 
+                . $this->usecase->getUsecaseNumber()
+                . '"></a>';
         $out .= '<div id="quLenaPluginWrapper">';
         $out .= '<div id="quLenaPlugin">';
         $out .= '<a href="#" id="close"></a>';
