@@ -121,5 +121,10 @@ $(document).ready(function () {
     public function addEmilRenderer() {
         $this->rendererList[] = new EmilRenderer( $this->db );
         return $this;
-    }        
+    }  
+    
+    public function addBackRenderer() {
+        $this->rendererList[] = new BackToStartRenderer( $this->db );
+        return $this;
+    }
 }

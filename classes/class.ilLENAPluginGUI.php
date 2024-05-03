@@ -70,7 +70,9 @@ class ilLENAPluginGUI extends ilPageComponentPluginGUI {
             ;
         }
         if( $usecaseID == 4 ) {
-            
+            $renderer
+                ->addBackRenderer()
+            ;
         }
         return $renderer;
     }
