@@ -24,6 +24,12 @@
   background-size: contain;
   z-index: 1040;
 }
+@media only screen and (max-width: 768px) {
+  #lena_teaser {
+    top: 0;
+    position: absolute;
+  }
+}
 #quLenaPluginWrapper {
   overflow-x: hidden;
   overflow-y: auto;
