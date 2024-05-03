@@ -52,10 +52,13 @@
 #lena_teaser.UC-4 + #quLenaPluginWrapper #quLenaPlugin {
   max-width: none;
   width: auto;
-  margin: 30px auto 0;
+  margin: 330px 0 0 15px;
   background-color: white;
   border-radius: 20px;
   padding: 30px;
+}
+#lena_teaser.UC-4 + #quLenaPluginWrapper #quLenaPlugin a.btn {
+  white-space: normal;
 }
 #close {
   position: absolute;
