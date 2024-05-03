@@ -14,14 +14,14 @@ class RendererList extends Renderer {
 $(document).ready(function () {
 	$("#lena_teaser").click(function (event) {
 		event.preventDefault();
-        $("#lena_teaser").hide();
-		$("#quLenaPluginWrapper").slideDown("1000");
+        $("#lena_teaser").hide("slide", {direction: "right" },"1000");
+		$("#quLenaPluginWrapper").show("slide", {direction: "right" },"1000");
 		return false;
 	});
     $("#close").click(function (event) {
 		event.preventDefault();
-		$("#quLenaPluginWrapper").slideUp("1000");
-        $("#lena_teaser").show("1000");
+		$("#quLenaPluginWrapper").hide("slide", {direction: "right" },"1000");
+        $("#lena_teaser").show("slide", {direction: "right" },"1000");
 		return false;
 	});
 });
