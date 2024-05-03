@@ -231,7 +231,7 @@ class ilLENAPluginGUI extends ilPageComponentPluginGUI {
 
         $this->backID = 0;
         $settings = $DIC->settings();
-        if( strlen( '' . $settings->get( 'lena_usecase_4_crsid' ) > 0 ) ) {
+        if( strlen( '' . $settings->get( 'lena_usecase_4_crsid' ) ) > 0 ) {
             $this->backID = $settings->get( 'lena_usecase_4_crsid' );
         }
         
