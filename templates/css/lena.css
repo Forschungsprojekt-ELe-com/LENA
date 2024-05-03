@@ -18,11 +18,16 @@
   border-radius: 20px;
 }
 #list li.suggestion div.suggestion img {
-  width: 30px;
-  height: 30px;
+  width: 30px !important;
+  height: 30px !important;
   background-color: white;
   padding: 5px;
   border-radius: 5px;
+}
+#list li.suggestion div.suggestion a,
+#list li.suggestion div.suggestion a:visited {
+  color: white;
+  line-height: 30px;
 }
 #lena_teaser {
   top: 50%;
