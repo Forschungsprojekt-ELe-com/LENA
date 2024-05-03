@@ -11,6 +11,19 @@
 #emil #visitedBox {
   padding-left: 100px;
 }
+#list li.suggestion div.suggestion {
+  background-color: #0164f4;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  border-radius: 20px;
+}
+#list li.suggestion div.suggestion img {
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  padding: 5px;
+  border-radius: 5px;
+}
 #lena_teaser {
   top: 50%;
   position: fixed;
