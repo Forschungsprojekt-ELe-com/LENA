@@ -71,7 +71,7 @@
   background-color: transparent;
   left: 0;
   right: auto;
-  bottom: 80px;
+  bottom: 79px;
   top: auto;
 }
 #lena_teaser.UC-4 + #quLenaPluginWrapper #close {
@@ -95,12 +95,16 @@
   justify-content: center;
   margin-bottom: 0;
   padding: 0;
-  width: 80px;
+  width: 79px;
   font-size: 0.5625rem;
   line-height: 0.748125rem;
   white-space: normal;
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
+}
+#lena_teaser.UC-4 + #quLenaPluginWrapper #quLenaPlugin a.btn:hover {
+  background-color: #fff;
+  color: #0274be;
 }
 #lena_teaser.UC-4 + #quLenaPluginWrapper #quLenaPlugin a.btn img.icon.small {
   display: inline-block;
