@@ -67,11 +67,15 @@
 	&.UC-4 {
 		display: none;
 		+ #quLenaPluginWrapper {
-			overflow: auto;
+			overflow: visible;
 			display: block;
-			position: static;
+			position: fixed;
 			z-index: 1000;
 			background-color: transparent;
+			left: 0;
+			right: auto;
+			bottom: 80px;
+			top: auto;
 			#close {
 				display: none;
 			}
