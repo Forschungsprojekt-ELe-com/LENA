@@ -64,11 +64,15 @@
   display: none;
 }
 #lena_teaser.UC-4 + #quLenaPluginWrapper {
-  overflow: auto;
+  overflow: visible;
   display: block;
-  position: static;
+  position: fixed;
   z-index: 1000;
   background-color: transparent;
+  left: 0;
+  right: auto;
+  bottom: 80px;
+  top: auto;
 }
 #lena_teaser.UC-4 + #quLenaPluginWrapper #close {
   display: none;
