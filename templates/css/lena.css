@@ -87,8 +87,8 @@
 }
 #lena_teaser.UC-4 + #quLenaPluginWrapper #quLenaPlugin a.btn {
   align-items: center;
-  background: #2c2c2c;
-  color: #fff;
+  background: #f6f6f6;
+  color: #4b4f58;
   display: inline-flex;
   flex-flow: column wrap;
   height: 80px;
@@ -96,13 +96,20 @@
   margin-bottom: 0;
   padding: 0;
   width: 80px;
+  font-size: 0.5625rem;
+  line-height: 0.748125rem;
   white-space: normal;
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
 }
 #lena_teaser.UC-4 + #quLenaPluginWrapper #quLenaPlugin a.btn img.icon.small {
+  display: inline-block;
+  text-align: center;
   height: 40px;
   width: 40px;
+  line-height: 20px;
+  text-decoration: none;
+  font-size: 90%;
 }
 #lena_teaser.UC-4 + #quLenaPluginWrapper #quLenaPlugin a.btn .bulky-label {
   color: #4b4f58;
