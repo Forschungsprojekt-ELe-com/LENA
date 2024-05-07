@@ -30,9 +30,8 @@
   line-height: 30px;
 }
 #lena_teaser {
-  top: 50%;
-  position: fixed;
-  right: -25px;
+  top: 0;
+  position: sticky;
   text-decoration: none;
   width: 150px;
   height: 150px;
@@ -41,6 +40,9 @@
   background-position: center;
   background-size: contain;
   z-index: 1040;
+  display: block;
+  float: right;
+  margin-top: 50px;
 }
 @media only screen and (max-width: 768px) {
   #lena_teaser {

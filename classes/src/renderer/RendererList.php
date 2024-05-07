@@ -12,6 +12,7 @@ class RendererList extends Renderer {
         $out = '';
         $out .= '<script>
 $(document).ready(function () {
+    $("div.ilc_section_ElecomBlockWrapper").prepend($("#lena_teaser"));
 	$("#lena_teaser").click(function (event) {
 		event.preventDefault();
         $("#lena_teaser").hide("slide", {direction: "right" },"1000");
@@ -26,7 +27,7 @@ $(document).ready(function () {
 	});
 });
 </script>';
-        $out .= '<a id="lena_teaser" href="#" class="UC-' 
+        $out .= '<a id="lena_teaser" href="#" class="UC-'
                 . $this->usecase->getUsecaseNumber()
                 . '"></a>';
         $out .= '<div id="quLenaPluginWrapper">';
