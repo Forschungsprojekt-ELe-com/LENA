@@ -15,14 +15,14 @@ $(document).ready(function () {
     $("div.ilc_section_ElecomBlockWrapper").prepend($("#lena_teaser"));
 	$("#lena_teaser").click(function (event) {
 		event.preventDefault();
-        $("#lena_teaser").hide("slide", {direction: "right" },"1000");
+        $("#lena_teaser").hide();//"slide", {direction: "right" },"1000");
 		$("#quLenaPluginWrapper").show("slide", {direction: "right" },"1000");
 		return false;
 	});
     $("#close").click(function (event) {
 		event.preventDefault();
 		$("#quLenaPluginWrapper").hide("slide", {direction: "right" },"1000");
-        $("#lena_teaser").show("slide", {direction: "right" },"1000");
+        $("#lena_teaser").show();//"slide", {direction: "right" },"1000");
 		return false;
 	});
 });

@@ -47,7 +47,12 @@
 
 	}
 	&.scrolled {
-		transform:scaleX(-1);
+		transform: scaleX(-1);
+		position: fixed;
+		left: 0;
+		top: 50%;
+		width: 90px;
+		height: 90px;
 	}
 	@media only screen and (max-width: @grid-float-breakpoint-max) {
 		top: 0;
