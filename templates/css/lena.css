@@ -46,6 +46,11 @@
 }
 #lena_teaser.scrolled {
   transform: scaleX(-1);
+  position: fixed;
+  left: 0;
+  top: 50%;
+  width: 90px;
+  height: 90px;
 }
 @media only screen and (max-width: 768px) {
   #lena_teaser {
