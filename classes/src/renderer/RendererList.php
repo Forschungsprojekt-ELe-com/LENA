@@ -17,6 +17,7 @@ $(document).ready(function () {
 	$("#lena_teaser").click(function (event) {
 		event.preventDefault();
         $("#lena_teaser").hide();//"slide", {direction: "right" },"1000");
+        $("#lena_spricht").detach();
 		$("#quLenaPluginWrapper").show("slide", {direction: "right" },"1000");
 		return false;
 	});
