@@ -30,6 +30,7 @@ $(document).ready(function () {
         $out .= '<a id="lena_teaser" href="#" class="UC-'
                 . $this->usecase->getUsecaseNumber()
                 . '"></a>';
+        $out .= '<div id="lena_spricht">Hallo! Ich bin LENA!</div>';
         $out .= '<div id="quLenaPluginWrapper">';
         $out .= '<div id="quLenaPlugin">';
         $out .= '<a href="#" id="close"></a>';

@@ -29,6 +29,21 @@
   color: white;
   line-height: 30px;
 }
+#lena_spricht {
+  top: 0;
+  position: sticky;
+  text-decoration: none;
+  width: 250px;
+  height: 225px;
+  background-image: url("images/lena-bubble.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  z-index: 1050;
+  display: block;
+  float: right;
+  padding: 20px 20px 60px;
+}
 #lena_teaser {
   top: 0;
   position: sticky;
