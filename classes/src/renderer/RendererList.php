@@ -15,7 +15,7 @@ $(document).ready(function () {
     $("div.ilc_section_ElecomBlockWrapper").prepend($("#lena_teaser"));
     $("div.ilc_section_ElecomBlockWrapper").prepend($("#lena_spricht"));
     setTimeout(function(){
-      $("#lena_teaser").remove();
+      $("#lena_spricht").remove();
     }, 5000);
 	$("#lena_teaser").click(function (event) {
 		event.preventDefault();
