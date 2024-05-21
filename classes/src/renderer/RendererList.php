@@ -14,13 +14,14 @@ class RendererList extends Renderer {
 $(document).ready(function () {
     $("div.ilc_section_ElecomBlockWrapper").prepend($("#lena_teaser"));
     $("div.ilc_section_ElecomBlockWrapper").prepend($("#lena_spricht"));
+    setTimeout(function(){
+      $("#lena_teaser").remove();
+    }, 5000);
 	$("#lena_teaser").click(function (event) {
 		event.preventDefault();
         $("#lena_teaser").hide();//"slide", {direction: "right" },"1000");
-        //$("#lena_spricht").detach();
-        setTimeout(function(){
-          $("#divID").remove();
-        }, 5000);
+        $("#lena_spricht").detach();
+        
 		$("#quLenaPluginWrapper").show("slide", {direction: "right" },"1000");
 		return false;
 	});
