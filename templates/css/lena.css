@@ -44,6 +44,9 @@
   float: right;
   margin-top: 50px;
 }
+#lena_teaser.scrolled {
+  transform: scaleX(-1);
+}
 @media only screen and (max-width: 768px) {
   #lena_teaser {
     top: 0;
