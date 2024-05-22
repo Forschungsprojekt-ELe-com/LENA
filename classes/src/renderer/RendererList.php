@@ -15,6 +15,9 @@ $(document).ready(function () {
     $("div.ilc_section_ElecomBlockWrapper").prepend($("#lena_teaser"));
     $("div.ilc_section_ElecomBlockWrapper").prepend($("#lena_spricht"));
     setTimeout(function(){
+      $("#delayed_text").show();
+    }, 2000);
+    setTimeout(function(){
       $("#lena_spricht").remove();
     }, 5000);
 	$("#lena_teaser").click(function (event) {
@@ -36,7 +39,8 @@ $(document).ready(function () {
         $out .= '<a id="lena_teaser" href="#" class="UC-'
                 . $this->usecase->getUsecaseNumber()
                 . '"></a>';
-        $out .= '<div id="lena_spricht">Hallo! Ich bin LENA!</div>';
+        $out .= '<div id="lena_spricht">Hallo!<br/>Ich bin LENA!<br/>';
+        $out .= '<span id="delayed_text">Deine persönliche Assistentin</span></div>';
         $out .= '<div id="quLenaPluginWrapper">';
         $out .= '<div id="quLenaPlugin">';
         $out .= '<a href="#" id="close"></a>';
