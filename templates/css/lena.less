@@ -72,9 +72,17 @@
 		top: 50%;
 		width: 90px;
 		height: 90px;
+		@media only screen and (max-width: @grid-float-breakpoint-max) {
+			top: auto;
+			left: 5px;
+			bottom: 15px;
+			position: absolute;
+		}
 	}
 	@media only screen and (max-width: @grid-float-breakpoint-max) {
-		top: 0;
+		top: auto;
+		left: 5px;
+		bottom: 15px;
 		position: absolute;
 	}
 }
