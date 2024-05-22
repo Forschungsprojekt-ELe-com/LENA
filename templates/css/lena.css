@@ -73,18 +73,24 @@
 }
 @media only screen and (max-width: 768px) {
   #lena_teaser.scrolled {
+    transform: scaleX(-1);
+    position: fixed;
     top: auto;
     left: 5px;
     bottom: 15px;
-    position: absolute;
+    width: 90px;
+    height: 90px;
   }
 }
 @media only screen and (max-width: 768px) {
   #lena_teaser {
+    transform: scaleX(-1);
+    position: fixed;
     top: auto;
     left: 5px;
     bottom: 15px;
-    position: absolute;
+    width: 90px;
+    height: 90px;
   }
 }
 #quLenaPluginWrapper {
