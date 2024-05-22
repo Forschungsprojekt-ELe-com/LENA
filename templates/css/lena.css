@@ -45,6 +45,15 @@
   font-weight: 600;
   text-align: center;
 }
+@media only screen and (max-width: 768px) {
+  #lena_spricht {
+    top: auto;
+    right: auto;
+    left: 5px;
+    bottom: 100px;
+    position: fixed;
+  }
+}
 #delayed_text {
   display: none;
 }
