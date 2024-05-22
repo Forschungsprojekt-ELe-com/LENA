@@ -13,13 +13,18 @@ class RendererList extends Renderer {
         $out .= '<script>
 $(document).ready(function () {
     $("div.ilc_section_ElecomBlockWrapper").prepend($("#lena_teaser"));
-    $("div.ilc_section_ElecomBlockWrapper").prepend($("#lena_spricht"));
-    setTimeout(function(){
-      $("#delayed_text").show();
-    }, 3000);
-    setTimeout(function(){
-      $("#lena_spricht").remove();
-    }, 6000);
+    if (localStorage.getItem("thusSpokeLENA") == null || localStorage.getItem("thusSpokeLENA") == NULL) {
+        $("div.ilc_section_ElecomBlockWrapper").prepend($("#lena_spricht"));
+        $("#lena_spricht").show();
+        setTimeout(function(){
+          $("#delayed_text").show();
+        }, 3000);
+        setTimeout(function(){
+          $("#lena_spricht").remove();
+          localStorage.setItem("thusSpokeLENA", true);
+        }, 6000);
+    }
+    
 	$("#lena_teaser").click(function (event) {
 		event.preventDefault();
         $("#lena_teaser").hide();//"slide", {direction: "right" },"1000");
