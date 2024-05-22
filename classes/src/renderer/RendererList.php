@@ -17,11 +17,11 @@ $(document).ready(function () {
         $("div.ilc_section_ElecomBlockWrapper").prepend($("#lena_spricht"));
         $("#lena_spricht").show();
         setTimeout(function(){
-          $("#delayed_text").show();
+            $("#delayed_text").show();
         }, 3000);
         setTimeout(function(){
-          $("#lena_spricht").remove();
-          localStorage.setItem("thusSpokeLENA", true);
+            $("#lena_spricht").remove();
+            localStorage.setItem("thusSpokeLENA", true);
         }, 6000);
     }
     
