@@ -16,7 +16,7 @@ $(document).ready(function () {
     $("div.ilc_section_ElecomBlockWrapper").prepend($("#lena_spricht"));
     setTimeout(function(){
       $("#delayed_text").show();
-    }, 2000);
+    }, 3000);
     setTimeout(function(){
       $("#lena_spricht").remove();
     }, 5000);
