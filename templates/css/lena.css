@@ -47,6 +47,7 @@
 }
 @media only screen and (max-width: 768px) {
   #lena_spricht {
+    background-image: url("images/lena-bubble-mirror.png");
     top: auto;
     right: auto;
     left: 5px;
@@ -86,7 +87,7 @@
     position: fixed;
     top: auto;
     left: 5px;
-    bottom: 15px;
+    bottom: -15px;
     width: 90px;
     height: 90px;
   }
@@ -97,7 +98,7 @@
     position: fixed;
     top: auto;
     left: 5px;
-    bottom: 15px;
+    bottom: -15px;
     width: 90px;
     height: 90px;
   }
