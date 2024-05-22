@@ -19,7 +19,7 @@ $(document).ready(function () {
     }, 3000);
     setTimeout(function(){
       $("#lena_spricht").remove();
-    }, 5000);
+    }, 6000);
 	$("#lena_teaser").click(function (event) {
 		event.preventDefault();
         $("#lena_teaser").hide();//"slide", {direction: "right" },"1000");
@@ -40,7 +40,7 @@ $(document).ready(function () {
                 . $this->usecase->getUsecaseNumber()
                 . '"></a>';
         $out .= '<div id="lena_spricht">Hallo!<br/>Ich bin LENA!<br/>';
-        $out .= '<span id="delayed_text">Deine persönliche Assistentin</span></div>';
+        $out .= '<span id="delayed_text">Deine persönliche<br/>Assistentin</span></div>';
         $out .= '<div id="quLenaPluginWrapper">';
         $out .= '<div id="quLenaPlugin">';
         $out .= '<a href="#" id="close"></a>';
