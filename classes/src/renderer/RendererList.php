@@ -13,7 +13,7 @@ class RendererList extends Renderer {
         $out .= '<script>
 $(document).ready(function () {
     $("div.ilc_section_ElecomBlockWrapper").prepend($("#lena_teaser"));
-    if (localStorage.getItem("thusSpokeLENA") == null || !localStorage.getItem("thusSpokeLENA")) {
+    if (localStorage.getItem("thusSpokeLENA") == null || localStorage.getItem("thusSpokeLENA") === "false") {
         $("div.ilc_section_ElecomBlockWrapper").prepend($("#lena_spricht"));
         $("#lena_spricht").show();
         setTimeout(function(){
@@ -21,7 +21,7 @@ $(document).ready(function () {
         }, 3000);
         setTimeout(function(){
             $("#lena_spricht").remove();
-            localStorage.setItem("thusSpokeLENA", true);
+            localStorage.setItem("thusSpokeLENA", "true");
         }, 6000);
     }
     
