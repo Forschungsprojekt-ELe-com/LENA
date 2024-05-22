@@ -13,7 +13,7 @@ class RendererList extends Renderer {
         $out .= '<script>
 $(document).ready(function () {
     $("div.ilc_section_ElecomBlockWrapper").prepend($("#lena_teaser"));
-    if (localStorage.getItem("thusSpokeLENA") == null || localStorage.getItem("thusSpokeLENA") == NULL) {
+    if (localStorage.getItem("thusSpokeLENA") == null) {
         $("div.ilc_section_ElecomBlockWrapper").prepend($("#lena_spricht"));
         $("#lena_spricht").show();
         setTimeout(function(){
