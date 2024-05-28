@@ -339,7 +339,8 @@
   display: inline-block;
   color: #777;
   background-image: url("images/current.svg");
-  background-position: right center;
+  background-position-x: calc(100% - 11px);
+  background-position-y: center;
   background-repeat: no-repeat;
   background-size: 20px;
   padding-right: 30px;
@@ -369,7 +370,8 @@
   display: inline-block;
   color: #0199F4;
   background-image: url("images/right-arrow-blue.png");
-  background-position: right center;
+  background-position-x: calc(100% - 11px);
+  background-position-y: center;
   background-repeat: no-repeat;
   background-size: 20px;
   padding-right: 30px;
@@ -435,7 +437,8 @@
 #plannedBox #plannedList li.visitedItem a,
 #plannedBox #plannedList li.visitedItem a:visited {
   background-image: url("images/check.png");
-  background-position: right center;
+  background-position-x: calc(100% - 11px);
+  background-position-y: center;
   background-repeat: no-repeat;
   background-size: 16px;
   padding-right: 30px;
@@ -446,7 +449,8 @@
   display: inline-block;
   color: #000;
   background-image: url("images/current.svg");
-  background-position: right center;
+  background-position-x: calc(100% - 11px);
+  background-position-y: center;
   background-repeat: no-repeat;
   background-size: 20px;
   padding-right: 30px;
@@ -460,7 +464,8 @@
   display: inline-block;
   color: #0199F4;
   background-image: url("images/right-arrow-blue.png");
-  background-position: right center;
+  background-position-x: calc(100% - 11px);
+  background-position-y: center;
   background-repeat: no-repeat;
   background-size: 20px;
   padding-right: 30px;
