@@ -30,27 +30,38 @@
 	}
 }
 #lena_spricht {
+	overflow-x: hidden;
+	overflow-y: auto;
 	display: none;
-	top: -150px;
-	right: 75px;
-	position: absolute;
-	width: 250px;
-	height: 225px;
-	background-image: url("images/lena-bubble.png");
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: contain;
-	z-index: 1050;
-	padding: 20px 20px 60px;
-	font-weight: 600;
-	text-align: center;
+	position: fixed;
+	z-index: 1000;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	background-color: #cce0fdcc;
+	> div {
+		position: relative;
+		max-width: 33%;
+		width: 33%;
+		margin: 30px auto 0;
+		background-color: #fff;
+		border-radius: 20px;
+		padding-top: 40px;
+
+		background-image: url("images/lena-bubble.png");
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: contain;
+		padding: 20px 20px 60px;
+		@media only screen and (max-width: @grid-float-breakpoint-max) {
+			max-width: 100%;
+			width: 100%;
+			margin: 15px 0 0;
+		}
+	}
 	@media only screen and (max-width: @grid-float-breakpoint-max) {
-		background-image: url("images/lena-bubble-mirror.png");
-		top: auto;
-		right: auto;
-		left: 5px;
-		bottom: 90px;
-		position: fixed;
+
 	}
 }
 #delayed_text {
@@ -67,7 +78,7 @@
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
-	z-index: 1040;
+	z-index: 1000;
 	display: block;
 	margin-top: 50px;
 	transform: scaleX(-1);
@@ -188,7 +199,7 @@
 		}
 	}
 }
-#close {
+#close, #close2 {
 	position: absolute;
 	right: -10px;
 	top: -10px;
@@ -196,25 +207,31 @@
 	height: 34px;
 	background-color: #014fc1;
 	border-radius: 17px;
+	@media only screen and (max-width: @grid-float-breakpoint-max) {
+		right: 10px;
+		top: 10px;
+	}
+	&:hover {
+		background-color: #4b4f58;
+	}
+	&:before, &:after {
+		position: absolute;
+		left: 16px;
+		top: 3px;
+		content: ' ';
+		height: 28px;
+		width: 3px;
+		background-color: #fff;
+	}
+	&:before {
+		transform: rotate(45deg);
+	}
+	&:after {
+		transform: rotate(-45deg);
+	}
 }
-#close:hover {
-	background-color: #4b4f58;
-}
-#close:before, #close:after {
-	position: absolute;
-	left: 16px;
-	top: 3px;
-	content: ' ';
-	height: 28px;
-	width: 3px;
-	background-color: #fff;
-}
-#close:before {
-	transform: rotate(45deg);
-}
-#close:after {
-	transform: rotate(-45deg);
-}
+
+
 
 #quLenaPlugin {
 	position: relative;

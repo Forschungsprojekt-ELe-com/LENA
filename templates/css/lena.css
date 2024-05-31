@@ -30,29 +30,36 @@
   line-height: 30px;
 }
 #lena_spricht {
+  overflow-x: hidden;
+  overflow-y: auto;
   display: none;
-  top: -150px;
-  right: 75px;
-  position: absolute;
-  width: 250px;
-  height: 225px;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: #cce0fdcc;
+}
+#lena_spricht > div {
+  position: relative;
+  max-width: 33%;
+  width: 33%;
+  margin: 30px auto 0;
+  background-color: #fff;
+  border-radius: 20px;
+  padding-top: 40px;
   background-image: url("images/lena-bubble.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  z-index: 1050;
   padding: 20px 20px 60px;
-  font-weight: 600;
-  text-align: center;
 }
 @media only screen and (max-width: 768px) {
-  #lena_spricht {
-    background-image: url("images/lena-bubble-mirror.png");
-    top: auto;
-    right: auto;
-    left: 5px;
-    bottom: 90px;
-    position: fixed;
+  #lena_spricht > div {
+    max-width: 100%;
+    width: 100%;
+    margin: 15px 0 0;
   }
 }
 #delayed_text {
@@ -69,7 +76,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  z-index: 1040;
+  z-index: 1000;
   display: block;
   margin-top: 50px;
   transform: scaleX(-1);
@@ -187,7 +194,8 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
-#close {
+#close,
+#close2 {
   position: absolute;
   right: -10px;
   top: -10px;
@@ -196,11 +204,21 @@
   background-color: #014fc1;
   border-radius: 17px;
 }
-#close:hover {
+@media only screen and (max-width: 768px) {
+  #close,
+  #close2 {
+    right: 10px;
+    top: 10px;
+  }
+}
+#close:hover,
+#close2:hover {
   background-color: #4b4f58;
 }
 #close:before,
-#close:after {
+#close2:before,
+#close:after,
+#close2:after {
   position: absolute;
   left: 16px;
   top: 3px;
@@ -209,10 +227,12 @@
   width: 3px;
   background-color: #fff;
 }
-#close:before {
+#close:before,
+#close2:before {
   transform: rotate(45deg);
 }
-#close:after {
+#close:after,
+#close2:after {
   transform: rotate(-45deg);
 }
 #quLenaPlugin {

@@ -14,6 +14,11 @@ class RendererList extends Renderer {
 $(document).ready(function () {
     $("div.ilc_section_ElecomBlockWrapper").prepend($("#lena_teaser"));
     
+    if (localStorage.getItem("thusSpokeLENA") == null || localStorage.getItem("thusSpokeLENA") === "false") {
+        $("div.ilc_section_ElecomBlockWrapper").prepend($("#lena_spricht"));
+        $("#lena_spricht").show("slide", {direction: "right" },"1000");
+        localStorage.setItem("thusSpokeLENA", "true");
+    }
     
 	$("#lena_teaser").click(function (event) {
 		event.preventDefault();
@@ -29,13 +34,19 @@ $(document).ready(function () {
         //$("#lena_teaser").show();//"slide", {direction: "right" },"1000");
 		return false;
 	});
+    $("#close2").click(function (event) {
+		event.preventDefault();
+		$("#lena_spricht").hide("slide", {direction: "right" },"1000");
+		return false;
+	});
 });
 </script>';
         $out .= '<a id="lena_teaser" href="#" class="UC-'
                 . $this->usecase->getUsecaseNumber()
                 . '"></a>';
-        //$out .= '<div id="lena_spricht">Hallo!<br/>Ich bin LENA!<br/>';
-        //$out .= '<span id="delayed_text">Deine persönliche<br/>Assistentin</span></div>';
+        $out .= '<div id="lena_spricht"><div>';
+        $out .= '<a href="#" id="close2"></a>';
+        $out .= '</div></div>';
         $out .= '<div id="quLenaPluginWrapper">';
         $out .= '<div id="quLenaPlugin">';
         $out .= '<a href="#" id="close"></a>';
