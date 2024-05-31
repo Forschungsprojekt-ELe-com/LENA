@@ -57,38 +57,22 @@
 	display: none;
 }
 #lena_teaser {
-	top: 0;
-	position: sticky;
+	position: fixed;
+	left: 0;
+	top: 50%;
+	width: 90px;
+	height: 90px;
 	text-decoration: none;
-	width: 150px;
-	height: 150px;
 	background-image: url("images/icon-lena.svg");
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
 	z-index: 1040;
 	display: block;
-	float: right;
 	margin-top: 50px;
+	transform: scaleX(-1);
 	&:hover {
 
-	}
-	&.scrolled {
-		transform: scaleX(-1);
-		position: fixed;
-		left: 0;
-		top: 50%;
-		width: 90px;
-		height: 90px;
-		@media only screen and (max-width: @grid-float-breakpoint-max) {
-			transform: scaleX(-1);
-			position: fixed;
-			top: auto;
-			left: 5px;
-			bottom: -15px;
-			width: 90px;
-			height: 90px;
-		}
 	}
 	@media only screen and (max-width: @grid-float-breakpoint-max) {
 		transform: scaleX(-1);
@@ -208,20 +192,22 @@
 	position: absolute;
 	right: 15px;
 	top: 15px;
-	width: 32px;
-	height: 32px;
-	opacity: 0.3;
+	width: 34px;
+	height: 34px;
+	background-color: #014fc1;
+	border-radius: 17px;
 }
 #close:hover {
-	opacity: 1;
+	background-color: #4b4f58;
 }
 #close:before, #close:after {
 	position: absolute;
-	left: 15px;
+	left: 16px;
+	top: 3px;
 	content: ' ';
-	height: 33px;
-	width: 2px;
-	background-color: #333;
+	height: 28px;
+	width: 3px;
+	background-color: #fff;
 }
 #close:before {
 	transform: rotate(45deg);
