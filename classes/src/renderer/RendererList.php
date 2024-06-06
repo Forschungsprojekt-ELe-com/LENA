@@ -10,11 +10,14 @@ class RendererList extends Renderer {
     
     public function render() {
         $out = '';
+
         $out .= '<script>
-$(document).ready(function () {
-    $("div.ilc_section_ElecomBlockWrapper").prepend($("#lena_teaser"));
-    
-    if (localStorage.getItem("thusSpokeLENA") == null || localStorage.getItem("thusSpokeLENA") === "false") {
+    $(document).ready(function () {
+        $("div.ilc_section_ElecomBlockWrapper").prepend($("#lena_teaser"));';
+        if ($this->usecase->getUsecaseNumber() == 4) {
+            $out .= 'localStorage.setItem("thusSpokeLENA", "true");';
+        }
+        $out .= 'if (localStorage.getItem("thusSpokeLENA") == null || localStorage.getItem("thusSpokeLENA") === "false") {
         $("div.ilc_section_ElecomBlockWrapper").prepend($("#lena_spricht"));
         $("#lena_spricht").show("slide", {direction: "right" },"1000");
         localStorage.setItem("thusSpokeLENA", "true");
