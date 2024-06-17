@@ -19,7 +19,7 @@ class RendererList extends Renderer {
         }
         $out .= 'if (localStorage.getItem("thusSpokeLENA") == null || localStorage.getItem("thusSpokeLENA") === "false") {
         $("div.ilc_section_ElecomBlockWrapper").prepend($("#lena_spricht"));
-        $("#lena_spricht").show("slide", {direction: "right" },"1000");
+        $("#lena_spricht").show("fade", "1000");
         localStorage.setItem("thusSpokeLENA", "true");
     }
     
@@ -28,18 +28,18 @@ class RendererList extends Renderer {
         //$("#lena_teaser").hide();//"slide", {direction: "right" },"1000");
         //$("#lena_spricht").detach();
         
-		$("#quLenaPluginWrapper").show("slide", {direction: "right" },"1000");
+		$("#quLenaPluginWrapper").show("fade", "1000");
 		return false;
 	});
     $("#close").click(function (event) {
 		event.preventDefault();
-		$("#quLenaPluginWrapper").hide("slide", {direction: "right" },"1000");
+		$("#quLenaPluginWrapper").hide("fade", "1000");
         //$("#lena_teaser").show();//"slide", {direction: "right" },"1000");
 		return false;
 	});
     $("#close2").click(function (event) {
 		event.preventDefault();
-		$("#lena_spricht").hide("slide", {direction: "right" },"1000");
+		$("#lena_spricht").hide("fade", "1000");
 		return false;
 	});
 });
