@@ -19,8 +19,7 @@ class RendererList extends Renderer {
         }
         $out .= 'if (localStorage.getItem("thusSpokeLENA") == null || localStorage.getItem("thusSpokeLENA") === "false") {
         $("div.ilc_section_ElecomBlockWrapper").prepend($("#lena_spricht"));
-       //$("#lena_spricht").show("fade", "1000");
-        $("#lena_spricht").fadeIn({"start":function() {$(this).css("transform","scale(1)") },"duration":1000});
+        $("#lena_spricht").show("fade", "1000");
         localStorage.setItem("thusSpokeLENA", "true");
     }
     
@@ -40,8 +39,7 @@ class RendererList extends Renderer {
 	});
     $("#close2").click(function (event) {
 		event.preventDefault();
-		//$("#lena_spricht").hide("fade", "1000");
-		$("#lena_spricht").fadeOut({"start":function() {$(this).css("transform","scale(0)") },"duration":1000});
+		$("#lena_spricht").hide("fade", "1000");
 		return false;
 	});
 });
