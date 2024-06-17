@@ -6,37 +6,37 @@ class UseCase {
      * 
      * @var int
      */
-    protected $usecaseNumber;
+    protected int $usecaseNumber;
     
     /**
      * 
      * @var int[] $ref => $obj
      */
-    protected $refIdList;
+    protected array $refIdList;
     
     /**
      * 
      * @var int[] $obj => $ref
      */
-    protected $objIdList;
+    protected array $objIdList;
     
     /**
      * 
      * @var string[] $obj => $title
      */
-    protected $titles;
+    protected array $titles;
     
     /**
      * 
      * @var int[] child_obj_id => parent_obj_id
      */
-    protected $parentList;
+    protected array $parentList;
 
     /**
      * 
      * @var int[]
      */
-    protected $testList;
+    protected array $testList;
     
     
     /**
@@ -47,13 +47,13 @@ class UseCase {
      * @param string[] $titles
      */
     public function __construct( 
-            $usecaseNumber
-            , $refIdList = array()
-            , $objIdList = array()
-            , $titles = array()
-            , $parentList = array() 
-            , $testList = array() 
-        ) {
+              int $usecaseNumber
+            , array $refIdList = array()
+            , array $objIdList = array()
+            , array $titles = array()
+            , array $parentList = array() 
+            , array $testList = array() 
+        ): void {
         $this->usecaseNumber = $usecaseNumber;
         $this->refIdList     = $refIdList;
         $this->objIdList     = $objIdList;
@@ -62,7 +62,12 @@ class UseCase {
         $this->testList      = $testList;
     }
     
-    public function isTest( $ref_id = 0 ) {
+    /**
+     * 
+     * @param int $ref_id
+     * @return bool
+     */
+    public function isTest( int $ref_id = 0 ): bool {
         return isset( $this->testList[ $ref_id ] );
     }
     
@@ -71,7 +76,7 @@ class UseCase {
      * @param int $crs_obj_id
      * @return int or 0
      */
-    public function getRefId( $crs_obj_id ) {
+    public function getRefId( int $crs_obj_id ): int {
         if( $this->issetObj( $crs_obj_id ) ) {
             return $this->objIdList[ $crs_obj_id ];
         }
@@ -83,7 +88,7 @@ class UseCase {
      * @param int $crs_ref_id
      * @return int or 0
      */
-    public function getObjId( $crs_ref_id ) {
+    public function getObjId( int $crs_ref_id ): int {
         if( $this->issetRef( $crs_ref_id ) ) {
             return $this->refIdList[ $crs_ref_id ];
         }
@@ -96,7 +101,7 @@ class UseCase {
      * @param string $emil_id
      * @return string
      */
-    public function getTitle( $crs_ref_id, $emil_id='' ) {
+    public function getTitle( int $crs_ref_id, string $emil_id='' ): string {
         if( isset( $this->titles[ $crs_ref_id ] ) ) {
             return $this->titles[ $crs_ref_id ];
         }
@@ -108,7 +113,7 @@ class UseCase {
      * @param int $crs_ref_id
      * @return bool
      */
-    public function issetRef( $crs_ref_id ) {
+    public function issetRef( int $crs_ref_id ): bool {
         return isset( $this->refIdList[ $crs_ref_id ] ); 
     }
     
@@ -117,7 +122,7 @@ class UseCase {
      * @param int $crs_obj_id
      * @return bool
      */
-    public function issetObj( $crs_obj_id ) {
+    public function issetObj( int $crs_obj_id ): bool {
         return isset( $this->objIdList[ $crs_obj_id ] ); 
     }
         
@@ -125,7 +130,7 @@ class UseCase {
      * 
      * @return string
      */
-    public function getObjIdInstring() {
+    public function getObjIdInstring(): string {
         return implode( ',', array_keys( $this->objIdList ) );        
     }
     
@@ -133,7 +138,7 @@ class UseCase {
      * 
      * @return string
      */
-    public function getRefIdInstring() {
+    public function getRefIdInstring(): string {
         return implode( ',', array_keys( $this->refIdList ) );
     }
     
@@ -141,7 +146,7 @@ class UseCase {
      * 
      * @return int[]
      */
-    public function getRefIdList() {
+    public function getRefIdList(): array {
         return $this->refIdList;
     }
 
@@ -149,7 +154,7 @@ class UseCase {
      * 
      * @return int[]
      */
-    public function getObjIdList() {
+    public function getObjIdList(): array {
         return $this->objIdList;
     }    
     
@@ -157,7 +162,7 @@ class UseCase {
      * 
      * @return int
      */
-    public function getUsecaseNumber() {
+    public function getUsecaseNumber(): array {
         return $this->usecaseNumber;
     }
     
@@ -165,7 +170,7 @@ class UseCase {
      * 
      * @return int[]
      */
-    public function getParents() {
+    public function getParents(): array {
         return $this->parentList;
     }
     

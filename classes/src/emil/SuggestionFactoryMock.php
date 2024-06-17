@@ -2,7 +2,7 @@
 
 class SuggestionFactoryMock extends SuggestionFactory {
     
-    public function execute() {
+    public function execute(): void {
         $filename = "ok";
         $temp = rand( 0, 100 );
 //        if(false ) //( $temp > 101 ) 

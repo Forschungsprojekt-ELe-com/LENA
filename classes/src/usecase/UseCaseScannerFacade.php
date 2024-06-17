@@ -8,13 +8,13 @@ class UseCaseScannerFacade {
      * 
      * @var int[]
      */
-    protected $useCaseData;
+    protected array $useCaseData;
     
     /**
      * 
      * @var int
      */
-    protected $plannedId;
+    protected int $plannedId;
     
     public function __construct( $db ) {
         $this->db          = $db;
@@ -28,7 +28,7 @@ class UseCaseScannerFacade {
      * @param int $ref_id
      * @return $this
      */
-    public function addScanner( $useCaseId, $ref_id ) {
+    public function addScanner( int $useCaseId, int $ref_id ) {
         if( $useCaseId == 2 ) {
             $this->plannedId = $ref_id;
         }
@@ -36,7 +36,7 @@ class UseCaseScannerFacade {
         return $this;
     }
 
-    public function execute() {
+    public function execute(): void {
         $this->deleteOldFiles();
         $scanner = new UseCaseScanner( $this->db );
         foreach( $this->useCaseData as $usecaseNo => $ref_id ) {
@@ -50,7 +50,7 @@ class UseCaseScannerFacade {
         }        
     }
     
-    protected function deleteOldFiles() {
+    protected function deleteOldFiles(): void {
         $dirname   = __DIR__ . '/../../../.lenacache/';
         $filenames = array( 
             "1.php"

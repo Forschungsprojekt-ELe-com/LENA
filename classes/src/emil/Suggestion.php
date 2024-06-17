@@ -7,43 +7,43 @@ class Suggestion {
      * 
      * @var bool
      */
-    protected $metaStatus;
+    protected bool $metaStatus;
     
     /**
      * 
      * @var string
      */
-    protected $metaReason;
+    protected string $metaReason;
     
     /**
      * 
      * @var string
      */
-    protected $metaTransmitted;
+    protected string $metaTransmitted;
     
     /**
      * 
      * @var int[]
      */
-    protected $recommend;
+    protected array $recommend;
     
     /**
      * 
      * @var string
      */
-    protected $reason;
+    protected string $reason;
     
     /**
      * 
      * @var string
      */
-    protected $json;
+    protected string $json;
     
     /**
      * 
      * @param string $json
      */
-    public function __construct( $json ) {
+    public function __construct( string $json ): void {
         $this->json = $json;
         $result = json_decode( $json );
         
@@ -87,7 +87,7 @@ class Suggestion {
      * 
      * @return bool
      */
-    public function isOk() {
+    public function isOk(): bool {
         return ( count( $this->recommend ) > 0 );
 //        return ( $this->metaStatus == 'OK' );
     }
@@ -96,7 +96,7 @@ class Suggestion {
      * 
      * @return string
      */
-    public function getMetaReason() {
+    public function getMetaReason(): string {
         return $this->metaReason;
     }
 
@@ -104,7 +104,7 @@ class Suggestion {
      * 
      * @return string
      */
-    public function getMetaTransmitted() {
+    public function getMetaTransmitted(): string {
         return $this->metaTransmitted;
     }
 
@@ -113,7 +113,7 @@ class Suggestion {
      * 
      * @return int[]
      */
-    public function getRecommend() {
+    public function getRecommend(): array {
         return $this->recommend;
     }
 
@@ -121,7 +121,7 @@ class Suggestion {
      * 
      * @return string
      */
-    public function getReason() {
+    public function getReason(): string {
         return $this->reason;
     }    
     
@@ -129,7 +129,7 @@ class Suggestion {
      * 
      * @return string
      */
-    public function getJson() {
+    public function getJson(): string {
         return $this->json;
     }
 }

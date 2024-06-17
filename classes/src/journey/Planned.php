@@ -6,13 +6,13 @@ class Planned {
      * 
      * @var Planned
      */
-    private static $instance;
+    private static Planned $instance;
     
     /**
      * 
      * @var int[]
      */
-    protected $plannedList;
+    protected array $plannedList;
 
     /**
      * Use this to create the Planned Instance.
@@ -20,7 +20,7 @@ class Planned {
      * @param bool $mockdata
      * @return Planned
      */
-    public static function getInstance() {
+    public static function getInstance(): Planned {
         if( self::$instance == null ) {
             self::$instance = new Planned();
         }
@@ -40,7 +40,7 @@ class Planned {
      * @param int $obj_id
      * @return bool
      */
-    public function isPlanned( $obj_id ) {        
+    public function isPlanned( int $obj_id ): bool {        
         return isset( $this->plannedList[ $obj_id ] ); 
     }
     
@@ -48,7 +48,7 @@ class Planned {
      * 
      * @return int[]
      */
-    public function getObjIdList() {
+    public function getObjIdList(): array {
         return array_keys( $this->plannedList );
     }
     
@@ -56,7 +56,7 @@ class Planned {
      * 
      * @return array   obj_id => ref_id
      */
-    public function getPlannedList() {
+    public function getPlannedList(): array {
         return $this->plannedList;
     }
 }
