@@ -21,10 +21,10 @@ class Planned {
      * @return Planned
      */
     public static function getInstance(): Planned {
-        if( self::$instance == null ) {
-            self::$instance = new Planned();
+        if( Planned::$instance == null ) {
+            Planned::$instance = new Planned();
         }
-        return self::$instance;
+        return Planned::$instance;
     }    
     
     private function __construct() {
