@@ -162,7 +162,7 @@ class UseCase {
      * 
      * @return int
      */
-    public function getUsecaseNumber(): array {
+    public function getUsecaseNumber(): int {
         return $this->usecaseNumber;
     }
     
