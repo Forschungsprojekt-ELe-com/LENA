@@ -12,7 +12,7 @@ class RendererList extends Renderer {
         $out = '';
 
         $out .= '<script>
-    document.onload = function () {
+    document.onReady = function () {
         $("div.ilc_section_ElecomBlockWrapper").prepend($("#lena_teaser"));';
         if ($this->usecase->getUsecaseNumber() == 4) {
             $out .= 'localStorage.setItem("thusSpokeLENA", "true");';
