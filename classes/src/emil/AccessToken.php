@@ -40,7 +40,7 @@ class AccessToken {
      * 
      * @param int $user_id
      */
-    public function __construct( int $user_id = 0, int $usecase = 0 ): void {
+    public function __construct( int $user_id = 0, int $usecase = 0 ) {
         $this->userId     = $user_id;
         $this->usecase    = $usecase;
         
@@ -102,6 +102,11 @@ class AccessToken {
     public function evaluateToken( string $token ): bool {
         $filename = AccessToken::LOCATION . $token . '.php';
         if( is_file( $filename ) ) {
+            $LENA_USER   = 0;
+            $LENA_HASH   = "";
+            $LENA_RESULT = "";
+            $LENA_UC = 0;
+            $token  = "";
             include $filename;
             $this->userId     = $LENA_USER;
             $this->userHash   = $LENA_HASH;

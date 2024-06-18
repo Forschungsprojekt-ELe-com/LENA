@@ -12,7 +12,7 @@ class ilLENAPlugin extends ilPageComponentPlugin
 	 *
 	 * @return string
 	 */
-	function getPluginName()
+	function getPluginName() : string
 	{
 		return "LENA";
 	}
@@ -23,7 +23,7 @@ class ilLENAPlugin extends ilPageComponentPlugin
 	 * @param string $a_parent_type object type
 	 * @return boolean
 	 */
-	function isValidParentType($a_parent_type)
+	function isValidParentType($a_parent_type) : bool
 	{
 		if (in_array($a_parent_type, array("crs", "cont"))) {
 			return true;

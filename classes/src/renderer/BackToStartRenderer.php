@@ -2,7 +2,7 @@
 
 class BackToStartRenderer extends Renderer {
     
-    public function render() {
+    public function render() : string {
         $out = '';
 
         $out .= '<a class="btn btn-bulky" id="back_to_course" ';

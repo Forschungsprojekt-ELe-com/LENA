@@ -30,6 +30,7 @@ class Planned {
     private function __construct() {
         $this->plannedList = array();
         if( is_file( __DIR__ . '/../../../.lenacache/planned.php' ) ) {
+            $LENA_PLAN = array();
             include __DIR__ . '/../../../.lenacache/planned.php';
             $this->plannedList = $LENA_PLAN;
         }

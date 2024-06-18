@@ -28,9 +28,9 @@ class ilLENAConfigGUI extends ilPluginConfigGUI {
     protected ilSetting $ilSetting;
 
     /**
-     * @var ilGlobalPageTemplate
+     * @var ilGlobalTemplateInterface
      */
-    protected ilGlobalPageTemplate $tpl;
+    protected ilGlobalTemplateInterface $tpl;
 
     /**
      * ilMassMaticsConfigGUI constructor.
@@ -48,16 +48,16 @@ class ilLENAConfigGUI extends ilPluginConfigGUI {
         $db = $DIC->database();        
         $facade = new UseCaseScannerFacade( $db );
         if( ( $this->ilSetting->get("lena_usecase_1_crsid", "" ) ) ) {
-            $facade->addScanner( 1, $this->ilSetting->get( "lena_usecase_1_crsid" ) );
+            $facade->addScanner( 1, (int)$this->ilSetting->get( "lena_usecase_1_crsid" , "0") );
         }
         if( ( $this->ilSetting->get("lena_usecase_2_crsid", "" ) ) ) {
-            $facade->addScanner( 2, $this->ilSetting->get( "lena_usecase_2_crsid" ) );
+            $facade->addScanner( 2, (int)$this->ilSetting->get( "lena_usecase_2_crsid" , "0") );
         }
         if( ( $this->ilSetting->get("lena_usecase_3_crsid", "" ) ) ) {
-            $facade->addScanner( 3, $this->ilSetting->get( "lena_usecase_3_crsid" ) );
+            $facade->addScanner( 3, (int)$this->ilSetting->get( "lena_usecase_3_crsid" , "0") );
         }
         if( ( $this->ilSetting->get("lena_usecase_4_crsid", "" ) ) ) {
-            $facade->addScanner( 4, $this->ilSetting->get( "lena_usecase_4_crsid" ) );
+            $facade->addScanner( 4, (int)$this->ilSetting->get( "lena_usecase_4_crsid" , "0") );
         }        
         $facade->execute();
     }
@@ -65,7 +65,7 @@ class ilLENAConfigGUI extends ilPluginConfigGUI {
     /**
      * Handles all commmands, default is "configure"
      */
-    function performCommand($cmd) {
+    function performCommand($cmd) : void {
         switch ($cmd) {
             case "configure":
             case "save":

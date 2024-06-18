@@ -14,7 +14,7 @@ class EmilClient {
      */
     protected string $url;
     
-    public function __construct( int $userId = 0 ): void {
+    public function __construct( int $userId = 0 ) {
         $this->userId = $userId;
         $this->url    = 'https://elecom.codip.tu-dresden.de/aiservice/' . $this->userId . '/3';        
     }

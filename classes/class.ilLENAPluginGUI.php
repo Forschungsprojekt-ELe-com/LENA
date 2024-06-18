@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+//declare(strict_types=1);
 
 require_once __DIR__ . '/src/_all.php';
 
@@ -90,7 +90,8 @@ class ilLENAPluginGUI extends ilPageComponentPluginGUI {
      * @param
      * @return
      */
-    function executeCommand() {
+    function executeCommand() :void
+    {
         global $ilCtrl;
 
         $next_class = $ilCtrl->getNextClass();
@@ -111,7 +112,8 @@ class ilLENAPluginGUI extends ilPageComponentPluginGUI {
      * @param
      * @return
      */
-    function insert() {
+    function insert() :void
+    {
         global $tpl;
         $form = $this->initForm(true);
         $tpl->setContent($form->getHTML());
@@ -148,7 +150,7 @@ class ilLENAPluginGUI extends ilPageComponentPluginGUI {
     /**
      * Save element
      */
-    public function create() {
+    public function create() :void {
         global $tpl, $lng;
 
         $form = $this->initForm(true);
@@ -169,7 +171,7 @@ class ilLENAPluginGUI extends ilPageComponentPluginGUI {
      * @param
      * @return
      */
-    function edit() {
+    function edit() :void{
         global $tpl;
 
         $form = $this->initForm();
@@ -392,8 +394,8 @@ class ilLENAPluginGUI extends ilPageComponentPluginGUI {
     /**
      * @deprecated
      * 
-     * @global type $DIC
-     * @param type $crs_ref_id
+     * @global \ILIAS\DI\Container $DIC
+     * @param int $crs_ref_id
      * @return int
      */
     protected function determineUseCase( $crs_ref_id ) {                                    

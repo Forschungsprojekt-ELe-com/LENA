@@ -43,7 +43,7 @@ class Suggestion {
      * 
      * @param string $json
      */
-    public function __construct( string $json ): void {
+    public function __construct( string $json ) {
         $this->json = $json;
         $result = json_decode( $json );
         

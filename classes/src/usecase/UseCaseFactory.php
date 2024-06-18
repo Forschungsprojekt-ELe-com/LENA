@@ -9,13 +9,14 @@ class UseCaseFactory {
      * @param int $usecaseNumber
      * @return UseCase
      */
-    public function createByUsecaseNumber( int $usecaseNumber ): UseCase|null {
+    public function createByUsecaseNumber( int $usecaseNumber ): ?UseCase {
         $cacheFileName = UseCaseFactory::LOCATION . $usecaseNumber . '.php';
         if( is_file( $cacheFileName ) ) {
             $LENA_REF    = array(); 
             $LENA_OBJ    = array(); 
             $LENA_TITLES = array();
             $LENA_PARENTS= array();
+            $LENA_TESTS  = array();
             include $cacheFileName;
             $out = new UseCase( 
                 $usecaseNumber
@@ -36,7 +37,7 @@ class UseCaseFactory {
      * @param int $crs_ref_id
      * @return UseCase
      */
-    public function createByRefIdNumber( int $crs_ref_id ): UseCase {
+    public function createByRefIdNumber( int $crs_ref_id ): ?UseCase {
         for( $usecase = 1; $usecase <= 4; ++$usecase ) {
             $temp = $this->createByUsecaseNumber( $usecase );
             if( $temp !== null ) {

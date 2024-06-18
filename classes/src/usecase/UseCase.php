@@ -53,7 +53,7 @@ class UseCase {
             , array $titles = array()
             , array $parentList = array() 
             , array $testList = array() 
-        ): void {
+        ) {
         $this->usecaseNumber = $usecaseNumber;
         $this->refIdList     = $refIdList;
         $this->objIdList     = $objIdList;
