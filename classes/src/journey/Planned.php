@@ -6,7 +6,7 @@ class Planned {
      * 
      * @var Planned
      */
-    private static Planned $instance;
+    private static ?Planned $instance = null;
     
     /**
      * 
