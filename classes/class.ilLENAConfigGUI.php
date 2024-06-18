@@ -150,19 +150,19 @@ class ilLENAConfigGUI extends ilPluginConfigGUI {
         if ($form->checkInput()) {
             $usecase_1_ref_id	= $form->getInput("usecase_1_crsid");
             /** @todo check if course */
-            $this->ilSetting->set('lena_usecase_1_crsid', $usecase_1_ref_id);
+            $this->ilSetting->set('lena_usecase_1_crsid', "" . $usecase_1_ref_id);
 
             $usecase_2_ref_id	= $form->getInput("usecase_2_crsid");
             /** @todo check if course */
-            $this->ilSetting->set('lena_usecase_2_crsid', $usecase_2_ref_id);
+            $this->ilSetting->set('lena_usecase_2_crsid', "" . $usecase_2_ref_id);
 
             $usecase_3_ref_id	= $form->getInput("usecase_3_crsid");
             /** @todo check if course */
-            $this->ilSetting->set('lena_usecase_3_crsid', $usecase_3_ref_id);
+            $this->ilSetting->set('lena_usecase_3_crsid', "" . $usecase_3_ref_id);
 
             $usecase_4_ref_id	= $form->getInput("usecase_4_crsid");
             /** @todo check if course */
-            $this->ilSetting->set('lena_usecase_4_crsid', $usecase_4_ref_id);
+            $this->ilSetting->set('lena_usecase_4_crsid', "" . $usecase_4_ref_id);
 
             $this->tpl->setOnScreenMessage('success', $pl->txt("saving_invoked"), true);
             $this->ilCtrl->redirect($this, "configure");
