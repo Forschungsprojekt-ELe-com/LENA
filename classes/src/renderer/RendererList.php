@@ -12,37 +12,37 @@ class RendererList extends Renderer {
         $out = '';
 
         $out .= '<script>
-    $(document).ready(function () {
+    document.onload = function () {
         $("div.ilc_section_ElecomBlockWrapper").prepend($("#lena_teaser"));';
         if ($this->usecase->getUsecaseNumber() == 4) {
             $out .= 'localStorage.setItem("thusSpokeLENA", "true");';
         }
         $out .= 'if (localStorage.getItem("thusSpokeLENA") == null || localStorage.getItem("thusSpokeLENA") === "false") {
-        $("div.ilc_section_ElecomBlockWrapper").prepend($("#lena_spricht"));
-        $("#lena_spricht").show("fade", "1000");
-        localStorage.setItem("thusSpokeLENA", "true");
-    }
+            $("div.ilc_section_ElecomBlockWrapper").prepend($("#lena_spricht"));
+            $("#lena_spricht").show("fade", "1000");
+            localStorage.setItem("thusSpokeLENA", "true");
+        }
     
-	$("#lena_teaser").click(function (event) {
-		event.preventDefault();
-        //$("#lena_teaser").hide();//"slide", {direction: "right" },"1000");
-        //$("#lena_spricht").detach();
-        
-		$("#quLenaPluginWrapper").show("fade", "1000");
-		return false;
-	});
-    $("#close").click(function (event) {
-		event.preventDefault();
-		$("#quLenaPluginWrapper").hide("fade", "1000");
-        //$("#lena_teaser").show();//"slide", {direction: "right" },"1000");
-		return false;
-	});
-    $("#close2").click(function (event) {
-		event.preventDefault();
-		$("#lena_spricht").hide("fade", "1000");
-		return false;
-	});
-});
+        $("#lena_teaser").click(function (event) {
+            event.preventDefault();
+            //$("#lena_teaser").hide();//"slide", {direction: "right" },"1000");
+            //$("#lena_spricht").detach();
+            
+            $("#quLenaPluginWrapper").show("fade", "1000");
+            return false;
+        });
+        $("#close").click(function (event) {
+            event.preventDefault();
+            $("#quLenaPluginWrapper").hide("fade", "1000");
+            //$("#lena_teaser").show();//"slide", {direction: "right" },"1000");
+            return false;
+        });
+        $("#close2").click(function (event) {
+            event.preventDefault();
+            $("#lena_spricht").hide("fade", "1000");
+            return false;
+        });
+    };
 </script>';
         $out .= '<a id="lena_teaser" href="#" class="UC-'
                 . $this->usecase->getUsecaseNumber()
