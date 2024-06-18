@@ -12,7 +12,7 @@ class RendererList extends Renderer {
         $out = '';
 
         $out .= '<script>
-    document.onReady = function () {
+    document.addEventListener("DOMContentLoaded", function () {
         $("div.ilc_section_ElecomBlockWrapper").prepend($("#lena_teaser"));';
         if ($this->usecase->getUsecaseNumber() == 4) {
             $out .= 'localStorage.setItem("thusSpokeLENA", "true");';
@@ -42,7 +42,7 @@ class RendererList extends Renderer {
             $("#lena_spricht").hide("fade", "1000");
             return false;
         });
-    };
+    }, false);
 </script>';
         $out .= '<a id="lena_teaser" href="#" class="UC-'
                 . $this->usecase->getUsecaseNumber()
