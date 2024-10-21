@@ -10,9 +10,11 @@
     console.log('Start the site`s JS activities');
     if (document.readyState !== 'loading') {
         $("html").addClass("KIOSK");
+        console.log('no loading');
     } else {
         document.addEventListener('DOMContentLoaded', function () {
             $("html").addClass("KIOSK");
+            console.log('loading');
         });
     }
 </script>
