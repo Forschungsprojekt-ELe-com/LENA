@@ -4,8 +4,16 @@
 
 <!-- BEGIN lena_kiosk_mode -->
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
+    /*document.addEventListener("DOMContentLoaded", function () {
         $("html").addClass("KIOSK");
-    }, false);
+    }, false);*/
+
+    if (document.readyState !== 'loading') {
+        $("html").addClass("KIOSK");
+    } else {
+        document.addEventListener('DOMContentLoaded', function () {
+            $("html").addClass("KIOSK");
+        });
+    }
 </script>
 <!-- END lena_kiosk_mode -->
