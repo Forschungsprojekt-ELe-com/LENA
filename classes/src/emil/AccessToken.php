@@ -10,37 +10,37 @@ class AccessToken {
      * 
      * @var int
      */
-    protected $userId;
+    protected int $userId;
     
     /**
      * 
      * @var string
      */
-    protected $userHash;
+    protected string $userHash;
     
     /**
      * 
      * @var string
      */
-    protected $resultJson;
+    protected string $resultJson;
     
     /**
      * 
      * @var string
      */
-    protected $token;
+    protected string $token;
     
     /**
      * 
      * @var int
      */
-    protected $usecase;
+    protected int $usecase;
     
     /**
      * 
      * @param int $user_id
      */
-    public function __construct( $user_id = 0, $usecase = 0 ) {
+    public function __construct( int $user_id = 0, int $usecase = 0 ): void {
         $this->userId     = $user_id;
         $this->usecase    = $usecase;
         
@@ -53,7 +53,7 @@ class AccessToken {
      * 
      * @return string
      */
-    public function createToken() {        
+    public function createToken(): string {        
         $filename = '';
         do {
             $filename = md5( 'carstenSuperHAXX0r' . $this->userId . time() . rand( 1, 10000 ) );
@@ -73,7 +73,7 @@ class AccessToken {
      * 
      * @param string $token
      */
-    public function destroyToken( $token = '' ) {        
+    public function destroyToken( string $token = '' ): void {        
         $temp = '';
         if( strlen( $token ) > 0 ) {
             $temp = $token;
@@ -99,7 +99,7 @@ class AccessToken {
      * @param string $token
      * @return boolean
      */
-    public function evaluateToken( $token ) {
+    public function evaluateToken( string $token ): bool {
         $filename = AccessToken::LOCATION . $token . '.php';
         if( is_file( $filename ) ) {
             include $filename;
@@ -118,7 +118,7 @@ class AccessToken {
      * 
      * @return Suggestion
      */
-    public function getSuggestion() {             
+    public function getSuggestion(): Suggestion {             
         if( $this->isEmptyResult() ) {
 //            $suggestionFactory = new SuggestionFactoryMock( $this->userId, $this->userHash );
             $suggestionFactory = new SuggestionFactory( $this->userId, $this->userHash );
@@ -145,14 +145,14 @@ class AccessToken {
      * 
      * @return bool
      */
-    public function isEmptyResult() {
+    public function isEmptyResult(): bool {
         return ( strlen( $this->resultJson ) <= 2 );
     }  
     
     /**
      * deletes all tokens, that are older than 7 days.
      */
-    public function cleanUpOldTokens() {        
+    public function cleanUpOldTokens(): void {        
         $timestamp = time() - ( 60 * 60 * 24  * AccessToken::NUMBER_OF_DAYS );
                 
         $dir = scandir( AccessToken::LOCATION );
@@ -177,7 +177,7 @@ class AccessToken {
     /**
      * deletes all tokens
      */
-    public function cleanUpTokens() {                                
+    public function cleanUpTokens(): void {                                
         $dir = scandir( AccessToken::LOCATION );        
         foreach( $dir as $filename ) {
             echo AccessToken::LOCATION . $filename . PHP_EOL;
@@ -200,7 +200,7 @@ class AccessToken {
      * 
      * @return int
      */
-    public function getUsecaseId() {
+    public function getUsecaseId(): int {
         return $this->usecase;
     }
 }

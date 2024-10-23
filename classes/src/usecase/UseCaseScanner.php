@@ -10,31 +10,31 @@ class UseCaseScanner {
      * 
      * @var int[]
      */
-    protected $ref_ids;
+    protected array $ref_ids;
     
     /**
      * 
      * @var int[]
      */
-    protected $obj_ids;
+    protected array $obj_ids;
     
     /**
      * 
      * @var string[]
      */    
-    protected $titles;
+    protected array $titles;
     
     /**
      * 
      * @var int[]
      */
-    protected $parentList;
+    protected array $parentList;
     
     /**
      * 
      * @var int[]
      */
-    protected $testList;
+    protected array $testList;
     
     public function __construct( $db ) {
         $this->db = $db;
@@ -50,7 +50,7 @@ class UseCaseScanner {
      * @param int $usecaseNo
      * @param int $ref_id
      */
-    public function serializeUseCase( $usecaseNo, $ref_id ) {
+    public function serializeUseCase( int $usecaseNo, int $ref_id ): void {
         $this->ref_ids = array();
         $this->obj_ids = array();                        
         $this->scanTreeForIds( $ref_id );
@@ -102,7 +102,7 @@ class UseCaseScanner {
      * 
      * @param int $ref_id
      */
-    public function scanTreeForIds( $ref_id ) {
+    public function scanTreeForIds( int $ref_id ): void {
         $path = '';
         $sql = "SELECT path FROM tree WHERE child=" . $ref_id;
         $result = $this->db->query( $sql );
@@ -140,9 +140,9 @@ WHERE _t.path LIKE '" . $path . "'
         }
     }
     
-    public function getTitles( $ref_id ) {
+    public function getTitles( int $ref_id ): string {
         if( $this->issetObj( $ref_id ) ) {
-            return $this->titles[ $ref_id ];
+            return "" . $this->titles[ $ref_id ];
         }
         return "";
     }
@@ -152,7 +152,7 @@ WHERE _t.path LIKE '" . $path . "'
      * @param int $ref_id
      * @return int obj_id or 0
      */
-    public function getObjId( $ref_id ) {
+    public function getObjId( int $ref_id ): int {
         if( $this->issetRef( $ref_id ) ) {
             return $this->ref_ids[ $ref_id ];
         }
@@ -164,7 +164,7 @@ WHERE _t.path LIKE '" . $path . "'
      * @param int $obj_id
      * @return int obj_id or 0
      */
-    public function getRefId( $obj_id ) {
+    public function getRefId( int $obj_id ): int {
         if( $this->issetObj( $obj_id ) ) {
             return $this->obj_ids[ $obj_id ];
         }
@@ -176,7 +176,7 @@ WHERE _t.path LIKE '" . $path . "'
      * @param int $ref_id
      * @return bool
      */        
-    public function issetRef( $ref_id ) {
+    public function issetRef( int $ref_id ): bool {
         if( empty( $ref_id ) ){
             return false;
         }
@@ -188,7 +188,7 @@ WHERE _t.path LIKE '" . $path . "'
      * @param int $obj_id
      * @return bool
      */
-    public function issetObj( $obj_id ) {
+    public function issetObj( int $obj_id ): bool {
         if( empty( $obj_id ) ) {
             return false;
         }
@@ -200,7 +200,7 @@ WHERE _t.path LIKE '" . $path . "'
      * 
      * @param int $ref_id
      */
-    public function serializePlan( $ref_id ) {
+    public function serializePlan( int $ref_id ): void {
   
         // besser 2 schleifen: 1. schleife: alle ordner typ: "fold" und 2. schleife: alle objekte unter ordner "copa" | "tst"
         // $childs = $tree->getChildsByType( $ref_id );                
@@ -296,7 +296,7 @@ ORDER BY lft
      * 
      * @param int $ref_id
      */
-    public function serializePlanOld( $ref_id ) {
+    public function serializePlanOld( int $ref_id ): void {
   
         // besser 2 schleifen: 1. schleife: alle ordner typ: "fold" und 2. schleife: alle objekte unter ordner "copa" | "tst"
         // $childs = $tree->getChildsByType( $ref_id );                

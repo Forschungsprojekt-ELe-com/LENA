@@ -6,21 +6,21 @@ class SuggestionFactory {
      * 
      * @var int
      */
-    protected $userId;
+    protected int $userId;
     
     /**
      * 
      * @var string
      */
-    protected $userUrl;
+    protected string $userUrl;
     
-    public function __construct( $userId = 0, $userUrl = "" ) {
+    public function __construct( int $userId = 0, string $userUrl = "" ): void {
         $this->userId  = $userId;
         $this->userUrl = $userUrl;
     }
     
     
-    public function execute() {        
+    public function execute(): void {        
 //        $temp = '{}';
         $emil = new EmilClient( $this->userId );
         $temp = $emil->execute();        

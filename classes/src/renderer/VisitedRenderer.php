@@ -39,7 +39,7 @@ class VisitedRenderer extends Renderer {
             }                
                         
             $out .= ''
-                    . '<a href="' . $this->getUrl( $this->usecase->getRefId( $id ) ) . '">'
+                    . '<a href="' . $this->getUrl( $this->usecase->getRefId( $id ) ) . '" target="_blank">'
                     . $this->usecase->getTitle( $this->usecase->getRefId( $id ) )
                     . '</a>'
                     . '</div>'
@@ -61,6 +61,7 @@ class VisitedRenderer extends Renderer {
     
     protected function fetchData() {
         global $DIC;
+        /** @var $nav ilNavigationHistory */
         $nav = $DIC["ilNavigationHistory"];
         $itemList = $nav->getItems();
         $refIdList = array();

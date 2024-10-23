@@ -14,6 +14,12 @@ require_once __DIR__ . '/src/_all.php';
 class ilLENAPluginGUI extends ilPageComponentPluginGUI {
     
     /**
+     * 
+     * @var int
+     */
+    protected $backID;
+    
+    /**
      * main renderer of the lena-box
      * 
      * @return string
@@ -37,6 +43,7 @@ class ilLENAPluginGUI extends ilPageComponentPluginGUI {
             ->setBaseUrl( $baseUrl )
             ->setUsecase( $usecase )            
             ->setVisited( $visited )
+            ->setBackToCourseId( $this->backID )
         ;        
         return $renderer->render();                    
     }
@@ -70,7 +77,9 @@ class ilLENAPluginGUI extends ilPageComponentPluginGUI {
             ;
         }
         if( $usecaseID == 4 ) {
-            
+            $renderer
+                ->addBackRenderer()
+            ;
         }
         return $renderer;
     }
@@ -205,12 +214,10 @@ class ilLENAPluginGUI extends ilPageComponentPluginGUI {
      */
     function getElementHTML($a_mode, array $a_properties, $plugin_version): string {
         global $DIC;
-        $tree = $DIC->repositoryTree();
-        $ilSetting 	= $DIC->settings();
-        $tpl = $DIC["tpl"];
 
         if ($a_mode == "presentation") {
-            $tpl->addCss('./Customizing/global/plugins/Services/COPage/PageComponent/LENA/templates/css/lena.css');
+            $DIC->globalScreen()->layout()->meta()->addCss('./Customizing/global/plugins/Services/COPage/PageComponent/LENA/templates/css/lena.css');
+            $DIC->globalScreen()->layout()->meta()->addJs('./Customizing/global/plugins/Services/COPage/PageComponent/LENA/templates/js/jquery-ui.min.js');
         }
         
         $tpl = $this->getPlugin()->getTemplate("tpl.content.html");
@@ -220,6 +227,12 @@ class ilLENAPluginGUI extends ilPageComponentPluginGUI {
         $usecaseFactory = new UseCaseFactory();
         $usecase        = $usecaseFactory->createByRefIdNumber( $ref_id );
 
+        $this->backID = 0;
+        $settings = $DIC->settings();
+        if( strlen( '' . $settings->get( 'lena_usecase_4_crsid' ) ) > 0 ) {
+            $this->backID = $settings->get( 'lena_usecase_4_crsid' );
+        }
+        
         $message = '';
         $content = '';
         $editMode = false;

@@ -6,15 +6,15 @@ class EmilClient {
      * 
      * @var int
      */
-    protected $userId;
+    protected int $userId;
     
     /**
      * 
      * @var string
      */
-    protected $url;
+    protected string $url;
     
-    public function __construct( $userId = 0 ) {
+    public function __construct( int $userId = 0 ): void {
         $this->userId = $userId;
         $this->url    = 'https://elecom.codip.tu-dresden.de/aiservice/' . $this->userId . '/3';        
     }
@@ -24,7 +24,7 @@ class EmilClient {
      * 
      * @return string json-result
      */
-    public function execute() {
+    public function execute(): string {
         $out = '{}';
         
         $curl = curl_init();

@@ -7,13 +7,13 @@ class Visited {
      * 
      * @var int[]
      */
-    protected $visited;
+    protected array $visited;
     
     /**
      * 
      * @var int[]
      */
-    protected $lookup;
+    protected array $lookup;
     
     /**
      * 
@@ -28,7 +28,7 @@ class Visited {
      * @param int[] $visited
      * @return Visited $this
      */
-    public function setRawData( $visited = array() ) {
+    public function setRawData( array $visited = array() ): Visited {
         $this->visited = $visited;
         $temp = array();
         foreach( $this->visited as $item ) {
@@ -43,7 +43,7 @@ class Visited {
      * @param int $course_obj_id
      * @return bool
      */
-    public function isVisited( $course_obj_id ) {
+    public function isVisited( int $course_obj_id ): bool {
         return isset( $this->lookup[ $course_obj_id ] );
     }
     
@@ -51,7 +51,7 @@ class Visited {
      * 
      * @return int[]
      */
-    public function getVisitedList() {
+    public function getVisitedList(): array {
         return $this->visited;
     }    
 }

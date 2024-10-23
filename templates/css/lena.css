@@ -11,27 +11,255 @@
 #emil #visitedBox {
   padding-left: 100px;
 }
+#list li.suggestion div.suggestion {
+  background-color: #0164f4;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  border-radius: 20px;
+}
+#list li.suggestion div.suggestion img {
+  width: 30px !important;
+  height: 30px !important;
+  background-color: white;
+  padding: 5px;
+  border-radius: 5px;
+}
+#list li.suggestion div.suggestion a,
+#list li.suggestion div.suggestion a:visited {
+  color: white;
+  line-height: 30px;
+}
+#lena_spricht {
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: none;
+  position: fixed;
+  z-index: 1010;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: #cce0fdcc;
+}
+#lena_spricht > div {
+  position: relative;
+  max-width: 600px;
+  width: 100%;
+  margin: 30px auto 0;
+  background-color: #fff;
+  border-radius: 20px;
+  padding-top: 40px;
+  background-image: url("images/icon-lena-start.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 95% auto;
+  padding: 20px 20px 60px;
+  aspect-ratio: 1.33333333;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-box-shadow: 0px 0px 15px 1px #999;
+  box-shadow: 0px 0px 15px 1px #999;
+}
+@media only screen and (max-width: 768px) {
+  #lena_spricht > div {
+    max-width: 100%;
+    width: 100%;
+    margin: 15px 0 0;
+  }
+}
+#delayed_text {
+  display: none;
+}
+#lena_teaser {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  width: 90px;
+  height: 90px;
+  text-decoration: none;
+  background-image: url("images/icon-lena.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  z-index: 1000;
+  display: block;
+  margin-top: 50px;
+  transform: scaleX(-1);
+}
+@media only screen and (max-width: 768px) {
+  #lena_teaser {
+    transform: scaleX(-1);
+    position: fixed;
+    top: auto;
+    left: 5px;
+    bottom: -15px;
+    width: 90px;
+    height: 90px;
+  }
+}
+#quLenaPluginWrapper {
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: none;
+  position: fixed;
+  z-index: 1010;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: #cce0fdcc;
+}
+#lena_teaser.UC-4 {
+  display: none;
+}
+#lena_teaser.UC-4 + #quLenaPluginWrapper {
+  overflow: visible;
+  display: block;
+  position: fixed;
+  z-index: 1000;
+  background-color: transparent;
+  left: 0;
+  right: auto;
+  bottom: 79px;
+  top: auto;
+}
+@media only screen and (max-width: 768px) {
+  #lena_teaser.UC-4 + #quLenaPluginWrapper {
+    bottom: 0;
+  }
+}
+#lena_teaser.UC-4 + #quLenaPluginWrapper #close {
+  display: none;
+}
+#lena_teaser.UC-4 + #quLenaPluginWrapper #quLenaPlugin {
+  max-width: none;
+  width: auto;
+  margin: 0;
+  background-color: white;
+  border-radius: 0;
+  padding: 0;
+}
+#lena_teaser.UC-4 + #quLenaPluginWrapper #quLenaPlugin a.btn {
+  align-items: center;
+  background: #f6f6f6;
+  color: #4b4f58;
+  display: inline-flex;
+  flex-flow: column wrap;
+  height: 80px;
+  justify-content: center;
+  margin-bottom: 0;
+  padding: 0;
+  width: 79px;
+  font-size: 0.5625rem;
+  line-height: 0.748125rem;
+  white-space: normal;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+@media only screen and (max-width: 768px) {
+  #lena_teaser.UC-4 + #quLenaPluginWrapper #quLenaPlugin a.btn {
+    height: 60px;
+    border-top: 0 none;
+    border-bottom: 0 none;
+    width: 74px;
+  }
+}
+#lena_teaser.UC-4 + #quLenaPluginWrapper #quLenaPlugin a.btn:hover {
+  background-color: #fff;
+  color: #0274be;
+}
+#lena_teaser.UC-4 + #quLenaPluginWrapper #quLenaPlugin a.btn:hover .bulky-label {
+  color: #0274be;
+}
+#lena_teaser.UC-4 + #quLenaPluginWrapper #quLenaPlugin a.btn img.icon.small {
+  display: inline-block;
+  text-align: center;
+  height: 40px;
+  width: 40px;
+  line-height: 20px;
+  text-decoration: none;
+  font-size: 90%;
+}
+@media only screen and (max-width: 768px) {
+  #lena_teaser.UC-4 + #quLenaPluginWrapper #quLenaPlugin a.btn img.icon.small {
+    height: 25px;
+    width: 25px;
+  }
+}
+#lena_teaser.UC-4 + #quLenaPluginWrapper #quLenaPlugin a.btn .bulky-label {
+  color: #4b4f58;
+  text-align: center;
+  hyphens: manual;
+  display: -webkit-box;
+  margin-top: 5px;
+  white-space: normal;
+  word-break: break-word;
+  padding: 0 2px;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+#close,
+#close2 {
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  width: 34px;
+  height: 34px;
+  background-color: #014fc1;
+  border-radius: 17px;
+}
+@media only screen and (max-width: 768px) {
+  #close,
+  #close2 {
+    right: 10px;
+    top: 10px;
+  }
+}
+#close:hover,
+#close2:hover {
+  background-color: #4b4f58;
+}
+#close:before,
+#close2:before,
+#close:after,
+#close2:after {
+  position: absolute;
+  left: 16px;
+  top: 3px;
+  content: ' ';
+  height: 28px;
+  width: 3px;
+  background-color: #fff;
+}
+#close:before,
+#close2:before {
+  transform: rotate(45deg);
+}
+#close:after,
+#close2:after {
+  transform: rotate(-45deg);
+}
 #quLenaPlugin {
+  position: relative;
   max-width: 33%;
   width: 33%;
-  margin: 30px 0;
-  padding-left: 30px;
+  margin: 45px auto 0;
+  background-color: white;
+  border-radius: 20px;
+  padding-top: 40px;
+  -webkit-box-shadow: 0px 0px 15px 1px #999;
+  box-shadow: 0px 0px 15px 1px #999;
 }
 @media only screen and (max-width: 768px) {
   #quLenaPlugin {
     max-width: 100%;
     width: 100%;
     margin: 15px 0 0;
-    padding: 0;
   }
 }
 #suggestions {
-  padding-left: 100px;
   margin-bottom: 30px;
-  background-image: url("images/chatbot.png");
-  background-position: top left;
-  background-repeat: no-repeat;
-  background-size: auto 150px;
   min-height: 150px;
 }
 #suggestions > div.customBG {
@@ -99,7 +327,7 @@
   color: #aaa;
   line-height: 25px;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 400;
 }
 #plannedList li.currentItem div.visitedItem,
 #list li.currentItem div.visitedItem,
@@ -122,13 +350,14 @@
   display: inline-block;
   color: #777;
   background-image: url("images/current.svg");
-  background-position: right center;
+  background-position-x: calc(100% - 11px);
+  background-position-y: center;
   background-repeat: no-repeat;
   background-size: 20px;
   padding-right: 30px;
   line-height: 25px;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
   flex-grow: 2;
 }
 #plannedList li.nextItem div.visitedItem,
@@ -151,8 +380,9 @@
 #visitedList li.nextItem a:visited {
   display: inline-block;
   color: #0199F4;
-  background-image: url("images/right-arrow.png");
-  background-position: right center;
+  background-image: url("images/right-arrow-blue.png");
+  background-position-x: calc(100% - 11px);
+  background-position-y: center;
   background-repeat: no-repeat;
   background-size: 20px;
   padding-right: 30px;
@@ -183,7 +413,7 @@
   color: #777;
   line-height: 25px;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 400;
 }
 #plannedList li.visitedItem a:hover,
 #list li.visitedItem a:hover,
@@ -212,13 +442,14 @@
   color: black;
   line-height: 25px;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
   flex-grow: 2;
 }
 #plannedBox #plannedList li.visitedItem a,
 #plannedBox #plannedList li.visitedItem a:visited {
   background-image: url("images/check.png");
-  background-position: right center;
+  background-position-x: calc(100% - 11px);
+  background-position-y: center;
   background-repeat: no-repeat;
   background-size: 16px;
   padding-right: 30px;
@@ -229,27 +460,29 @@
   display: inline-block;
   color: #000;
   background-image: url("images/current.svg");
-  background-position: right center;
+  background-position-x: calc(100% - 10px);
+  background-position-y: center;
   background-repeat: no-repeat;
   background-size: 20px;
   padding-right: 30px;
   line-height: 25px;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
   flex-grow: 2;
 }
 #plannedBox #plannedList li.nextItem a,
 #plannedBox #plannedList li.nextItem a:visited {
   display: inline-block;
   color: #0199F4;
-  background-image: url("images/right-arrow.png");
-  background-position: right center;
+  background-image: url("images/right-arrow-blue.png");
+  background-position-x: calc(100% - 11px);
+  background-position-y: center;
   background-repeat: no-repeat;
   background-size: 20px;
   padding-right: 30px;
   line-height: 25px;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
   flex-grow: 2;
 }
 .ilc_section_TitelQuiz + h3.ilHeader {

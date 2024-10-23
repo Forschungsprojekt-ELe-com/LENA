@@ -14,7 +14,7 @@ class VisitedFactory {
      * @param int     $userId
      * @return Visited
      */
-    public function create( $usecase, $userId ) {
+    public function create( int $usecase, int $userId ): Visited {
         $inString = $usecase->getObjIdInstring();
         $sql = "
 SELECT ut_lp_marks.obj_id AS _obj_id
