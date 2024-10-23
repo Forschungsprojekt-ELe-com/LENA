@@ -23,9 +23,9 @@ class PlannedRenderer extends Renderer {
             $title = $this->usecase->getTitle( $parentList[ $id ] );
             if( $oldTitle != $title ) {
                 if( strlen( $oldTitle ) > 0 ) {
-                    $out .= '</ul></li>';
+                    $out .= '</ul></div></li>';
                 }
-                $out .= '<li class="heading"><span>' . $title . '</span><ul>';
+                $out .= '<li class="heading"><div><span class="block_heading">' . $title . '</span><ul>';
             }
             $oldTitle = $title;
             
@@ -110,7 +110,7 @@ class PlannedRenderer extends Renderer {
             $out .= '<img src="./data/elecom/custom_icons/obj_' . $id . '/icon_custom.svg" />';
         }
 
-        $out .= '<a href="' . $this->getUrl( $ref_id ) . '">'
+        $out .= '<a href="' . $this->getUrl( $ref_id, $this->usecase->isTest( $ref_id ) ) . '">'
             . $this->usecase->getTitle( $ref_id )
             . '</a>'
             . '</div>'

@@ -39,16 +39,15 @@ $titles    = array();
 
 
             //todo ?
-            //für TST url + Icon brauchen wir den Typ
+            //für TST url + Icon brauchen wir den Typ und ObjId und refId
 
             //alles was kein copa oder tst soll raus?
 
-            //$typ = $usecase->getTyp( $item );
-            //$titles[ $item ] = array( "title" => $usecase->getTitle( $item ), "type" => $typ );
-
-
-
-            $titles[ $usecase->getRefId( $item ) ] = $usecase->getTitle( $usecase->getRefId( $item ) );
+            $titles[ $usecase->getRefId( $item ) ] = array(
+                "title" => $usecase->getTitle( $usecase->getRefId( $item ), $item ),
+                "objid" => $item,
+                "type" => $usecase->getType( $usecase->getRefId( $item ) )
+                );
         }
         $recommend = $out;
 //       

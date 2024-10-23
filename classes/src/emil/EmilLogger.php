@@ -8,7 +8,7 @@ class EmilLogger {
      * 
      * @param string $message
      */
-    public static function log( $message ) {
+    public static function log( $message ): void {
         if( ! is_file( EmilLogger::LOCATION ) ) {
             file_put_contents( EmilLogger::LOCATION, '' );
         }
@@ -25,7 +25,7 @@ class EmilLogger {
      * 
      * @param int $numberOfLinesRemain
      */
-    public static function cleanup( $numberOfLinesRemain = 100 ) {
+    public static function cleanup( $numberOfLinesRemain = 100 ): void {
         if( is_file( EmilLogger::LOCATION ) ) {
             $lines = file( EmilLogger::LOCATION );
             $log = array();

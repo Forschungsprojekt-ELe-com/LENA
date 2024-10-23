@@ -8,7 +8,12 @@ class VisitedRenderer extends Renderer {
      */
     public function render() {
         $out     = '';
-        $data    = $this->visited->getVisitedList();
+        $data    = $this->fetchData(); 
+        $solvedList = $this->visited->getVisitedList();
+        foreach( $solvedList as $solved ) {
+            $data[] = $solved;
+        }
+        
 //        $out .= '<pre>' . print_r( $data, true ) . '</pre>';        
 
         $temp = array();
@@ -22,7 +27,8 @@ class VisitedRenderer extends Renderer {
 
 //        $out .= '<pre>' . print_r( $temp, true ) . '</pre>';
         $out .= '<div id="visitedBox">';
-        //$out .= '<b>visited</b>';
+        $out .= '<div id="toggleVisited">Ihre Historie:</div>';
+        $out .= '<div id="visitedWrapper">';
         $out .= '<ul id="visitedList">';
         foreach( $temp as $id ) {
             $out .= '<li class="visitedItem"><div class="visitedItem">';
@@ -33,7 +39,7 @@ class VisitedRenderer extends Renderer {
             }                
                         
             $out .= ''
-                    . '<a href="' . $this->getUrl( $this->usecase->getRefId( $id ) ) . '">'
+                    . '<a href="' . $this->getUrl( $this->usecase->getRefId( $id ) ) . '" target="_blank">'
                     . $this->usecase->getTitle( $this->usecase->getRefId( $id ) )
                     . '</a>'
                     . '</div>'
@@ -42,7 +48,50 @@ class VisitedRenderer extends Renderer {
         }
         $out .= '</ul>';
         $out .= '</div>';
+        $out .= '</div>';
+
+        // add debug
+        $debug = '';
+//        $debug .= '<h1>itemlist</h1><pre>' . print_r( $temp, true ) . '</pre>';
+
+
         
-        return $out;
+        return $debug . $out;
+    }
+    
+    protected function fetchData() {
+        global $DIC;
+        /** @var $nav ilNavigationHistory */
+        $nav = $DIC["ilNavigationHistory"];
+        $itemList = $nav->getItems();
+        $refIdList = array();
+        foreach( $itemList as $item ) {
+            $refIdList[] = $item[ 'ref_id' ];
+        }
+//        return $refIdList;
+        
+        $usecaseList = array();
+        $usecaseList[ 0 ] = UseCaseFactory::createByUsecaseNumber( 1 );
+        $usecaseList[ 1 ] = UseCaseFactory::createByUsecaseNumber( 2 );
+        $usecaseList[ 2 ] = UseCaseFactory::createByUsecaseNumber( 3 );
+        $usecaseList[ 3 ] = UseCaseFactory::createByUsecaseNumber( 4 );
+        
+        $objIdList = array();
+        foreach( $refIdList as $refId ) {
+            $found = false;
+            foreach( $usecaseList as $usecase ) {
+                if( $found ) {
+                    continue;
+                }
+                if( $usecase->issetRef( $refId ) ) {
+                    $found = true;
+                    $id = $usecase->getObjId( $refId );
+                    if( $id > 0 ) {
+                        $objIdList[] = $id;
+                    }
+                }
+            }
+        }
+        return $objIdList;
     }
 }

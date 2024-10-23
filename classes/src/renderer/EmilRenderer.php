@@ -64,21 +64,27 @@ class EmilRenderer extends Renderer {
 	$out .=         'if (response.meta.status == "NOK") {';
 	$out .=             'setTimeout(function() { getSuggestions(); }, 3000);';
 	$out .=             'return;';
-        $out .=         '}';
+	$out .=         '}';
 	$out .=         '$("#response").text(response.data.reason);';
 	$out .=         'let ulElem = $("#list");';
 	$out .=         'ulElem.empty();';
-	$out .=         'for (let id in response.data.titles) {';
-	// if (response.data.titles[id][1] == "tst") ...
-	$out .=             'let link = "' . $this->baseUrl . '".replace("666666", id);';
-	//todo
-	$out .=             'let aElem = $("<a href=\"" + link + "\"><img src=\"./data/elecom/custom_icons/obj_" + id + "/icon_custom.svg\">" + response.data.titles[id] + "</a>");';
+	$out .=         'for (let refid in response.data.titles) {';
+	$out .=             'let link = "' . $this->baseUrl . '".replace("666666", refid);';
+	$out .=             'let path = "./data/elecom/custom_icons/obj_" + response.data.titles[refid].objid + "/icon_custom.svg";';
+	$out .=             'if (response.data.titles[refid].type == "tst") {';
+	$out .=                 'link = link.replace("copa", "tst");';
+	$out .=                 'path = "./Customizing/global/skin/elecom/images/icon_tst.svg";';
+	$out .=             '}';
+	$out .=             'let icoElem = $("<img src=\"" + path + "\"/>");';
+	$out .=             'let aElem = $("<a href=\"" + link + "\">" + response.data.titles[refid].title + "</a>");';
 	$out .=             'let liElem = $("<li class=\"suggestion\"></li>");';
+	$out .=             'liElem.append(icoElem);';
 	$out .=             'liElem.append(aElem);';
-        $out .=             'ulElem.append(liElem)';
-        $out .=         '}';
-        $out .=     '});';
-        $out .= '};';
+	$out .=             'liElem.children().wrapAll("<div class=\"suggestion\" />");';
+	$out .=             'ulElem.append(liElem);';
+	$out .=         '}';
+	$out .=     '});';
+	$out .= '};';
 
 	$out .= 'getSuggestions();';
 	$out .= '</script>';

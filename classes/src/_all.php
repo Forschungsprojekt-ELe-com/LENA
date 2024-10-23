@@ -9,6 +9,7 @@ require_once __DIR__ . '/renderer/EmilRenderer.php';
 require_once __DIR__ . '/renderer/PlannedRenderer.php';
 require_once __DIR__ . '/renderer/RendererList.php';
 require_once __DIR__ . '/renderer/VisitedRenderer.php';
+require_once __DIR__ . '/renderer/BackToStartRenderer.php';
 
 require_once __DIR__ . '/usecase/UseCase.php';
 require_once __DIR__ . '/usecase/UseCaseFactory.php';
