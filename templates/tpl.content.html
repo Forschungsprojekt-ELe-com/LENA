@@ -4,7 +4,12 @@
 
 <!-- BEGIN lena_kiosk_mode -->
 <script>
-    let hinweis = document.getElementsByTagName("html");hinweis[0].classList.add('KIOSK');
+    /*let hinweis = document.getElementsByTagName("html");
+    hinweis[0].classList.add('KIOSK');*/
+    document.addEventListener("DOMContentLoaded", function () {
+        let hinweis = document.getElementsByTagName("html");
+        hinweis[0].classList.add('KIOSK');
+    }, false);
     /*document.addEventListener("DOMContentLoaded", function () {
         $("html").addClass("KIOSK");
     }, false);*/
