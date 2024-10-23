@@ -4,9 +4,10 @@
 
 <!-- BEGIN lena_kiosk_mode -->
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
+    let hinweis = document.getElementsByTagName("html");hinweis[0].classList.add('KIOSK');
+    /*document.addEventListener("DOMContentLoaded", function () {
         $("html").addClass("KIOSK");
-    }, false);
+    }, false);*/
     /*console.log('Start the site`s JS activities');
     if (document.readyState !== 'loading') {
         $("html").addClass("KIOSK");
